@@ -1,10 +1,14 @@
 package com.example.photographerbooking;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
@@ -27,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_baseline_home_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_baseline_calendar_24));
-        //bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_bookmark_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_baseline_notifications_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(5, R.drawable.ic_baseline_settings_24));
 
@@ -53,26 +56,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bottomNavigation.setCount(1, "10");
         bottomNavigation.show(1, true);
-        bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
-            @Override
-            public void onClickItem(MeowBottomNavigation.Model item) {
-                Toast.makeText(getApplicationContext()
-                    ,"You Clicked " + item.getId()
-                    ,Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        bottomNavigation.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
-            @Override
-            public void onReselectItem(MeowBottomNavigation.Model item) {
-                Toast.makeText(getApplicationContext()
-                        ,"You Reselected " + item.getId()
-                        ,Toast.LENGTH_SHORT).show();
-            }
-        });
         loadToolbar();
+
     }
 
     private void loadFragment(Fragment fragment) {
@@ -90,5 +76,23 @@ public class MainActivity extends AppCompatActivity {
         toolbarWidget.setNavigationIcon(R.drawable.photographer_icon2);
 
         setSupportActionBar(toolbarWidget);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_item,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Fragment fragment = null;
+        switch (item.getItemId()){
+            case R.id.app_bar_search:
+                Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+                startActivity(intent);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
