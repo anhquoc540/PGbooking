@@ -55,8 +55,20 @@ public class MainActivity extends AppCompatActivity {
                 loadFragment(fragment);
             }
         });
-
         bottomNavigation.show(1, true);
+        bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
+            @Override
+            public void onClickItem(MeowBottomNavigation.Model item) {
+
+            }
+        });
+        bottomNavigation.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
+            @Override
+            public void onReselectItem(MeowBottomNavigation.Model item) {
+
+            }
+        });
+
         loadToolbar();
 
     }
