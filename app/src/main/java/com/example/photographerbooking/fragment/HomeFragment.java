@@ -135,7 +135,7 @@ public class HomeFragment extends Fragment {
         topPGAdapter = new PhotographerItemsAdapter(getContext(),list);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rVTopPG.setLayoutManager(linearLayoutManager);
-        rVTopPG.addItemDecoration(new SpaceItemDecoration(8));
+        rVTopPG.addItemDecoration(new SpaceItemDecoration(5));
         rVTopPG.setAdapter(topPGAdapter);
     }
 }

@@ -32,9 +32,15 @@
         <entry key="..\:/PGBooking_demo/PhotographerBooking/app/src/main/res/layout/grid_item.xml" value="0.1334853090172239" />
         <entry key="..\:/PGBooking_demo/PhotographerBooking/app/src/main/res/layout/photographer_item.xml" value="0.1334853090172239" />
         <entry key="..\:/PGBooking_demo/PhotographerBooking/app/src/main/res/layout/toolbar.xml" value="0.1334853090172239" />
+        <entry key="..\:/PhotographerBooking/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
         <entry key="..\:/PhotographerBooking/app/src/main/res/layout/activity_authentication.xml" value="0.20199275362318841" />
-        <entry key="..\:/PhotographerBooking/app/src/main/res/layout/activity_main.xml" value="0.20199275362318841" />
-        <entry key="..\:/PhotographerBooking/app/src/main/res/layout/fragment_home.xml" value="0.20199275362318841" />
+        <entry key="..\:/PhotographerBooking/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/PhotographerBooking/app/src/main/res/layout/activity_search.xml" value="0.13905775075987842" />
+        <entry key="..\:/PhotographerBooking/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/PhotographerBooking/app/src/main/res/layout/fragment_notification.xml" value="0.1334853090172239" />
+        <entry key="..\:/PhotographerBooking/app/src/main/res/layout/grid_item.xml" value="0.1" />
+        <entry key="..\:/PhotographerBooking/app/src/main/res/layout/photographer_item.xml" value="0.1" />
+        <entry key="..\:/PhotographerBooking/app/src/main/res/menu/menu_item.xml" value="0.2490740740740741" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_1/PhotographerBooking/app/src/main/res/drawable/button_login.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_1/PhotographerBooking/app/src/main/res/drawable/circle.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_1/PhotographerBooking/app/src/main/res/drawable/custom_edit_text.xml" value="0.22447916666666667" />
