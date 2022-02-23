@@ -1,11 +1,9 @@
 package com.example.photographerbooking.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,7 +12,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.R;
-import com.example.photographerbooking.model.Category;
 import com.example.photographerbooking.model.Photographer;
 
 import java.util.List;
@@ -22,10 +19,12 @@ import java.util.List;
 public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerItemsAdapter.ItemViewHolder>{
     Context context;
     List<Photographer> listPG;
+    final private ListItemClickListener mOnClickListener;
 
-    public PhotographerItemsAdapter(Context context, List<Photographer> listPG) {
+    public PhotographerItemsAdapter(Context context, List<Photographer> listPG, ListItemClickListener mOnClickListener) {
         this.context = context;
         this.listPG = listPG;
+        this.mOnClickListener = mOnClickListener;
     }
 
     @NonNull
@@ -50,7 +49,11 @@ public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerI
         return listPG.size();
     }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder {
+    public interface ListItemClickListener {
+        void onCardListClick(int clickedItemIndex);
+    }
+
+    public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView txtName ;
         TextView txtLocation;
@@ -65,8 +68,13 @@ public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerI
             contentImg = itemView.findViewById(R.id.pg_avatar);
            txtLocation = itemView.findViewById(R.id.pg_location);
            txtRating =itemView.findViewById(R.id.pg_rating);
+           itemView.setOnClickListener(this);
+        }
 
-
+        @Override
+        public void onClick(View view) {
+            int clickedPosition = getAdapterPosition();
+            mOnClickListener.onCardListClick(clickedPosition);
         }
     }
 }

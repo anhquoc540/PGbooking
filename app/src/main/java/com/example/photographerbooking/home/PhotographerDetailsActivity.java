@@ -1,6 +1,5 @@
 package com.example.photographerbooking.home;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.photographerbooking.MainActivity;
 import com.example.photographerbooking.R;
 import com.example.photographerbooking.adapter.ServicePackageAdapter;
 import com.example.photographerbooking.model.ServicePackage;

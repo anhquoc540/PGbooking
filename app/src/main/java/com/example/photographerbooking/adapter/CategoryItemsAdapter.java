@@ -1,7 +1,6 @@
 package com.example.photographerbooking.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.R;
-import com.example.photographerbooking.fragment.HomeFragment;
-import com.example.photographerbooking.home.PhotographerDetailsActivity;
 import com.example.photographerbooking.model.Category;
-
 
 import java.util.List;
 
