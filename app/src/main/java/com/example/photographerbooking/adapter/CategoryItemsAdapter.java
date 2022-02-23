@@ -1,6 +1,7 @@
 package com.example.photographerbooking.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.fragment.HomeFragment;
+import com.example.photographerbooking.home.PhotographerDetailsActivity;
 import com.example.photographerbooking.model.Category;
 
 
@@ -79,7 +82,6 @@ public class CategoryItemsAdapter extends RecyclerView.Adapter<CategoryItemsAdap
            contentImg = itemView.findViewById(R.id.category_image);
             waveImg = itemView.findViewById(R.id.wave_image);
             btnView = itemView.findViewById(R.id.btnView);
-
 
             btnView.setOnClickListener(new View.OnClickListener() {
                 @Override

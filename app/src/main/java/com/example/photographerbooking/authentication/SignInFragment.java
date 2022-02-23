@@ -1,61 +1,71 @@
 package com.example.photographerbooking.authentication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.photographerbooking.MainActivity;
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.util.SoftKeyBoardHelper;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SignInFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SignInFragment extends Fragment implements View.OnClickListener {
 
     private final String REQUIRE = "Require";
+    private final String INVALID = "Wrong username or password";
     private View view;
     private EditText etUsername;
     private EditText etPassword;
+    private TextView tvError;
     private Button btnLogin;
 
-    public SignInFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SignInFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SignInFragment newInstance(String param1, String param2) {
-        SignInFragment fragment = new SignInFragment();
-        return fragment;
-    }
+    public SignInFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_sign_in, container, false);
         etUsername = view.findViewById(R.id.etUsername);
         etPassword = view.findViewById(R.id.etPassword);
         btnLogin = view.findViewById(R.id.btnLogin);
+        tvError = view.findViewById(R.id.tvError);
+        tvError.setText("");
 
         btnLogin.setOnClickListener(this);
+
+        etPassword.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    SoftKeyBoardHelper.hideSoftKeyboard(getActivity());
+                    btnLogin.requestFocus();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        view.findViewById(R.id.signInFrame).setOnTouchListener(new View.OnTouchListener() {
+
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                SoftKeyBoardHelper.hideSoftKeyboard(requireActivity());
+                return true;
+            }
+        });
+
         return view;
     }
 
@@ -70,12 +80,18 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     }
 
     private boolean checkLogin() {
-        if (TextUtils.isEmpty(etUsername.getText().toString())) {
+        String username = etUsername.getText().toString();
+        String password = etPassword.getText().toString();
+        if (TextUtils.isEmpty(username)) {
             etUsername.setError(REQUIRE);
             return false;
         }
-        if (TextUtils.isEmpty(etPassword.getText().toString())) {
+        if (TextUtils.isEmpty(password)) {
             etPassword.setError(REQUIRE);
+            return false;
+        }
+        if (!TextUtils.equals(username, "admin") || !TextUtils.equals(password, "admin")) {
+            tvError.setText(INVALID);
             return false;
         }
         return true;
@@ -85,6 +101,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         if (!checkLogin()) return;
 
         Intent intent = new Intent(this.getActivity(), MainActivity.class);
+        intent.putExtra("username",etUsername.getText().toString());
         startActivity(intent);
         this.getActivity().finish();
     }

@@ -8,7 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="selected_icon">#3c415e</color>
-    <color name="count_background">#ff6f00</color>
-    <color name="primary_color">#3c415e</color>
-    <color name="separate_line">#80B3B3B3</color>
+    <color name="orange">#ff6f00</color>
+    <color name="light_grey">#7FD9D9D9</color>
+    <color name="pink">#EC255A</color>
+    <color name="light_pink">#FAEDF0</color>
+    <color name="blue_1">#292C6D</color>
+    <color name="blue_2">#161853</color>
 </resources>

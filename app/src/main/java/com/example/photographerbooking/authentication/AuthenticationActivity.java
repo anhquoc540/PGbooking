@@ -1,23 +1,21 @@
 package com.example.photographerbooking.authentication;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleObserver;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
+
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.util.SoftKeyBoardHelper;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -48,8 +46,8 @@ public class AuthenticationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentication);
 
-        tabLayout = findViewById(R.id.authentication_tab_layout);
-        viewPager = findViewById(R.id.authentication_view_pager);
+        tabLayout = findViewById(R.id.authenticationTabLayout);
+        viewPager = findViewById(R.id.authenticationViewPager);
 
         String[] tabTitles = {"Login", "Sign Up"};
 
@@ -64,6 +62,11 @@ public class AuthenticationActivity extends AppCompatActivity {
             p.setMargins(0, 0, 100, 0);
             tab.requestLayout();
         }
+
+        findViewById(R.id.authenticationView).setOnTouchListener((view, motionEvent) -> {
+            SoftKeyBoardHelper.hideSoftKeyboard(AuthenticationActivity.this);
+            return true;
+        });
     }
 
     private void prepareViewPager(ViewPager2 viewPager) {
@@ -75,7 +78,7 @@ public class AuthenticationActivity extends AppCompatActivity {
     }
 
     private class MainAdapter extends FragmentStateAdapter {
-        List<Fragment> fragmentList = new ArrayList<>();
+        List<Fragment> fragmentList;
 
         public MainAdapter(@NonNull FragmentActivity fragmentActivity, List<Fragment> fragmentList) {
             super(fragmentActivity);

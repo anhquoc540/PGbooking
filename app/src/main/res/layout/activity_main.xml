@@ -25,8 +25,8 @@
         app:mbn_circleColor="@color/white"
         app:mbn_selectedIconColor="@color/selected_icon"
         app:mbn_countTextColor="@color/white"
-        app:mbn_countBackgroundColor="@color/count_background"
+        app:mbn_countBackgroundColor="@color/orange"
         app:mbn_defaultIconColor="@color/white"
-        app:mbn_backgroundBottomColor="@color/primary_color"/>
+        app:mbn_backgroundBottomColor="@color/blue_1"/>
 
 </LinearLayout>
