@@ -67,14 +67,14 @@
                 <ImageView
                     android:id="@+id/star"
                     android:layout_width="match_parent"
-                    android:layout_height="62dp"
+                    android:layout_height="77dp"
                     app:srcCompat="@drawable/ic__star_24" />
 
                 <TextView
                     android:id="@+id/pg_rating"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingBottom="2dp"
+                    android:textSize="15dp"
                     android:text="TextView"
                     android:textAlignment="center" />
             </LinearLayout>

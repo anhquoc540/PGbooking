@@ -1,5 +1,6 @@
 package com.example.photographerbooking.home;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.photographerbooking.MainActivity;
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.SearchActivity;
 import com.example.photographerbooking.adapter.ServicePackageAdapter;
 import com.example.photographerbooking.model.ServicePackage;
 
@@ -22,7 +25,8 @@ public class PhotographerDetailsActivity extends AppCompatActivity{
     ServicePackageAdapter packageAdapter;
     ArrayList<ServicePackage> packageList;
     ViewFlipper viewFlipper;
-    ImageButton btnNext, btnPrevious;
+    ImageButton btnNext, btnPrevious,btnBack;
+
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -34,6 +38,14 @@ public class PhotographerDetailsActivity extends AppCompatActivity{
         binding();
         setUpRecyclerView();
         setFunctionForButton();
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PhotographerDetailsActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
     }
 
     private void binding() {
@@ -41,6 +53,7 @@ public class PhotographerDetailsActivity extends AppCompatActivity{
         viewFlipper = findViewById(R.id.viewFlipper);
         btnNext = findViewById(R.id.btnNext);
         btnPrevious = findViewById(R.id.btnPrevious);
+        btnBack = findViewById(R.id.btn_back);
     }
 
     private void setUpRecyclerView() {

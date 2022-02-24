@@ -1,6 +1,7 @@
 package com.example.photographerbooking.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.home.PhotographerDetailsActivity;
 import com.example.photographerbooking.model.Photographer;
 
 import java.util.ArrayList;
@@ -108,6 +110,8 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
             pg_cardview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Intent intent = new Intent(context, PhotographerDetailsActivity.class);
+                    context.startActivity(intent);
 
                 }
             });

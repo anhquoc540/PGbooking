@@ -44,9 +44,10 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         list = new ArrayList<>();
-        list.add(new Photographer(1,"Peter Parker","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
-        list.add(new Photographer(1,"Rose Morouse","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
-        list.add(new Photographer(1,"Quincy Fesh","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
+        list.add(new Photographer(1,"Amelia Brown","4459 Wyatt Street, United States","asdasd@gmail.com",4.6F,R.drawable.img_2));
+        list.add(new Photographer(2,"Peter Parker","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
+        list.add(new Photographer(3,"Rose Morouse","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
+        list.add(new Photographer(4,"Quincy Fesh","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
         recyclerView = findViewById(R.id.rvResultList);
         resultAdapter = new ResultAdapter(this,list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

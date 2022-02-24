@@ -2,6 +2,7 @@ package com.example.photographerbooking.fragment;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -46,6 +47,11 @@ public class BookingFragment extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+    @Override
+    public void onResume() {
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        super.onResume();
     }
 
     @Override

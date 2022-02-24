@@ -9,17 +9,20 @@
     <TextView
         android:id="@+id/txtTopPGTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:paddingHorizontal="10dp"
         android:text="Top Photographers :"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:background="@color/purple_500"
+        android:textColor="@color/white"/>
 
     <ScrollView
         android:id="@+id/svTopPG"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle"
-        android:elevation="30dp">
+        android:elevation="30dp"
+        android:backgroundTint="@color/purple_500">
 
         <LinearLayout
             android:layout_width="match_parent"

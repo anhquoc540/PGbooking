@@ -76,11 +76,11 @@ public class HomeFragment extends Fragment  implements PhotographerItemsAdapter.
         listCategory.add(new Category(3,"Wedding 3 ", 3, R.drawable.wedding_photo));
 
         listTopPG = new ArrayList<>();
-        listTopPG.add(new Photographer(1,"Quoc","25 Hai Ba Trung","asdasd@gmail.com",4.5F,R.drawable.avatar_small));
+        listTopPG.add(new Photographer(1,"Amelia Brown","4459 Wyatt Street, United States","asdasd@gmail.com",4.6F,R.drawable.img_2));
         listTopPG.add(new Photographer(1,"Quoc","25 Hai Ba Trung","asdasd@gmail.com",4.5F,R.drawable.avatar_small));
         loadCategories(listCategory);
         loadTopPG(listTopPG);
-        //super.onViewCreated(view, savedInstanceState);
+        super.onViewCreated(view, savedInstanceState);
     }
 
     private void loadCategories (List<Category> list){
