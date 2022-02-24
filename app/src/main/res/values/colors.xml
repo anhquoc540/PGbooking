@@ -11,4 +11,8 @@
     <color name="count_background">#ff6f00</color>
     <color name="primary_color">#3c415e</color>
     <color name="separate_line">#80B3B3B3</color>
+    <color name="one">#161853</color>
+    <color name="two">#292C6D</color>
+    <color name="three">#FAEDF0</color>
+
 </resources>

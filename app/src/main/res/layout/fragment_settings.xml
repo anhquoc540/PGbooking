@@ -1,100 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".fragment.SettingsFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <androidx.cardview.widget.CardView
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:paddingVertical="20dp"-->
+        <!--            android:text="Settings"-->
+        <!--            android:textSize="30dp"-->
+        <!--            android:textStyle="bold" />-->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="82dp">
+            android:layout_height="wrap_content"
+            android:background="@color/three"
+            android:paddingHorizontal="16px"
+            android:paddingVertical="20px">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="77dp"
-                android:background="@color/purple_200"
-                android:orientation="horizontal">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profileAvatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="124dp"
+                android:elevation="10dp"
+                android:layout_marginEnd="10dp">
 
                 <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="59dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    tools:src="@tools:sample/avatars" />
+                    android:id="@+id/profileImage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/avatar_small"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    />
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/tvFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chi Huy Phung"
+                android:textStyle="bold"
+                android:textSize="32dp"
+                android:layout_toRightOf="@+id/profileAvatar"/>
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User profile"
+                android:textSize="16dp"
+                android:layout_below="@id/tvFullName"
+                android:layout_toRightOf="@id/profileAvatar"/>
+        </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="249dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="match_parent"
-                        android:layout_height="41dp"
-                        android:text="TextView" />
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="TextView" />
-
-                </LinearLayout>
-
-                <ImageButton
-                    android:id="@+id/ibMore"
-                    android:layout_width="wrap_content"
+        <!--  Change account settings -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16px">
+            <TextView
+                android:id="@+id/tvAccountSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Account"
+                android:textSize="28dp"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:id="@+id/llAccountSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/tvAccountSection">
+                <Button
+                    android:id="@+id/btnChangeProfile"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:backgroundTint="@color/purple_200"
-                    android:src="@drawable/ic_baseline_arrow_forward_ios_45" />
-
+                    android:background="@android:color/transparent"
+                    android:gravity="left"
+                    android:text="Change your profile"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textAllCaps="false"/>
+                <Button
+                    android:id="@+id/btnChangeEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="left"
+                    android:text="Change your email"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textAllCaps="false"/>
+                <Button
+                    android:id="@+id/btnChangePassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="left"
+                    android:text="Change your password"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textAllCaps="false"/>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
+        </RelativeLayout>
+        <!--        App settings -->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16px">
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tvAppSection"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:text="TextView" />
+                android:layout_height="wrap_content"
+                android:text="App"
+                android:textSize="28dp"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:id="@+id/llAppSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/tvAppSection">
+                <Button
+                    android:id="@+id/btnPromotions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="left"
+                    android:text="Promotions"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textAllCaps="false"/>
+                <Button
+                    android:id="@+id/btnFeedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="left"
+                    android:text="Feedback"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textAllCaps="false"/>
 
-        </androidx.cardview.widget.CardView>
+                <Button
+                    android:id="@+id/btnSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="left"
+                    android:text="Settings"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+        </RelativeLayout>
 
-        <androidx.cardview.widget.CardView
+        <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:text="TextView" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:text="TextView" />
-        </androidx.cardview.widget.CardView>
-
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginTop="50dp"
+            android:background="@android:color/transparent"
+            android:textColor="@color/black"
+            android:text="Log out"
+            android:textSize="22dp"
+            android:layout_marginHorizontal="16px"
+            android:outlineProvider="bounds"/>
     </LinearLayout>
-</FrameLayout>
+</ScrollView>

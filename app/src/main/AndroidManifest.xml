@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhotographerBooking">
         <activity
+            android:name=".PhotographerMainActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".authentication.AuthenticationActivity"
             android:exported="true">
@@ -21,8 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchActivity"
-            android:launchMode="singleTop"></activity>
+        <activity
+            android:name=".SearchActivity"
+            android:launchMode="singleTop" />
     </application>
 
 </manifest>

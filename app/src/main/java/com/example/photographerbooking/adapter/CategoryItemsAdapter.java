@@ -45,8 +45,6 @@ public class CategoryItemsAdapter extends RecyclerView.Adapter<CategoryItemsAdap
         holder.contentImg.setImageResource(item.getImage());
         holder.waveImg.setImageResource(item.getColor());
 
-
-
     }
     @Override
     public int getItemViewType(int position) {
