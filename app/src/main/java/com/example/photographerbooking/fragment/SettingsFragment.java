@@ -2,6 +2,7 @@ package com.example.photographerbooking.fragment;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -58,8 +59,16 @@ public class SettingsFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        super.onResume();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_settings, container, false);
     }
