@@ -30,7 +30,7 @@ import java.util.List;
 public class HomeFragment extends Fragment  implements PhotographerItemsAdapter.ListItemClickListener{
     private RecyclerView mGvCategories,rVTopPG;
     private CategoryItemsAdapter categoryAdapter;
-    private RecyclerView.Adapter topPGAdapter;
+    private PhotographerItemsAdapter topPGAdapter;
     private List<Category> listCategory;
     private List<Photographer> listTopPG;
     private Button btn;
