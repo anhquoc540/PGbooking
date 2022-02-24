@@ -56,12 +56,15 @@
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/PhotographerBooking/app/src/main/res/layout/fragment_notification.xml" value="0.18697916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/PhotographerBooking/app/src/main/res/layout/fragment_settings.xml" value="0.20260416666666667" />
         <entry key="..\:/coding/hci/pbooking/app/src/main/res/drawable/button_shadow.xml" value="0.1475" />
+        <entry key="..\:/coding/hci/pbooking/app/src/main/res/layout/activity_authentication.xml" value="0.1484375" />
         <entry key="..\:/coding/hci/pbooking/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
+        <entry key="..\:/coding/hci/pbooking/app/src/main/res/layout/activity_photographer_main.xml" value="0.1484375" />
         <entry key="..\:/coding/hci/pbooking/app/src/main/res/layout/fragment_booking.xml" value="0.10989583333333333" />
         <entry key="..\:/coding/hci/pbooking/app/src/main/res/layout/fragment_home.xml" value="0.14010416666666667" />
         <entry key="..\:/coding/hci/pbooking/app/src/main/res/layout/fragment_notification.xml" value="0.10989583333333333" />
         <entry key="..\:/coding/hci/pbooking/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
         <entry key="..\:/coding/hci/pbooking/app/src/main/res/layout/fragment_sign_in.xml" value="0.10989583333333333" />
+        <entry key="..\:/coding/hci/pbooking/app/src/main/res/layout/fragment_sign_up.xml" value="0.12182971014492754" />
         <entry key="..\:/coding/hci/pbooking/app/src/main/res/layout/photographer_item.xml" value="0.14010416666666667" />
       </map>
     </option>
