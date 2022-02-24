@@ -13,6 +13,7 @@ import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 
 import com.example.photographerbooking.MainActivity;
+import com.example.photographerbooking.PhotographerMainActivity;
 import com.example.photographerbooking.R;
 
 /**
@@ -21,7 +22,7 @@ import com.example.photographerbooking.R;
  * create an instance of this fragment.
  */
 public class SignInFragment extends Fragment implements View.OnClickListener {
-
+    private final String PHOTOGRAPHER = "photographer";
     private final String REQUIRE = "Require";
     private View view;
     private EditText etUsername;
@@ -83,8 +84,13 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
 
     private void login() {
         if (!checkLogin()) return;
-
-        Intent intent = new Intent(this.getActivity(), MainActivity.class);
+        Log.i("Username", etUsername.getText().toString());
+        Intent intent = null;
+        if (etUsername.getText().toString().equals(PHOTOGRAPHER)) {
+            intent = new Intent(this.getActivity(), PhotographerMainActivity.class);
+        } else {
+            intent = new Intent(this.getActivity(), MainActivity.class);
+        }
         startActivity(intent);
         this.getActivity().finish();
     }

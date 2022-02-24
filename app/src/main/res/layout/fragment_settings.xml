@@ -139,12 +139,23 @@
                     android:textSize="18dp"
                     android:textAllCaps="false"/>
                 <Button
-                    android:id="@+id/btnRedeem"
+                    android:id="@+id/btnFeedback"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:gravity="left"
                     android:text="Feedback"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/btnSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="left"
+                    android:text="Settings"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     android:textAllCaps="false"/>
