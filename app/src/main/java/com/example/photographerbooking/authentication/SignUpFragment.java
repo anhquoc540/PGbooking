@@ -1,9 +1,13 @@
 package com.example.photographerbooking.authentication;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -11,17 +15,14 @@ import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.photographerbooking.MainActivity;
 import com.example.photographerbooking.R;
-import com.google.android.material.tabs.TabLayout;
+import com.example.photographerbooking.util.SoftKeyBoardHelper;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SignUpFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SignUpFragment extends Fragment implements View.OnClickListener{
 
     private View view;
+    private EditText etUsername;
     private EditText etEmail;
     private EditText etPassword;
     private EditText etConfirmPassword;
@@ -29,33 +30,39 @@ public class SignUpFragment extends Fragment implements View.OnClickListener{
     private final String REQUIRE = "Require";
     private final String NOT_MATCH = "Confirm password not match";
 
-    public SignUpFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SignUpFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SignUpFragment newInstance(String param1, String param2) {
-        SignUpFragment fragment = new SignUpFragment();
-        return fragment;
-    }
+    public SignUpFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_sign_up, container, false);
+        etUsername = view.findViewById(R.id.etUsername);
         etEmail = view.findViewById(R.id.etEmail);
         etPassword = view.findViewById(R.id.etPassword);
         etConfirmPassword = view.findViewById(R.id.etConfirmPassword);
         btnSignUp = view.findViewById(R.id.btnSignUp);
+
+        etConfirmPassword.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    SoftKeyBoardHelper.hideSoftKeyboard(requireActivity());
+                    btnSignUp.requestFocus();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        view.findViewById(R.id.signUpFrame).setOnTouchListener(new View.OnTouchListener() {
+
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                SoftKeyBoardHelper.hideSoftKeyboard(requireActivity());
+                return true;
+            }
+        });
 
         btnSignUp.setOnClickListener(this);
         return view;
@@ -67,6 +74,10 @@ public class SignUpFragment extends Fragment implements View.OnClickListener{
     }
 
     private boolean checkSignUp() {
+        if (TextUtils.isEmpty(etUsername.getText().toString())) {
+            etUsername.setError(REQUIRE);
+            return false;
+        }
         if (TextUtils.isEmpty(etEmail.getText().toString())) {
             etEmail.setError(REQUIRE);
             return false;
@@ -90,8 +101,10 @@ public class SignUpFragment extends Fragment implements View.OnClickListener{
     private void signUp() {
         if (!checkSignUp()) return;
 
-        TabLayout tabs = getActivity().findViewById(R.id.authentication_tab_layout);
-        tabs.getTabAt(0).select();
+        Intent intent = new Intent(this.getActivity(), MainActivity.class);
+        intent.putExtra("username",etUsername.getText().toString());
+        startActivity(intent);
+        this.getActivity().finish();
     }
 
     @Override
