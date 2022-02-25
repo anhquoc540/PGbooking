@@ -19,7 +19,6 @@ import com.example.photographerbooking.home.PhotographerDetailsActivity;
 import com.example.photographerbooking.model.Photographer;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultViewHolder> implements Filterable {
