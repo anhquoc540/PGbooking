@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">PhotographerBooking</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="application_name">Linslus</string>
     <string name="example_content">Example Content</string>
     <string name="image">image</string>
     <string name="sign_in">Sign In</string>

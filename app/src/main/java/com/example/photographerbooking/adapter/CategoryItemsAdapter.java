@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,78 +16,61 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.R;
 import com.example.photographerbooking.model.Category;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
-public class CategoryItemsAdapter extends RecyclerView.Adapter<CategoryItemsAdapter.ItemViewHolder>{
+public class CategoryItemsAdapter extends BaseAdapter {
     private Context context;
-    private List<Category> listCate;
+    private List<Category> listCategory;
+    private LayoutInflater inflater;
 
-    public CategoryItemsAdapter(Context context, List<Category> listCate) {
+    public CategoryItemsAdapter(Context context, List<Category> listCategory) {
         this.context = context;
-        this.listCate = listCate;
-    }
-
-    @NonNull
-    @Override
-    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_item, parent, false);
-
-        return new ItemViewHolder(view);
+        this.listCategory = listCategory;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-        Category item = listCate.get(position);
-        holder.category = item ;
-        holder.txtlabel.setText(item.getLabel().toString());
-        holder.contentImg.setImageResource(item.getImage());
-        holder.waveImg.setImageResource(item.getColor());
-
+    public int getCount() {
+        return this.listCategory.size();
     }
+
     @Override
-    public int getItemViewType(int position) {
-        if(listCate.size() == 1)
-            return 0;
-        else{
-            if (listCate.size() % 2 == 0){
-                return 1;
-            }else{
-                return (position > 1 && position == listCate.size()-1)?0:1;
+    public Object getItem(int i) {
+        return null;
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        if (inflater == null) {
+            inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+        if (view == null) {
+            view = inflater.inflate(R.layout.category_item, null);
+        }
+
+        ImageView ivCategory = view.findViewById(R.id.ivCategory);
+        TextView tvCategoryLabel = view.findViewById(R.id.tvCategoryLabel);
+        ImageButton btnMoreDetail = view.findViewById(R.id.btnMoreDetail);
+
+        ivCategory.setImageResource(listCategory.get(i).getImage());
+        tvCategoryLabel.setText(listCategory.get(i).getLabel());
+
+        btnMoreDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("FAB", "clicked");
             }
-        }
+        });
 
-    }
-
-    @Override
-    public int getItemCount() {
-        return listCate.size();
-    }
-
-    public class ItemViewHolder extends RecyclerView.ViewHolder {
-
-        TextView txtlabel ;
-        ImageView contentImg;
-        ImageView waveImg;
-        ImageButton btnView;
-        Category category;
-        public ItemViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            txtlabel = itemView.findViewById(R.id.txtLabel);
-           contentImg = itemView.findViewById(R.id.category_image);
-            waveImg = itemView.findViewById(R.id.wave_image);
-            btnView = itemView.findViewById(R.id.btnView);
-
-            btnView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent();
-
-                    Log.d("demo", "onClick: item clicked " + category.getLabel());
-                }
-            });
-        }
+        return view;
     }
 }
 

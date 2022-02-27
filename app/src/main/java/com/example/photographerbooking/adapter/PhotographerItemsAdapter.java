@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.R;
@@ -16,13 +16,12 @@ import com.example.photographerbooking.model.Photographer;
 
 import java.util.List;
 
-public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerItemsAdapter.ItemViewHolder>{
-    Context context;
-    List<Photographer> listPG;
+public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerItemsAdapter.ItemViewHolder> {
     final private ListItemClickListener mOnClickListener;
+    private List<Photographer> listPG;
+    private RatingBar rbAverageRating;
 
-    public PhotographerItemsAdapter(Context context, List<Photographer> listPG, ListItemClickListener mOnClickListener) {
-        this.context = context;
+    public PhotographerItemsAdapter(List<Photographer> listPG, ListItemClickListener mOnClickListener) {
         this.listPG = listPG;
         this.mOnClickListener = mOnClickListener;
     }
@@ -37,11 +36,11 @@ public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerI
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         Photographer photographer = listPG.get(position);
-        holder.photographer = photographer;
-        holder.contentImg.setImageResource(photographer.getPg_avatar());
-        holder.txtName.setText(photographer.getName());
-        holder.txtLocation.setText(photographer.getLocation());
-        holder.txtRating.setText(String.valueOf(photographer.getRating()));
+        holder.ivPhotographer.setImageResource(photographer.getAvatar());
+        holder.fullName.setText(photographer.getName());
+        holder.address.setText(photographer.getLocation());
+        holder.rating.setText(String.valueOf(photographer.getRating()));
+        rbAverageRating.setRating(photographer.getRating());
     }
 
     @Override
@@ -53,22 +52,20 @@ public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerI
         void onCardListClick(int clickedItemIndex);
     }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView txtName ;
-        TextView txtLocation;
-        TextView txtRating;
-        ImageView contentImg;
-        Photographer photographer;
-        CardView cvPG_item;
+        TextView fullName, address, rating;
+        ImageView ivPhotographer;
+
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            cvPG_item = itemView.findViewById(R.id.pg_item);
-            txtName = itemView.findViewById(R.id.pg_name);
-            contentImg = itemView.findViewById(R.id.pg_avatar);
-           txtLocation = itemView.findViewById(R.id.pg_location);
-           txtRating =itemView.findViewById(R.id.pg_rating);
-           itemView.setOnClickListener(this);
+            fullName = itemView.findViewById(R.id.fullName);
+            address = itemView.findViewById(R.id.address);
+            ivPhotographer = itemView.findViewById(R.id.ivPhotographer);
+            rating = itemView.findViewById(R.id.rating);
+            rbAverageRating = itemView.findViewById(R.id.rbAverageRating);
+
+            itemView.setOnClickListener(this);
         }
 
         @Override

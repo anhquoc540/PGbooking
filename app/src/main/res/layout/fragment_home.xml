@@ -1,78 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:scrollbars="none"
     tools:context=".fragment.HomeFragment">
-
-    <TextView
-        android:id="@+id/txtTopPGTitle"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:paddingHorizontal="10dp"
-        android:text="Top Photographers :"
-        android:textSize="30dp"
-        android:background="@color/purple_500"
-        android:textColor="@color/white"/>
-
-    <ScrollView
-        android:id="@+id/svTopPG"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rectangle"
-        android:elevation="30dp"
-        android:backgroundTint="@color/purple_500">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTopPGList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
-
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="10dp">
-
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="20dp"
+        android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/txtCategoryLabel"
             android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:paddingHorizontal="10dp"
-            android:text="Looking for :"
-            android:textSize="35dp" />
+            android:layout_height="wrap_content"
+            android:text="Top Photographers"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
-        <ScrollView
-            android:id="@+id/svCategory"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTopPG"
+            android:layout_marginVertical="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Booked Photographers"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvCategoryList"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
-        </ScrollView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvBookedPG"
+            android:layout_marginVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Followed Photographers"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFollowedPG"
+            android:layout_marginVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Service Categories"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <com.example.photographerbooking.util.ExpandableHeightGridView
+            android:id="@+id/gvCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:horizontalSpacing="20dp"
+            android:verticalSpacing="30dp"
+            android:numColumns="2"/>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
-</LinearLayout>
+</ScrollView>

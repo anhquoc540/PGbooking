@@ -19,19 +19,26 @@
             android:layout_height="wrap_content"
             android:weightSum="10"
             tools:ignore="UselessParent">
-            <ImageView
-                android:id="@+id/ivAvatar"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:layout_marginStart="10dp"
-                app:srcCompat="@drawable/img_2"
-                android:contentDescription="@string/image" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                app:cardCornerRadius="50dp">
+
+                <ImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/img_2"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/image" />
+
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="7"
                 android:paddingStart="10dp"
                 android:orientation="vertical"
                 tools:ignore="RtlSymmetry">
@@ -109,9 +116,8 @@
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginVertical="0dp"
                         android:layout_marginStart="10dp"
-                        android:layout_marginEnd="22dp"
+                        android:layout_marginEnd="20dp"
                         android:background="@drawable/round_button"
                         android:text="@string/follow"
                         android:textAllCaps="false"
@@ -654,9 +660,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
+            android:contentDescription="@string/image"
             android:padding="10dp"
             android:src="@drawable/ic_navigate_before_24"
-            android:contentDescription="@string/image"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </LinearLayout>

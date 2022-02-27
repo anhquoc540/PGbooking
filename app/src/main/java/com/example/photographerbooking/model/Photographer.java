@@ -2,7 +2,7 @@ package com.example.photographerbooking.model;
 
 public class Photographer {
     int id;
-    int pg_avatar;
+    int avatar;
     String name;
     String location;
     String email;
@@ -14,7 +14,7 @@ public class Photographer {
         this.location = location;
         this.email = email;
         this.rating = rating;
-        this.pg_avatar = pg_avatar;
+        this.avatar = pg_avatar;
     }
 
     public int getId() {
@@ -53,11 +53,11 @@ public class Photographer {
         this.rating = rating;
     }
 
-    public int getPg_avatar() {
-        return pg_avatar;
+    public int getAvatar() {
+        return avatar;
     }
 
-    public void setPg_avatar(int pg_avatar) {
-        this.pg_avatar = pg_avatar;
+    public void setAvatar(int avatar) {
+        this.avatar = avatar;
     }
 }

@@ -16,7 +16,7 @@ import com.example.photographerbooking.model.ServicePackage;
 import java.util.ArrayList;
 
 public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAdapter.ViewHolder> {
-    ArrayList<ServicePackage> package_list;
+    private ArrayList<ServicePackage> package_list;
 
     public ServicePackageAdapter(ArrayList<ServicePackage> packageList) {
         this.package_list = packageList;
