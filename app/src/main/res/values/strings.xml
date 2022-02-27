@@ -52,4 +52,6 @@
     <string name="rating_and_reviews">Rating and Reviews</string>
     <string name="review_number">29 Reviews</string>
     <string name="rating_example">4.6</string>
+    <string name="comment_owner">Owner</string>
+    <string name="sample_comment">Photographer A chup dep qua</string>
 </resources>
