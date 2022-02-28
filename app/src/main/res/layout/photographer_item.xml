@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="150dp"
     android:layout_height="200dp"
-    android:layout_marginTop="5dp"
     android:layout_marginStart="10dp"
+    android:layout_marginBottom="10dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp">
 
@@ -28,7 +28,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="75dp"
             android:background="#FFFFFF"
             android:paddingHorizontal="10dp"
             android:paddingBottom="5dp"
@@ -46,7 +46,8 @@
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/address"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/address"
@@ -54,10 +55,12 @@
                 android:layout_height="wrap_content"
                 android:text="Address"
                 android:textColor="@color/black"
-                android:textSize="10sp"
+                android:textSize="12sp"
+                android:maxLines="1"
                 app:layout_constraintBottom_toTopOf="@+id/rating"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/fullName" />
 
             <TextView
                 android:id="@+id/rating"

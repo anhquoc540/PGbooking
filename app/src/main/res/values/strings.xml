@@ -33,7 +33,7 @@
     <string name="experience_years">Years of experience</string>
     <string name="specialize">I specialize in</string>
     <string name="favorite_spot">My favorite spot to shoot in the city is…</string>
-    <string name="service_package">Service Packages</string>
+    <string name="service_category">Service Categories</string>
     <string name="not_available">Not available</string>
     <string name="personal_shoot">Personal photo shoots starting at</string>
     <string name="commercial_shoot">Commercial photo shoots starting at</string>

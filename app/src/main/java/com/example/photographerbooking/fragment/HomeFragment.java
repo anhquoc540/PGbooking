@@ -59,8 +59,8 @@ public class HomeFragment extends Fragment implements PhotographerItemsAdapter.L
     }
 
     private void setUpFollowedPG() {
-        listTopPG.add(new Photographer(1, "Amelia Brown", "4459 Wyatt Street, United States", "asdasd@gmail.com", 4.6F, R.drawable.img_2));
-        listTopPG.add(new Photographer(2, "Victoria Israel", "Via del Campidoglio, Rome", "asdasd@gmail.com", 4.5F, R.drawable.img_6));
+        listTopPG.add(new Photographer(1, "Amelia Brown", "4459 Wyatt Street, United States", "asdasd@gmail.com", 4.6F, R.drawable.avt_1));
+        listTopPG.add(new Photographer(2, "Victoria Israel", "Via del Campidoglio, Rome", "asdasd@gmail.com", 4.5F, R.drawable.avt_2));
 
         followedGPAdapter = new PhotographerItemsAdapter(listTopPG, this);
         rvFollowedPG.setAdapter(followedGPAdapter);
@@ -68,8 +68,8 @@ public class HomeFragment extends Fragment implements PhotographerItemsAdapter.L
     }
 
     private void setUpBookedPG() {
-        listTopPG.add(new Photographer(1, "Amelia Brown", "4459 Wyatt Street, United States", "asdasd@gmail.com", 4.6F, R.drawable.img_2));
-        listTopPG.add(new Photographer(2, "Victoria Israel", "Via del Campidoglio, Rome", "asdasd@gmail.com", 4.5F, R.drawable.img_6));
+        listTopPG.add(new Photographer(1, "Amelia Brown", "4459 Wyatt Street, United States", "asdasd@gmail.com", 4.6F, R.drawable.avt_1));
+        listTopPG.add(new Photographer(2, "Victoria Israel", "Via del Campidoglio, Rome", "asdasd@gmail.com", 4.5F, R.drawable.avt_2));
 
         bookedGPAdapter = new PhotographerItemsAdapter(listTopPG, this);
         rvBookedPG.setAdapter(bookedGPAdapter);
@@ -77,8 +77,8 @@ public class HomeFragment extends Fragment implements PhotographerItemsAdapter.L
     }
 
     private void setUpTopPG() {
-        listTopPG.add(new Photographer(1, "Amelia Brown", "4459 Wyatt Street, United States", "asdasd@gmail.com", 4.6F, R.drawable.img_2));
-        listTopPG.add(new Photographer(2, "Victoria Israel", "Via del Campidoglio, Rome", "asdasd@gmail.com", 4.5F, R.drawable.img_6));
+        listTopPG.add(new Photographer(1, "Amelia Brown", "4459 Wyatt Street, United States", "asdasd@gmail.com", 4.6F, R.drawable.avt_1));
+        listTopPG.add(new Photographer(2, "Victoria Israel", "Via del Campidoglio, Rome", "asdasd@gmail.com", 4.5F, R.drawable.avt_2));
 
         topPGAdapter = new PhotographerItemsAdapter(listTopPG, this);
         rvTopPG.setAdapter(topPGAdapter);
@@ -86,12 +86,12 @@ public class HomeFragment extends Fragment implements PhotographerItemsAdapter.L
     }
 
     private void setUpListCategory() {
-        listCategory.add(new Category(1,"Wedding", R.drawable.img_3));
-        listCategory.add(new Category(2,"Wedding", R.drawable.img_3));
-        listCategory.add(new Category(3,"Wedding", R.drawable.img_3));
-        listCategory.add(new Category(4,"Wedding", R.drawable.img_3));
-        listCategory.add(new Category(5,"Wedding", R.drawable.img_3));
-        listCategory.add(new Category(6,"Wedding", R.drawable.img_3));
+        listCategory.add(new Category(1,"Portrait", R.drawable.portrait_1));
+        listCategory.add(new Category(2,"Wedding", R.drawable.wedding_1));
+        listCategory.add(new Category(3,"Fashion", R.drawable.fashion_1));
+        listCategory.add(new Category(4,"Baby/Family", R.drawable.family_1));
+        listCategory.add(new Category(5,"Landscape", R.drawable.landscape_1));
+        listCategory.add(new Category(6,"Food", R.drawable.food_1));
     }
 
     @Override
@@ -104,6 +104,6 @@ public class HomeFragment extends Fragment implements PhotographerItemsAdapter.L
     public void onCardListClick(int clickedItemIndex) {
         Intent intent = new Intent(this.getActivity(), PhotographerDetailsActivity.class);
         startActivity(intent);
-        getActivity().finish();
+        //getActivity().finish();
     }
 }

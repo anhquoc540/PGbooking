@@ -14,16 +14,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.MainActivity;
 import com.example.photographerbooking.R;
-import com.example.photographerbooking.SearchActivity;
-import com.example.photographerbooking.adapter.ServicePackageAdapter;
-import com.example.photographerbooking.model.ServicePackage;
+import com.example.photographerbooking.adapter.CategoryItemsAdapter2;
+import com.example.photographerbooking.model.Category;
 
 import java.util.ArrayList;
 
 public class PhotographerDetailsActivity extends AppCompatActivity{
-    RecyclerView servicePackage;
-    ServicePackageAdapter packageAdapter;
-    ArrayList<ServicePackage> packageList;
+    RecyclerView serviceCategory;
+    CategoryItemsAdapter2 categoryAdapter;
+    ArrayList<Category> listCategory = new ArrayList<>();
     ViewFlipper viewFlipper;
     ImageButton btnNext, btnPrevious,btnBack;
 
@@ -49,7 +48,7 @@ public class PhotographerDetailsActivity extends AppCompatActivity{
     }
 
     private void binding() {
-        servicePackage = findViewById(R.id.servicePackage);
+        serviceCategory = findViewById(R.id.serviceCategory);
         viewFlipper = findViewById(R.id.viewFlipper);
         btnNext = findViewById(R.id.btnNext);
         btnPrevious = findViewById(R.id.btnPrevious);
@@ -57,9 +56,9 @@ public class PhotographerDetailsActivity extends AppCompatActivity{
     }
 
     private void setUpRecyclerView() {
-        packageAdapter = new ServicePackageAdapter(packageList);
-        servicePackage.setAdapter(packageAdapter);
-        servicePackage.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        categoryAdapter = new CategoryItemsAdapter2(listCategory);
+        serviceCategory.setAdapter(categoryAdapter);
+        serviceCategory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
     }
 
     private void setFunctionForButton() {
@@ -83,9 +82,9 @@ public class PhotographerDetailsActivity extends AppCompatActivity{
     }
 
     private void setServicePackageData() {
-        packageList = new ArrayList<>();
-        packageList.add(new ServicePackage(R.drawable.personal_service, "Personal shooting", "per session", "160"));
-        packageList.add(new ServicePackage(R.drawable.comercial_service, "Commercial shooting", "per day", "700"));
-        packageList.add(new ServicePackage(R.drawable.event_service, "Event shooting", "per hour", "1,200"));
+        listCategory.add(new Category(1,"Portrait", R.drawable.img_3));
+        listCategory.add(new Category(2,"Wedding", R.drawable.family_1));
+        listCategory.add(new Category(3,"Fashion", R.drawable.food_1));
+        listCategory.add(new Category(4,"Baby/Family", R.drawable.avt_2));
     }
 }

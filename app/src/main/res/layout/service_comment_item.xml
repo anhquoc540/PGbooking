@@ -16,7 +16,7 @@
         android:theme="@style/rounded_shape"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_6" />
+        app:srcCompat="@drawable/avt_2" />
 
     <TextView
         android:id="@+id/tv_username_1"

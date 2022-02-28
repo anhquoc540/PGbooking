@@ -84,8 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
         toolbarWidget.setTitle("Linslus");
 
-        //toolbarWidget.setNavigationIcon(R.drawable.logo);
-
         setSupportActionBar(toolbarWidget);
     }
     @Override

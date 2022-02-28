@@ -40,12 +40,10 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
     @Override
     public void onBindViewHolder(@NonNull ResultViewHolder holder, int position) {
         Photographer photographer = listPG.get(position);
-        holder.photographer = photographer;
         holder.pg_avatar.setImageResource(photographer.getAvatar());
         holder.txtRating.setText(String.valueOf(photographer.getRating()));
         holder.txtName.setText(photographer.getName());
         holder.txtLocation.setText(photographer.getLocation());
-
     }
 
     @Override
@@ -92,10 +90,6 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
         TextView txtLocation;
         TextView txtRating;
         ImageView pg_avatar;
-        CardView pg_cardview;
-
-
-        Photographer photographer;
 
         public ResultViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -103,18 +97,16 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
             txtName = itemView.findViewById(R.id.fullName);
             pg_avatar = itemView.findViewById(R.id.ivPhotographer);
             txtLocation = itemView.findViewById(R.id.address);
-            txtRating = itemView.findViewById(R.id.rbAverageRating);
-            //pg_cardview = itemView.findViewById(R.id.pg_item);
+            txtRating = itemView.findViewById(R.id.rating);
 
-//            pg_cardview.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent = new Intent(context, PhotographerDetailsActivity.class);
-//                    context.startActivity(intent);
-//
-//                }
-//            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, PhotographerDetailsActivity.class);
+                    context.startActivity(intent);
 
+                }
+            });
         }
     }
 }

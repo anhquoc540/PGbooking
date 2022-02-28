@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="200dp"
     android:layout_height="200dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginStart="20dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginBottom="5dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
     tools:context=".adapter.CategoryItemsAdapter">
@@ -17,22 +17,23 @@
         <ImageView
             android:id="@+id/ivCategory"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="@string/image"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="@string/image" />
+            tools:ignore="ImageContrastCheck"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:paddingStart="10dp"
-            android:paddingEnd="3dp"
-            android:paddingBottom="3dp"
+            android:paddingEnd="5dp"
+            android:paddingVertical="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -42,24 +43,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="3dp"
-                android:text="Full Name"
+                android:text="@string/example_content"
                 android:textColor="#3E3D3D"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="@+id/btnMoreDetail"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/btnMoreDetail" />
+                app:layout_constraintTop_toTopOf="@+id/btnMoreDetail"
+                tools:ignore="TextContrastCheck" />
 
             <ImageButton
                 android:id="@+id/btnMoreDetail"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/circle"
+                android:backgroundTint="@color/pink"
+                android:contentDescription="@string/image"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/ic_navigate_next_24"
-                android:backgroundTint="@color/blue_1"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:contentDescription="@string/image" />
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

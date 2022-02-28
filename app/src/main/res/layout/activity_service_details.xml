@@ -195,7 +195,7 @@
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:contentDescription="avatar"
-                                app:srcCompat="@drawable/img_6" />
+                                app:srcCompat="@drawable/avt_2" />
                         </com.google.android.material.card.MaterialCardView>
 
 
@@ -274,7 +274,7 @@
                             android:theme="@style/rounded_shape"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/img_6" />
+                            app:srcCompat="@drawable/avt_2" />
 
                         <TextView
                             android:id="@+id/tvUsername2"
@@ -350,7 +350,7 @@
                             android:theme="@style/rounded_shape"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/img_6" />
+                            app:srcCompat="@drawable/avt_2" />
 
                         <TextView
                             android:id="@+id/tvUsername3"
