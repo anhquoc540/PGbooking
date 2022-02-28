@@ -63,8 +63,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
             if(charSequence.toString().isEmpty()){
                 filteredList.addAll(listPG);
             }else{
-                for (Photographer photographer: listPG
-                     ) {
+                for (Photographer photographer: listPG) {
                     if(photographer.getName().toLowerCase().contains(charSequence.toString())){
                         filteredList.add(photographer);
                     }

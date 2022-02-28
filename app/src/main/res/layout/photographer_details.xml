@@ -334,7 +334,7 @@
                 android:id="@+id/btnNext"
                 android:layout_width="38dp"
                 android:layout_height="100dp"
-                android:background="#707070"
+                android:background="#80707070"
                 android:contentDescription="@string/image"
                 android:src="@drawable/ic_navigate_next_24"
                 app:layout_constraintBottom_toBottomOf="@+id/viewFlipper"
@@ -346,7 +346,7 @@
                 android:id="@+id/btnPrevious"
                 android:layout_width="38dp"
                 android:layout_height="100dp"
-                android:background="#707070"
+                android:background="#80707070"
                 android:contentDescription="@string/image"
                 android:src="@drawable/ic_navigate_before_24"
                 app:layout_constraintBottom_toBottomOf="@+id/viewFlipper"
@@ -647,27 +647,19 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:background="@color/light_grey">
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/circle"
+        android:contentDescription="@string/image"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_navigate_before_24"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
-        <ImageButton
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#707070"
-            android:contentDescription="@string/image"
-            android:padding="10dp"
-            android:src="@drawable/ic_navigate_before_24"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-    </LinearLayout>
-
-<!--Bottom bar & Contact, Booking Button-->
+    <!--Bottom bar & Contact, Booking Button-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

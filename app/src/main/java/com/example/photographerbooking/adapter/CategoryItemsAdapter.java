@@ -66,7 +66,7 @@ public class CategoryItemsAdapter extends BaseAdapter {
         btnMoreDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("FAB", "clicked");
+                Log.d("FAB", "clicked" + i);
             }
         });
 

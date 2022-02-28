@@ -1,4 +1,4 @@
-package com.example.photographerbooking;
+package com.example.photographerbooking.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.example.photographerbooking.R;
 import com.example.photographerbooking.adapter.ServiceBannerAdapter;
 import com.example.photographerbooking.adapter.ServiceCommentAdapter;
 import com.example.photographerbooking.adapter.ServiceSlotAdapter;
