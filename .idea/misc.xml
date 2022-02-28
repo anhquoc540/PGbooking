@@ -49,6 +49,10 @@
         <entry key="..\:/PhotographerBooking/app/src/main/res/layout/photographer_item.xml" value="0.264" />
         <entry key="..\:/PhotographerBooking/app/src/main/res/layout/toolbar.xml" value="0.1921875" />
         <entry key="..\:/PhotographerBooking/app/src/main/res/menu/menu_item.xml" value="0.2490740740740741" />
+        <entry key="..\:/Users/ADMIN/Desktop/HCI201_repo/PGbooking/app/src/main/res/drawable/service_provider_icon.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/ADMIN/Desktop/HCI201_repo/PGbooking/app/src/main/res/layout/activity_all_review.xml" value="0.176" />
+        <entry key="..\:/Users/ADMIN/Desktop/HCI201_repo/PGbooking/app/src/main/res/layout/activity_service_details.xml" value="0.264" />
+        <entry key="..\:/Users/ADMIN/Desktop/HCI201_repo/PGbooking/app/src/main/res/layout/service_comment_item.xml" value="0.11614583333333334" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_1/PhotographerBooking/app/src/main/res/drawable/button_login.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_1/PhotographerBooking/app/src/main/res/drawable/circle.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_1/PhotographerBooking/app/src/main/res/drawable/custom_edit_text.xml" value="0.22447916666666667" />
@@ -60,39 +64,24 @@
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_1/PhotographerBooking/app/src/main/res/layout/fragment_booking.xml" value="0.20416666666666666" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable-v24/ic__star_24.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable-v24/ic_arrow1.xml" value="0.22447916666666667" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable-v24/ic_baseline_arrow_forward_ios_24.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable-v24/ic_baseline_search_24.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable-v24/round_button.xml" value="0.21666666666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable-v24/round_page_background.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable/border_top_rectangle.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable/circle.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable/edit_text_background.xml" value="0.21666666666666667" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_45.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable/ic_navigate_before_24.xml" value="0.22447916666666667" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable/ic_navigate_next_24.xml" value="0.22447916666666667" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable/ic_wave_blue.xml" value="0.22447916666666667" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable/photographer_icon2.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable/rectangle.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable/rectangle_button.xml" value="0.21666666666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/drawable/wallpaper_background.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/activity_authentication.xml" value="0.20416666666666666" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/activity_photographer_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/activity_search.xml" value="0.20416666666666666" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/activity_service_details.xml" value="0.264" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/activity_service_list.xml" value="0.17192982456140352" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/activity_sign_in.xml" value="0.264" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/activity_sign_up.xml" value="0.4" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/category_item.xml" value="0.4" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/fragment_booking.xml" value="0.20416666666666666" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/grid_item.xml" value="0.20416666666666666" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/photographer_details.xml" value="0.264" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/photographer_item.xml" value="0.264" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/service_comment_item.xml" value="0.17192982456140352" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/service_package_card.xml" value="0.4" />
+        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/activity_sign_in.xml" value="0.20416666666666666" />
+        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
+        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/photographer_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/photographer_item.xml" value="0.20416666666666666" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/layout/toolbar.xml" value="0.20416666666666666" />
-        <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_NEW/PGbooking/app/src/main/res/menu/menu_item.xml" value="0.20416666666666666" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/PhotographerBooking/app/src/main/res/layout/activity_main.xml" value="0.18697916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/PhotographerBooking/app/src/main/res/layout/fragment_booking.xml" value="0.20416666666666666" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/PhotographerBooking/app/src/main/res/layout/fragment_home.xml" value="0.1" />
@@ -114,5 +103,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
   </component>
 </project>
