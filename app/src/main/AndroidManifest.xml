@@ -10,22 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhotographerBooking">
         <activity
+            android:name=".all_review"
+            android:exported="false" />
+        <activity
             android:name=".authentication.SignUpActivity"
             android:exported="false" />
-        <activity android:name=".ServiceDetails" android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        <activity
+            android:name=".ServiceDetails"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".authentication.SignInActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
+            <!-- -->
         </activity>
         <activity
             android:name=".MainActivity"
@@ -34,6 +37,10 @@
             android:name=".SearchActivity"
             android:launchMode="singleTop" />
         <activity android:name=".home.PhotographerDetailsActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

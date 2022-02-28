@@ -37,10 +37,11 @@ public class ServiceCommentAdapter extends RecyclerView.Adapter<ServiceCommentAd
     public void onBindViewHolder(@NonNull ServiceCommentViewHolder holder, int position) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         ServiceComment comment = serviceCommentList.get(position);
-        holder.ratingBar.setRating((float) comment.getRatePoint());
+        holder.userRateBar.setRating((float) comment.getRatePoint());
         holder.tvCommentContent.setText(comment.getContent());
         holder.tvCommentDate.setText(comment.getCreateDate().format(formatter));
-        holder.ivIcon.setImageResource(R.drawable.avatar_small);
+        holder.tvUsername.setText(comment.getUsername());
+        holder.ivUserAvatarInner.setImageResource(R.drawable.avatar_small);
     }
 
     @Override
@@ -52,16 +53,15 @@ public class ServiceCommentAdapter extends RecyclerView.Adapter<ServiceCommentAd
         TextView tvUsername;
         TextView tvCommentDate;
         TextView tvCommentContent;
-        RatingBar ratingBar;
-        ImageView ivIcon;
-
+        RatingBar userRateBar;
+        ImageView ivUserAvatarInner;
         public ServiceCommentViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvUsername = itemView.findViewById(R.id.tv_username_1);
+            tvUsername = itemView.findViewById(R.id.tvUsername);
             tvCommentDate = itemView.findViewById(R.id.tvCommentDate);
             tvCommentContent = itemView.findViewById(R.id.tvCommentContent);
-            ivIcon = itemView.findViewById(R.id.service_account_avatar);
-            ratingBar = itemView.findViewById(R.id.ratingBar);
+            ivUserAvatarInner = itemView.findViewById(R.id.ivUserAvatarInner);
+            userRateBar = itemView.findViewById(R.id.userRateBar);
         }
     }
 }

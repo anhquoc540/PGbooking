@@ -50,6 +50,9 @@
         <entry key="..\:/PhotographerBooking/app/src/main/res/layout/toolbar.xml" value="0.1921875" />
         <entry key="..\:/PhotographerBooking/app/src/main/res/menu/menu_item.xml" value="0.2490740740740741" />
         <entry key="..\:/Users/ADMIN/Desktop/HCI201_repo/PGbooking/app/src/main/res/drawable/service_provider_icon.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/ADMIN/Desktop/HCI201_repo/PGbooking/app/src/main/res/layout/activity_all_review.xml" value="0.176" />
+        <entry key="..\:/Users/ADMIN/Desktop/HCI201_repo/PGbooking/app/src/main/res/layout/activity_service_details.xml" value="0.264" />
+        <entry key="..\:/Users/ADMIN/Desktop/HCI201_repo/PGbooking/app/src/main/res/layout/service_comment_item.xml" value="0.11614583333333334" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_1/PhotographerBooking/app/src/main/res/drawable/button_login.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_1/PhotographerBooking/app/src/main/res/drawable/circle.xml" value="0.22447916666666667" />
         <entry key="..\:/WORKPLACE/AndroidStudioRepo/ASM_HCI_1/PhotographerBooking/app/src/main/res/drawable/custom_edit_text.xml" value="0.22447916666666667" />
@@ -100,5 +103,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
   </component>
 </project>

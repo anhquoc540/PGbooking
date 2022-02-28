@@ -84,7 +84,7 @@ public class ServiceDetails extends AppCompatActivity {
         builder = MaterialDatePicker.Builder.datePicker();
 //        btnDateChoose = findViewById(R.id.btnDateChoose);
         photoService = new PhotoService();
-//        rvServiceComment = findViewById(R.id.rvServiceComment);
+        rvServiceComment = findViewById(R.id.rvServiceComment);
         config();
     }
 
@@ -189,15 +189,17 @@ public class ServiceDetails extends AppCompatActivity {
                 Log.i("select slot", id);
             }
         };
-
         slotAdapter = new ServiceSlotAdapter(this,serviceSlotList,itemOnClickListener);
         bannerAdapter = new ServiceBannerAdapter(this,bannerUrls);
         commentAdapter = new ServiceCommentAdapter(this,serviceCommentList);
 
         rvServiceBanner.setAdapter(bannerAdapter);
 //        rvServiceSlot.setAdapter(slotAdapter);
-//        rvServiceComment.setAdapter(commentAdapter);
-//        rvServiceComment.setLayoutManager(commentLayoutManager);
+        rvServiceComment.setAdapter(commentAdapter);
+        rvServiceComment.setNestedScrollingEnabled(false);
+        commentLayoutManager.setSmoothScrollbarEnabled(false);
+        rvServiceComment.setLayoutManager(commentLayoutManager);
+
 
 
         builder.setTitleText("Select Date");
