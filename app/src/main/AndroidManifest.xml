@@ -12,6 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhotographerBooking">
         <activity
+            android:name=".booking"
+            android:exported="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity
             android:name=".all_review"
             android:exported="false" />
         <activity
@@ -20,17 +28,20 @@
         <activity
             android:name=".home.ServiceDetails"
             android:exported="true">
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".authentication.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.ServiceListActivity"/>
+        <activity android:name=".home.ServiceListActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />

@@ -4,12 +4,22 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.RecoverySystem;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.adapter.NotificationAdapter;
+import com.example.photographerbooking.interfaces.ItemOnClickListener;
+import com.example.photographerbooking.model.Notification;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,9 +68,10 @@ public class NotificationFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
     @Override
     public void onResume() {
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         super.onResume();
     }
 
@@ -68,6 +79,32 @@ public class NotificationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notification, container, false);
+        View parent = inflater.inflate(R.layout.fragment_notification, container, false);
+        RecyclerView recyclerView = parent.findViewById(R.id.rvNotification);
+        List<Notification> notificationList = new ArrayList<>();
+        int id = 0;
+        while (id < 25) {
+            id = id + 1;
+            if (id < 5) {
+                notificationList.add(new Notification(id, "Your book on Maria wedding service has been declined", id + "", LocalDateTime.now().minusHours(2)));
+            } else if (id < 10) {
+                notificationList.add(new Notification(id, "Your book on Maria wedding service has been declined", id + "", LocalDateTime.now().minusDays(2)));
+            } else if (id < 15) {
+                notificationList.add(new Notification(id, "Your book on Maria wedding service has been declined", id + "", LocalDateTime.now().minusWeeks(2)));
+            }else if(id < 18){
+                notificationList.add(new Notification(id, "Your book on Maria wedding service has been declined", id + "", LocalDateTime.now().minusMonths(2)));
+            }else if(id < 22){
+                notificationList.add(new Notification(id, "Your book on Maria wedding service has been declined", id + "", LocalDateTime.now().minusYears(2)));
+            }
+        }
+        NotificationAdapter adapter = new NotificationAdapter(notificationList, this.getContext(), new ItemOnClickListener() {
+            @Override
+            public void OnItemClicked(String id) {
+
+            }
+        });
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        return parent;
     }
 }
