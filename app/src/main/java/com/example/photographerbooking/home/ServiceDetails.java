@@ -151,11 +151,11 @@ public class ServiceDetails extends AppCompatActivity {
         snapHelper.attachToRecyclerView(rvServiceBanner);
         rvServiceBanner.smoothScrollBy(5, 0);
 //        rvServiceSlot.setLayoutManager(gridLayoutManager);
-        photoService.setBanners(bannerUrls);
+        photoService.setBannerUrls(bannerUrls);
         photoService.setId(1l);
         photoService.setName("Wedding Service Event Photo");
-        photoService.setPrice(100.0d);
-        photoService.setDescription("Professional Photo Service for Wedding Service");
+        photoService.setPrice(100.0f);
+        photoService.setBundleLabel("Professional Photo Service for Wedding Service");
 
         bannerUrls.add("https://cdn.luxstay.com/home/apartment/apartment_1_1578970876.jpg");
         bannerUrls.add("https://cdn.luxstay.com/home/apartment/apartment_2_1578970932.jpg");

@@ -2,7 +2,6 @@ package com.example.photographerbooking.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.photographerbooking.R;
 import com.example.photographerbooking.adapter.CategoryItemsAdapter;
 import com.example.photographerbooking.adapter.PhotographerItemsAdapter;
+import com.example.photographerbooking.data.CategoryData;
+import com.example.photographerbooking.data.PhotographerData;
 import com.example.photographerbooking.home.PhotographerDetailsActivity;
 import com.example.photographerbooking.model.Category;
 import com.example.photographerbooking.model.Photographer;
@@ -30,6 +31,10 @@ public class HomeFragment extends Fragment implements PhotographerItemsAdapter.L
     private PhotographerItemsAdapter topPGAdapter, bookedGPAdapter, followedGPAdapter;
     private List<Category> listCategory = new ArrayList<>();
     private List<Photographer> listTopPG = new ArrayList<>();
+    private List<Photographer> listFollowedPG = new ArrayList<>();
+    private List<Photographer> listBookedPG = new ArrayList<>();
+    private PhotographerData dataPG = new PhotographerData();
+    private CategoryData dataCategory = new CategoryData();
 
     public HomeFragment() {
     }
@@ -50,49 +55,49 @@ public class HomeFragment extends Fragment implements PhotographerItemsAdapter.L
         setUpTopPG();
         setUpBookedPG();
         setUpFollowedPG();
-        setUpListCategory();
-
-        categoryAdapter = new CategoryItemsAdapter(this.getContext(), listCategory);
-        gvCategory.setAdapter(categoryAdapter);
-        gvCategory.setExpanded(true);
+        setUpGridCategory();
 
         return view;
     }
 
     private void setUpFollowedPG() {
-        listTopPG.add(new Photographer(1, "Amelia Brown", "4459 Wyatt Street, United States", "asdasd@gmail.com", 4.6F, R.drawable.avt_1));
-        listTopPG.add(new Photographer(2, "Victoria Israel", "Via del Campidoglio, Rome", "asdasd@gmail.com", 4.5F, R.drawable.avt_2));
+        for (int i = 1; i < dataPG.getMapFollowedPGSize() + 1; i++) {
+            listFollowedPG.add(dataPG.getPG("followed",i));
+        }
 
-        followedGPAdapter = new PhotographerItemsAdapter(listTopPG, this);
+        followedGPAdapter = new PhotographerItemsAdapter(listFollowedPG, this, "followed");
         rvFollowedPG.setAdapter(followedGPAdapter);
         rvFollowedPG.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
     }
 
     private void setUpBookedPG() {
-        listTopPG.add(new Photographer(1, "Amelia Brown", "4459 Wyatt Street, United States", "asdasd@gmail.com", 4.6F, R.drawable.avt_1));
-        listTopPG.add(new Photographer(2, "Victoria Israel", "Via del Campidoglio, Rome", "asdasd@gmail.com", 4.5F, R.drawable.avt_2));
+        for (int i = 1; i < dataPG.getMapBookedPGSize() + 1; i++) {
+            listBookedPG.add(dataPG.getPG("booked",i));
+        }
 
-        bookedGPAdapter = new PhotographerItemsAdapter(listTopPG, this);
+        bookedGPAdapter = new PhotographerItemsAdapter(listBookedPG, this, "booked");
         rvBookedPG.setAdapter(bookedGPAdapter);
         rvBookedPG.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
     }
 
     private void setUpTopPG() {
-        listTopPG.add(new Photographer(1, "Amelia Brown", "4459 Wyatt Street, United States", "asdasd@gmail.com", 4.6F, R.drawable.avt_1));
-        listTopPG.add(new Photographer(2, "Victoria Israel", "Via del Campidoglio, Rome", "asdasd@gmail.com", 4.5F, R.drawable.avt_2));
+        for (int i = 1; i < dataPG.getMapTopPGSize() + 1; i++) {
+            listTopPG.add(dataPG.getPG("top",i));
+        }
 
-        topPGAdapter = new PhotographerItemsAdapter(listTopPG, this);
+        topPGAdapter = new PhotographerItemsAdapter(listTopPG, this, "top");
         rvTopPG.setAdapter(topPGAdapter);
         rvTopPG.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
     }
 
-    private void setUpListCategory() {
-        listCategory.add(new Category(1,"Portrait", R.drawable.portrait_1));
-        listCategory.add(new Category(2,"Wedding", R.drawable.wedding_1));
-        listCategory.add(new Category(3,"Fashion", R.drawable.fashion_1));
-        listCategory.add(new Category(4,"Baby/Family", R.drawable.family_1));
-        listCategory.add(new Category(5,"Landscape", R.drawable.landscape_1));
-        listCategory.add(new Category(6,"Food", R.drawable.food_1));
+    private void setUpGridCategory() {
+        for (int i = 0; i < dataCategory.getMapCategorySize(); i++) {
+            listCategory.add(dataCategory.getCategory(i));
+        }
+
+        categoryAdapter = new CategoryItemsAdapter(this.getContext(), listCategory);
+        gvCategory.setAdapter(categoryAdapter);
+        gvCategory.setExpanded(true);
     }
 
     @Override
@@ -102,9 +107,10 @@ public class HomeFragment extends Fragment implements PhotographerItemsAdapter.L
     }
 
     @Override
-    public void onCardListClick(int clickedItemIndex) {
-        Log.d("PG Card", "clicked" + clickedItemIndex);
+    public void onCardListClick(int clickedItemIndex, String key) {
         Intent intent = new Intent(this.getActivity(), PhotographerDetailsActivity.class);
+        intent.putExtra("idPG", clickedItemIndex + 1);
+        intent.putExtra("keyPG", key);
         startActivity(intent);
         //getActivity().finish();
     }

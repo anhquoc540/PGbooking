@@ -1,27 +1,30 @@
 package com.example.photographerbooking.home;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.photographerbooking.MainActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.photographerbooking.R;
 import com.example.photographerbooking.adapter.ServicePackageAdapter;
-import com.example.photographerbooking.model.ServicePackage;
+import com.example.photographerbooking.data.ServiceData;
+import com.example.photographerbooking.model.PhotoService;
+import com.example.photographerbooking.model.Photographer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceListActivity extends AppCompatActivity implements ServicePackageAdapter.ListItemClickListener{
     private RecyclerView rvServiceList;
-    private List<ServicePackage> listServicePackage = new ArrayList<>();
+    private List<PhotoService> listServicePackage = new ArrayList<>();
     private ServicePackageAdapter servicePackageAdapter;
     private ImageButton btnBack;
+    private Photographer pg;
+    private ServiceData dataService = new ServiceData();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,12 @@ public class ServiceListActivity extends AppCompatActivity implements ServicePac
         rvServiceList = findViewById(R.id.rvServiceList);
         btnBack = findViewById(R.id.btnBack);
 
-        setUpServicePackage();
+        Intent intent = getIntent();
+        pg = (Photographer) intent.getSerializableExtra("pg");
+        int idCategory = intent.getIntExtra("idCategory",0);
+        List<Integer> serviceIds = intent.getIntegerArrayListExtra("serviceIds");
+
+        setUpServicePackage(idCategory, serviceIds);
 
         servicePackageAdapter = new ServicePackageAdapter(listServicePackage, this);
         rvServiceList.setAdapter(servicePackageAdapter);
@@ -43,15 +51,17 @@ public class ServiceListActivity extends AppCompatActivity implements ServicePac
                 Intent intent = new Intent(ServiceListActivity.this, PhotographerDetailsActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
-                finish();
+                //finish();
             }
         });
     }
 
-    private void setUpServicePackage() {
-        listServicePackage.add(new ServicePackage(R.drawable.wedding_1, null, null, null));
-        listServicePackage.add(new ServicePackage(R.drawable.food_1, null, null, null));
-        listServicePackage.add(new ServicePackage(R.drawable.wedding_1, null, null, null));
+    private void setUpServicePackage(int idCategory, List<Integer> serviceIds) {
+        for (int i : serviceIds) {
+            PhotoService service = dataService.getService(i);
+            if (service.getIdCategory() == idCategory)
+               listServicePackage.add(service);
+        }
     }
 
     @Override

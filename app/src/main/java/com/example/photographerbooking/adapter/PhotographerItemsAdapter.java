@@ -1,6 +1,5 @@
 package com.example.photographerbooking.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.photographerbooking.R;
 import com.example.photographerbooking.model.Photographer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerItemsAdapter.ItemViewHolder> {
     final private ListItemClickListener mOnClickListener;
-    private List<Photographer> listPG;
+    private List<Photographer> listPG = new ArrayList<>();
     private RatingBar rbAverageRating;
+    private String key;
 
-    public PhotographerItemsAdapter(List<Photographer> listPG, ListItemClickListener mOnClickListener) {
+    public PhotographerItemsAdapter(List<Photographer> listPG, ListItemClickListener mOnClickListener, String key) {
         this.listPG = listPG;
         this.mOnClickListener = mOnClickListener;
+        this.key = key;
     }
 
     @NonNull
@@ -49,7 +51,7 @@ public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerI
     }
 
     public interface ListItemClickListener {
-        void onCardListClick(int clickedItemIndex);
+        void onCardListClick(int clickedItemIndex, String key);
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -71,7 +73,7 @@ public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerI
         @Override
         public void onClick(View view) {
             int clickedPosition = getAdapterPosition();
-            mOnClickListener.onCardListClick(clickedPosition);
+            mOnClickListener.onCardListClick(clickedPosition, key);
         }
     }
 }

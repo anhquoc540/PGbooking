@@ -1,20 +1,29 @@
 package com.example.photographerbooking.model;
 
-public class Photographer {
-    int id;
-    int avatar;
-    String name;
-    String location;
-    String email;
-    float rating;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Photographer(int id, String name, String location, String email, float rating, int pg_avatar) {
+public class Photographer implements Serializable {
+    private int id;
+    private int avatar;
+    private String name;
+    private String location;
+    private String email;
+    private float rating;
+    private List<Integer> serviceIds = new ArrayList<>();
+    int[] d = {0,5};
+
+    public Photographer(int id, String name, String location, String email, float rating, int pg_avatar, int[] serviceIds) {
         this.id = id;
         this.name = name;
         this.location = location;
         this.email = email;
         this.rating = rating;
         this.avatar = pg_avatar;
+        for (int serviceId : serviceIds) {
+            this.serviceIds.add(serviceId);
+        }
     }
 
     public int getId() {
@@ -59,5 +68,13 @@ public class Photographer {
 
     public void setAvatar(int avatar) {
         this.avatar = avatar;
+    }
+
+    public List<Integer> getServiceIds() {
+        return serviceIds;
+    }
+
+    public void setServiceIds(List<Integer> serviceIds) {
+        this.serviceIds = serviceIds;
     }
 }
