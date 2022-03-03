@@ -127,7 +127,8 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edtStartTime"
-                            android:enabled="false"
+                            android:focusable="false"
+                            android:enabled="true"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -145,7 +146,7 @@
                         app:startIconTintMode="screen">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edtEndTime"
-                            android:enabled="false"
+                            android:enabled="true"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </com.google.android.material.textfield.TextInputLayout>

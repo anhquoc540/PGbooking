@@ -16,6 +16,7 @@ import com.example.photographerbooking.R;
 import com.example.photographerbooking.adapter.ServiceBannerAdapter;
 import com.example.photographerbooking.adapter.ServiceCommentAdapter;
 import com.example.photographerbooking.adapter.ServiceSlotAdapter;
+import com.example.photographerbooking.booking;
 import com.example.photographerbooking.interfaces.ItemOnClickListener;
 import com.example.photographerbooking.model.PhotoService;
 import com.example.photographerbooking.model.ServiceComment;
@@ -23,6 +24,7 @@ import com.example.photographerbooking.model.ServiceSlot;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -45,6 +47,7 @@ public class ServiceDetails extends AppCompatActivity {
     ServiceBannerAdapter bannerAdapter;
     ServiceCommentAdapter commentAdapter;
     Intent intent;
+    ExtendedFloatingActionButton btnCreateBook;
 
     Calendar calendar;
     MaterialDatePicker datePicker;
@@ -87,6 +90,11 @@ public class ServiceDetails extends AppCompatActivity {
         photoService = new PhotoService();
         rvServiceComment = findViewById(R.id.rvServiceComment);
         config();
+        btnCreateBook = findViewById(R.id.btnCreateBook);
+        btnCreateBook.setOnClickListener((view -> {
+            Intent intent = new Intent(this.getBaseContext(), booking.class);
+            startActivity(intent);
+        }));
     }
 
 
