@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.R;
@@ -40,12 +39,10 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
     @Override
     public void onBindViewHolder(@NonNull ResultViewHolder holder, int position) {
         Photographer photographer = listPG.get(position);
-        holder.photographer = photographer;
-        holder.pg_avatar.setImageResource(photographer.getPg_avatar());
+        holder.pg_avatar.setImageResource(photographer.getAvatar());
         holder.txtRating.setText(String.valueOf(photographer.getRating()));
         holder.txtName.setText(photographer.getName());
         holder.txtLocation.setText(photographer.getLocation());
-
     }
 
     @Override
@@ -65,8 +62,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
             if(charSequence.toString().isEmpty()){
                 filteredList.addAll(listPG);
             }else{
-                for (Photographer photographer: listPG
-                     ) {
+                for (Photographer photographer: listPG) {
                     if(photographer.getName().toLowerCase().contains(charSequence.toString())){
                         filteredList.add(photographer);
                     }
@@ -92,21 +88,16 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
         TextView txtLocation;
         TextView txtRating;
         ImageView pg_avatar;
-        CardView pg_cardview;
-
-
-        Photographer photographer;
 
         public ResultViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            txtName = itemView.findViewById(R.id.pg_name);
-            pg_avatar = itemView.findViewById(R.id.pg_avatar);
-            txtLocation = itemView.findViewById(R.id.pg_location);
-            txtRating = itemView.findViewById(R.id.pg_rating);
-            pg_cardview = itemView.findViewById(R.id.pg_item);
+            txtName = itemView.findViewById(R.id.fullName);
+            pg_avatar = itemView.findViewById(R.id.ivPhotographer);
+            txtLocation = itemView.findViewById(R.id.address);
+            txtRating = itemView.findViewById(R.id.rating);
 
-            pg_cardview.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, PhotographerDetailsActivity.class);
@@ -114,7 +105,6 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
 
                 }
             });
-
         }
     }
 }

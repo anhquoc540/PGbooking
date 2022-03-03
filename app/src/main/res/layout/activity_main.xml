@@ -16,12 +16,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/frame_layout"/>
+        android:id="@+id/frameLayout"/>
 
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottom_navigation"
+        android:id="@+id/bottomNavigation"
         app:mbn_circleColor="@color/white"
         app:mbn_selectedIconColor="@color/selected_icon"
         app:mbn_countTextColor="@color/white"

@@ -20,7 +20,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:contentDescription="@string/comment_owner"
-            app:srcCompat="@drawable/img_6" />
+            app:srcCompat="@drawable/avt_3" />
     </com.google.android.material.card.MaterialCardView>
     <TextView
         android:id="@+id/tvUsername"

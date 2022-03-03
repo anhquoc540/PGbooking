@@ -2,27 +2,30 @@ package com.example.photographerbooking.model;
 
 
 import java.util.List;
-import java.util.Set;
 
 public class PhotoService {
     private Long id;
     private String name;
-    private String description;
-    private double price;
+    private String bundleLabel;
+    private float price;
+    private float rating;
+    private int representativeImg;
     private List<String> bannerUrls;
+    private int idCategory;
 
     public PhotoService() {
     }
 
-    public PhotoService(Long id, String name, String description, double price, List<String> bannerUrls) {
+    public PhotoService(Long id, String name, String bundleLabel, float price, float rating, int representativeImg, List<String> bannerUrls, int idCategory) {
         this.id = id;
         this.name = name;
-        this.description = description;
+        this.bundleLabel = bundleLabel;
         this.price = price;
+        this.rating = rating;
+        this.representativeImg = representativeImg;
         this.bannerUrls = bannerUrls;
+        this.idCategory = idCategory;
     }
-
-
 
     public Long getId() {
         return id;
@@ -40,27 +43,51 @@ public class PhotoService {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getBundleLabel() {
+        return bundleLabel;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setBundleLabel(String bundleLabel) {
+        this.bundleLabel = bundleLabel;
     }
 
-    public double getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
-    public List<String> getBanners() {
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public int getRepresentativeImg() {
+        return representativeImg;
+    }
+
+    public void setRepresentativeImg(int representativeImg) {
+        this.representativeImg = representativeImg;
+    }
+
+    public List<String> getBannerUrls() {
         return bannerUrls;
     }
 
-    public void setBanners(List<String> banners) {
-        this.bannerUrls = banners;
+    public void setBannerUrls(List<String> bannerUrls) {
+        this.bannerUrls = bannerUrls;
+    }
+
+    public int getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
     }
 }

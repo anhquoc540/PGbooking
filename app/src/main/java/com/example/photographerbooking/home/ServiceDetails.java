@@ -1,4 +1,4 @@
-package com.example.photographerbooking;
+package com.example.photographerbooking.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.example.photographerbooking.R;
 import com.example.photographerbooking.adapter.ServiceBannerAdapter;
 import com.example.photographerbooking.adapter.ServiceCommentAdapter;
 import com.example.photographerbooking.adapter.ServiceSlotAdapter;
@@ -150,11 +151,11 @@ public class ServiceDetails extends AppCompatActivity {
         snapHelper.attachToRecyclerView(rvServiceBanner);
         rvServiceBanner.smoothScrollBy(5, 0);
 //        rvServiceSlot.setLayoutManager(gridLayoutManager);
-        photoService.setBanners(bannerUrls);
+        photoService.setBannerUrls(bannerUrls);
         photoService.setId(1l);
         photoService.setName("Wedding Service Event Photo");
-        photoService.setPrice(100.0d);
-        photoService.setDescription("Professional Photo Service for Wedding Service");
+        photoService.setPrice(100.0f);
+        photoService.setBundleLabel("Professional Photo Service for Wedding Service");
 
         bannerUrls.add("https://cdn.luxstay.com/home/apartment/apartment_1_1578970876.jpg");
         bannerUrls.add("https://cdn.luxstay.com/home/apartment/apartment_2_1578970932.jpg");

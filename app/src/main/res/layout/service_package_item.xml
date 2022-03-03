@@ -2,10 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="150dp"
+    android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginBottom="10dp"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="10dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp">
 
@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/ivPhotographer"
+            android:id="@+id/serviceImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/image"
@@ -24,43 +24,42 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ImageContrastCheck"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:srcCompat="@drawable/wedding_1" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="65dp"
             android:background="#FFFFFF"
             android:paddingHorizontal="10dp"
-            android:paddingBottom="5dp"
+            android:paddingBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                android:id="@+id/fullName"
-                android:layout_width="match_parent"
+                android:id="@+id/serviceName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="3dp"
-                android:text="Full Name"
+                android:text="Wedding"
                 android:textColor="@color/black"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/address"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/rating"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/address"
-                android:layout_width="match_parent"
+                android:id="@+id/priceLabel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Address"
+                android:layout_marginEnd="10dp"
+                android:maxLines="1"
+                android:text="Price per hour"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                android:maxLines="1"
-                app:layout_constraintBottom_toTopOf="@+id/rating"
+                app:layout_constraintBottom_toBottomOf="@+id/serviceName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fullName" />
+                app:layout_constraintTop_toTopOf="@+id/serviceName" />
 
             <TextView
                 android:id="@+id/rating"
@@ -87,6 +86,18 @@
                 app:layout_constraintStart_toEndOf="@+id/rating"
                 app:layout_constraintTop_toTopOf="@+id/rating" />
 
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="$ 80"
+                android:textColor="#009688"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/priceLabel"
+                tools:ignore="TextContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

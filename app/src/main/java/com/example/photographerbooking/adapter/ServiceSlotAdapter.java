@@ -13,7 +13,6 @@ import com.example.photographerbooking.interfaces.ItemOnClickListener;
 import com.example.photographerbooking.model.ServiceSlot;
 import com.google.android.material.chip.Chip;
 
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 

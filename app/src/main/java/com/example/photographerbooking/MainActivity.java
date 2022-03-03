@@ -1,15 +1,14 @@
 package com.example.photographerbooking;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.photographerbooking.fragment.BookingFragment;
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomNavigation = findViewById(R.id.bottom_navigation);
+        bottomNavigation = findViewById(R.id.bottomNavigation);
 
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_baseline_home_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_baseline_calendar_24));
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private void loadFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frame_layout, fragment)
+                .replace(R.id.frameLayout, fragment)
                 .commit();
     }
     private void loadToolbar(){
@@ -84,8 +83,6 @@ public class MainActivity extends AppCompatActivity {
         toolbarWidget = (Toolbar) findViewById(R.id.myToolBar);
 
         toolbarWidget.setTitle("Linslus");
-
-        toolbarWidget.setNavigationIcon(R.drawable.photographer_icon2);
 
         setSupportActionBar(toolbarWidget);
     }
@@ -97,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Fragment fragment = null;
         switch (item.getItemId()){
             case R.id.app_bar_search:
                 Intent intent = new Intent(MainActivity.this,SearchActivity.class);
