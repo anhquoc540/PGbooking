@@ -18,7 +18,7 @@ import java.util.List;
 
 public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerItemsAdapter.ItemViewHolder> {
     final private ListItemClickListener mOnClickListener;
-    private List<Photographer> listPG = new ArrayList<>();
+    private List<Photographer> listPG;
     private RatingBar rbAverageRating;
     private String key;
 
