@@ -4,7 +4,7 @@
     android:id="@+id/myToolBar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/blue_1"
+    android:background="@color/blue"
     android:theme="@style/ThemeOverlay.AppCompat.Light"
     app:title="PhotographerBooking"
     app:titleTextColor="@color/white"
