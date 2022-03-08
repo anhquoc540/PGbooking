@@ -7,10 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="selected_icon">#3c415e</color>
+    <color name="selected_icon">#4CB0FF</color>
     <color name="primary_color">#3c415e</color>
     <color name="separate_line">#80B3B3B3</color>
-    <color name="one">#161853</color>
+    <color name="one">#00022F</color>
     <color name="two">#292C6D</color>
     <color name="three">#FAEDF0</color>
     <color name="red">#FF0048</color>
@@ -20,5 +20,7 @@
     <color name="light_pink">#EAD4D9</color>
     <color name="blue_1">#292C6D</color>
     <color name="blue_2">#161853</color>
-    <color name="white_10">#0DFCFCFC</color>
+    <color name="blue">#4CB0FF</color>
+    <color name="pink_2">#FC618A</color>
+    <color name="test">#005395</color>
 </resources>

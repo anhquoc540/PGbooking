@@ -3,6 +3,8 @@ package com.example.photographerbooking.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +14,11 @@ import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+<<<<<<< HEAD
 import com.example.photographerbooking.ActivityStepViewBooking;
+=======
+import com.example.photographerbooking.MainActivity;
+>>>>>>> dev2
 import com.example.photographerbooking.R;
 import com.example.photographerbooking.adapter.ServiceBannerAdapter;
 import com.example.photographerbooking.adapter.ServiceCommentAdapter;
@@ -57,6 +63,7 @@ public class ServiceDetails extends AppCompatActivity {
     TimerTask task;
     MaterialButton btnDateChoose;
     private int position;
+    ImageButton btnBack;
 
 
     private static Calendar getClearedUtc() {
@@ -70,10 +77,20 @@ public class ServiceDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_details);
         binding();
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ServiceDetails.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     protected void binding(){
         intent = getIntent();
+        btnBack = findViewById(R.id.btnBack);
         rvServiceBanner = findViewById(R.id.rvServiceBanner);
 //        rvServiceSlot = findViewById(R.id.rvServiceSlot);
 

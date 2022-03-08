@@ -659,10 +659,10 @@
         android:id="@+id/btnBack"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:background="@drawable/circle"
-        android:contentDescription="@string/image"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/circle"
+        android:contentDescription="@string/image"
         android:padding="10dp"
         android:src="@drawable/ic_navigate_before_24"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
