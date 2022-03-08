@@ -26,6 +26,15 @@ public class Photographer implements Serializable {
         }
     }
 
+    public Photographer(int id, String amelia_brown, String location, String email, float rating, int pg_avatar) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.email = email;
+        this.rating = rating;
+        this.avatar = pg_avatar;
+    }
+
     public int getId() {
         return id;
     }

@@ -36,7 +36,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:hint="Delivery Address"
-
                     app:hintTextAppearance="?attr/textAppearanceCaption"
                     app:startIconDrawable="@drawable/delivery_loc_24_1">
 
@@ -112,13 +111,14 @@
                     android:weightSum="10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/outlinedTextFieldStartTime"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:layout_width="0dp"
-                        android:layout_weight="5"
+                        android:layout_width="360dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="16dp"
+                        android:layout_weight="5"
                         android:hint="Start time"
                         app:hintTextAppearance="?attr/textAppearanceCaption"
                         app:startIconDrawable="@drawable/clock_begin_24"
@@ -127,28 +127,10 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edtStartTime"
-                            android:focusable="false"
-                            android:enabled="true"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-                    </com.google.android.material.textfield.TextInputLayout>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/outlinedTextFieldEndTime"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:layout_width="0dp"
-                        android:layout_weight="5"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:hint="Finish time"
-                        app:hintTextAppearance="?attr/textAppearanceCaption"
-                        app:startIconDrawable="@drawable/clock_end_24"
-                        app:startIconTint="@color/white_10"
-                        app:startIconTintMode="screen">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edtEndTime"
+                            android:layout_height="wrap_content"
                             android:enabled="true"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:focusable="false" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 

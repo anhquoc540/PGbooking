@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Blank1Fragment"
+    android:background="@color/three">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Date &amp; Time"
+        android:textSize="50dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="376dp"
+        android:layout_height="405dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="17dp"
+        android:padding="15dp"
+        app:cardCornerRadius="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <DatePicker
+                android:id="@+id/datePicker"
+                android:layout_width="269dp"
+                android:layout_height="131dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="51dp"
+                android:layout_marginTop="68dp"
+                android:layout_marginEnd="48dp"
+                android:background="@drawable/rectangle"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner" />
+
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:layout_width="269dp"
+                android:layout_height="131dp"
+                android:layout_below="@+id/datePicker"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="51dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginBottom="21dp"
+                android:background="@drawable/rectangle"
+                android:timePickerMode="spinner" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="123dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="212dp"
+                android:layout_marginEnd="244dp"
+                android:paddingStart="15dp"
+                android:text="Time :"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="123dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="244dp"
+                android:paddingStart="15dp"
+                android:text="Date :"
+                android:textSize="30dp" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

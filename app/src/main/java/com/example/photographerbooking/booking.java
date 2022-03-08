@@ -19,7 +19,7 @@ public class booking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
         button = findViewById(R.id.btnCreateBook);
-        outlinedTextFieldEndTime = findViewById(R.id.edtEndTime);
+
         outlinedTextFieldStartTime = findViewById(R.id.edtStartTime);
 
         outlinedTextFieldStartTime.setOnClickListener((view) ->{

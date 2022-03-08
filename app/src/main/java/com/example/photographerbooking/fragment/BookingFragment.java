@@ -2,22 +2,37 @@ package com.example.photographerbooking.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.SpaceItemDecoration;
+import com.example.photographerbooking.adapter.CategoryItemsAdapter;
+import com.example.photographerbooking.adapter.PhotographerItemsAdapter;
+import com.example.photographerbooking.adapter.ResultAdapter;
+import com.example.photographerbooking.model.Photographer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link BookingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BookingFragment extends Fragment {
-
+public class BookingFragment extends Fragment implements View.OnClickListener{
+    ResultAdapter adapter;
+    RecyclerView recyclerView;
+    List<Photographer> list ;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -68,5 +83,32 @@ public class BookingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_booking, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        list = new ArrayList<>();
+      list.add(new Photographer(1,"Amelia Brown","4459 Wyatt Street, United States","asdasd@gmail.com",4.6F,R.drawable.avt_1));
+//        list.add(new Photographer(2,"Peter Parker","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
+//        list.add(new Photographer(3,"Rose Morouse","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
+//        list.add(new Photographer(4,"Quincy Fesh","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
+        recyclerView = getView().findViewById(R.id.rvListBooking);
+        adapter = new ResultAdapter(getContext(),list);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                linearLayoutManager.getOrientation());
+        recyclerView.addItemDecoration(new SpaceItemDecoration(10));
+        recyclerView.addItemDecoration(dividerItemDecoration);
+        for (int i = 0; i < recyclerView.getItemDecorationCount(); i++) {
+            if (recyclerView.getItemDecorationAt(i) instanceof DividerItemDecoration)
+                recyclerView.removeItemDecorationAt(i);
+        }
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.example.photographerbooking.ActivityStepViewBooking;
 import com.example.photographerbooking.R;
 import com.example.photographerbooking.adapter.ServiceBannerAdapter;
 import com.example.photographerbooking.adapter.ServiceCommentAdapter;
@@ -92,7 +93,7 @@ public class ServiceDetails extends AppCompatActivity {
         config();
         btnCreateBook = findViewById(R.id.btnCreateBook);
         btnCreateBook.setOnClickListener((view -> {
-            Intent intent = new Intent(this.getBaseContext(), booking.class);
+            Intent intent = new Intent(this.getBaseContext(), ActivityStepViewBooking.class);
             startActivity(intent);
         }));
     }
