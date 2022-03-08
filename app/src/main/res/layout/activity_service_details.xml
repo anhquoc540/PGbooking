@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:cardBackgroundColor="@color/white"
+    android:orientation="vertical"
     tools:context="home.ServiceDetails">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,8 +20,8 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/white"
-                app:cardElevation="30dp">
+                app:cardBackgroundColor="@color/light_grey"
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -29,6 +30,7 @@
                     android:padding="16dp">
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:backgroundTint="@color/light_grey"
                         android:id="@+id/rvServiceBanner"
                         android:layout_width="match_parent"
                         android:layout_height="180dp"
@@ -289,7 +291,7 @@
 
                                 <com.google.android.material.button.MaterialButton
                                     style="@style/Widget.AppCompat.Button.Borderless"
-                                    android:text="Read all"
+                                    android:text="All Review"
                                     android:textColor="@color/blue_1"
                                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                                     android:layout_marginTop="5dp"
@@ -310,4 +312,17 @@
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btnCreateBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Book"
+        android:textAlignment="center"
+        android:backgroundTint="@color/pink"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:clickable="true"
+        android:layout_gravity="bottom|right|center"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -66,5 +66,3 @@ public class CategoryItemsAdapter extends BaseAdapter {
         return view;
     }
 }
-
-

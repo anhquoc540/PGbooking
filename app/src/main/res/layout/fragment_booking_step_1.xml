@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.stepview.BookFragmentStep1"
+    android:background="@color/three">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Shooting Place"
+        android:textSize="50dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="376dp"
+        android:layout_height="405dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="17dp"
+        android:padding="15dp"
+        app:cardCornerRadius="20dp">
+
+        <RelativeLayout
+            android:layout_width="399dp"
+            android:layout_height="match_parent">
+
+
+            <Spinner
+                android:id="@+id/spinnerWard"
+                android:layout_width="350dp"
+                android:layout_height="51dp"
+                android:layout_below="@+id/textView4"
+                android:layout_alignStart="@+id/textView4"
+                android:layout_marginStart="-1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@drawable/rectangle"
+                android:paddingHorizontal="20dp"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:id="@+id/spinnerTown"
+                android:layout_width="349dp"
+                android:layout_height="52dp"
+                android:layout_below="@+id/textView3"
+                android:layout_alignStart="@+id/textView3"
+                android:layout_alignEnd="@+id/spinnerWard"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/rectangle"
+                android:paddingHorizontal="20dp"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:id="@+id/spinnerCity"
+                android:layout_width="350dp"
+                android:layout_height="51dp"
+                android:layout_alignStart="@+id/textView2"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@drawable/rectangle"
+                android:paddingHorizontal="20dp"
+                android:spinnerMode="dropdown" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="16dp"
+                android:text="Choose your city:" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="112dp"
+                android:text="Choose your town/district" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="213dp"
+                android:text="Choose your ward :" />
+
+            <EditText
+                android:id="@+id/textAddress"
+                android:layout_width="340dp"
+                android:layout_height="46dp"
+                android:layout_below="@+id/spinnerCity"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="228dp"
+                android:layout_marginEnd="47dp"
+                android:layout_marginBottom="12dp"
+                android:hint="Your Address"
+                tools:ignore="TextContrastCheck"
+                android:imeOptions="actionDone"
+                android:inputType="text"/>.
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
