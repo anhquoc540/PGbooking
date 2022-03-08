@@ -15,16 +15,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.adapter.ResultAdapter;
+import com.example.photographerbooking.adapter.SearchItemAdapter;
+import com.example.photographerbooking.data.PhotographerData;
+import com.example.photographerbooking.model.PhotoService;
 import com.example.photographerbooking.model.Photographer;
+import com.example.photographerbooking.util.Utilities;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
     RecyclerView recyclerView ;
-    ResultAdapter resultAdapter;
-    List<Photographer> list;
+    SearchItemAdapter resultAdapter;
+    List<PhotoService> list;
     Toolbar myToolbar;
+    PhotographerData dataPG= new PhotographerData();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +49,12 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         list = new ArrayList<>();
-//        list.add(new Photographer(1,"Amelia Brown","4459 Wyatt Street, United States","asdasd@gmail.com",4.6F,R.drawable.avt_1));
-//        list.add(new Photographer(2,"Peter Parker","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
-//        list.add(new Photographer(3,"Rose Morouse","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
-//        list.add(new Photographer(4,"Quincy Fesh","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
+        for (int i = 1; i < dataPG.getMapTopPGSize(); i++) {
+            list.addAll(Utilities.getPhotoServices());
+        }
+
         recyclerView = findViewById(R.id.rvResultList1);
-        resultAdapter = new ResultAdapter(this,list);
+        resultAdapter = new SearchItemAdapter(this,list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),

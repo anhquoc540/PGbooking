@@ -145,7 +145,7 @@ public class PhotographerDetailsActivity extends AppCompatActivity implements Ca
     public void onCardListClick(int clickedItemIndex) {
         Intent intent = new Intent(PhotographerDetailsActivity.this, ServiceListActivity.class);
         Bundle bundle = new Bundle();
-        intent.putExtra("pg", pg);
+        intent.putExtra("idPG", pg.getId());
         intent.putExtra("idCategory", listCategory.get(clickedItemIndex).getId());
         ArrayList<Integer> serviceIds = (ArrayList<Integer>) pg.getServiceIds();
         intent.putExtra("serviceIds", serviceIds);

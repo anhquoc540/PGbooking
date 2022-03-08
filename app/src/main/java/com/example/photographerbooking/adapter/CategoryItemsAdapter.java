@@ -1,6 +1,8 @@
 package com.example.photographerbooking.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.home.ServiceListActivity;
 import com.example.photographerbooking.model.Category;
 
 import java.util.List;
@@ -19,10 +22,12 @@ public class CategoryItemsAdapter extends BaseAdapter {
     private Context context;
     private List<Category> listCategory;
     private LayoutInflater inflater;
+    private GridItemClickListener mOnClickListener;
 
-    public CategoryItemsAdapter(Context context, List<Category> listCategory) {
+    public CategoryItemsAdapter(Context context, List<Category> listCategory, GridItemClickListener mOnClickListener) {
         this.context = context;
         this.listCategory = listCategory;
+        this.mOnClickListener = mOnClickListener;
     }
 
     @Override
@@ -38,6 +43,10 @@ public class CategoryItemsAdapter extends BaseAdapter {
     @Override
     public long getItemId(int i) {
         return 0;
+    }
+
+    public interface GridItemClickListener {
+        void onCardGridClick(int clickedItemIndex);
     }
 
     @Override
@@ -60,6 +69,7 @@ public class CategoryItemsAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Log.d("FAB", "clicked" + i);
+                mOnClickListener.onCardGridClick(i);
             }
         });
 

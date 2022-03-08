@@ -17,6 +17,7 @@ import com.example.photographerbooking.adapter.PhotographerItemsAdapter;
 import com.example.photographerbooking.data.CategoryData;
 import com.example.photographerbooking.data.PhotographerData;
 import com.example.photographerbooking.home.PhotographerDetailsActivity;
+import com.example.photographerbooking.home.ServiceListActivity;
 import com.example.photographerbooking.model.Category;
 import com.example.photographerbooking.model.Photographer;
 import com.example.photographerbooking.util.ExpandableHeightGridView;
@@ -24,7 +25,7 @@ import com.example.photographerbooking.util.ExpandableHeightGridView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment implements PhotographerItemsAdapter.ListItemClickListener {
+public class HomeFragment extends Fragment implements PhotographerItemsAdapter.ListItemClickListener, CategoryItemsAdapter.GridItemClickListener {
     private RecyclerView rvTopPG, rvBookedPG, rvFollowedPG;
     private ExpandableHeightGridView gvCategory;
     private CategoryItemsAdapter categoryAdapter;
@@ -95,7 +96,7 @@ public class HomeFragment extends Fragment implements PhotographerItemsAdapter.L
             listCategory.add(dataCategory.getCategory(i));
         }
 
-        categoryAdapter = new CategoryItemsAdapter(this.getContext(), listCategory);
+        categoryAdapter = new CategoryItemsAdapter(this.getContext(), listCategory, this);
         gvCategory.setAdapter(categoryAdapter);
         gvCategory.setExpanded(true);
     }
@@ -113,5 +114,12 @@ public class HomeFragment extends Fragment implements PhotographerItemsAdapter.L
         intent.putExtra("keyPG", key);
         startActivity(intent);
         //getActivity().finish();
+    }
+
+    @Override
+    public void onCardGridClick(int clickedItemIndex) {
+        Intent intent = new Intent(this.getActivity(), ServiceListActivity.class);
+        intent.putExtra("idCategory", listCategory.get(clickedItemIndex).getId());
+        startActivity(intent);
     }
 }

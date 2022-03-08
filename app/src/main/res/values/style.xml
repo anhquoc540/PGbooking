@@ -4,7 +4,7 @@
         <item name="cornerSize">4dp</item>
         <item name="cornerFamily">rounded</item>
     </style>
-    <style name="circle_shape" parent="ShapeAppearance.Material3.SmallComponent">
+    <style name="circle_shape" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerSize">20dp</item>
         <item name="cornerFamily">rounded</item>
     </style>

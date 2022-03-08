@@ -54,4 +54,7 @@
     <string name="rating_example">4.6</string>
     <string name="comment_owner">Owner</string>
     <string name="sample_comment">Photographer A chup dep qua</string>
+    <string name="service_name">Marketing Photo Service</string>
+    <string name="service_price">$80.99</string>
+    <string name="service_rate">4.5</string>
 </resources>
