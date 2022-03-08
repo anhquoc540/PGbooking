@@ -85,7 +85,7 @@ public class ServiceListActivity extends AppCompatActivity implements ServicePac
     }
 
     @Override
-    public void onCardListClick(int clickedItemIndex) {
+    public void onServiceCardClick(int clickedItemIndex) {
         Intent intent = new Intent(this, ServiceDetails.class);
         startActivity(intent);
     }

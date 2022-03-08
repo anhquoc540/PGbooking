@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -12,30 +13,34 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.adapter.CategoryFilterAdapter;
 import com.example.photographerbooking.adapter.CategoryItemsAdapter;
+import com.example.photographerbooking.adapter.HotDealAdapter;
 import com.example.photographerbooking.adapter.PhotographerItemsAdapter;
-import com.example.photographerbooking.data.CategoryData;
-import com.example.photographerbooking.data.PhotographerData;
+import com.example.photographerbooking.adapter.ServicePackageAdapter;
+import com.example.photographerbooking.adapter.ServicePackageAdapter2;
+import com.example.photographerbooking.data.ServiceData;
 import com.example.photographerbooking.home.PhotographerDetailsActivity;
-import com.example.photographerbooking.home.ServiceListActivity;
-import com.example.photographerbooking.model.Category;
-import com.example.photographerbooking.model.Photographer;
+import com.example.photographerbooking.home.ServiceDetails;
+import com.example.photographerbooking.model.PhotoService;
 import com.example.photographerbooking.util.ExpandableHeightGridView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment implements PhotographerItemsAdapter.ListItemClickListener, CategoryItemsAdapter.GridItemClickListener {
-    private RecyclerView rvTopPG, rvBookedPG, rvFollowedPG;
-    private ExpandableHeightGridView gvCategory;
-    private CategoryItemsAdapter categoryAdapter;
-    private PhotographerItemsAdapter topPGAdapter, bookedGPAdapter, followedGPAdapter;
-    private List<Category> listCategory = new ArrayList<>();
-    private List<Photographer> listTopPG = new ArrayList<>();
-    private List<Photographer> listFollowedPG = new ArrayList<>();
-    private List<Photographer> listBookedPG = new ArrayList<>();
-    private PhotographerData dataPG = new PhotographerData();
-    private CategoryData dataCategory = new CategoryData();
+public class HomeFragment extends Fragment implements ServicePackageAdapter.ListItemClickListener,
+                ServicePackageAdapter2.ListItemClickListener, HotDealAdapter.ListItemClickListener{
+    private RecyclerView rvCategoryFilter, rvTopServices, rvHotDeals, rvRecommendServices;
+    private ExpandableHeightGridView gvMoreServices;;
+    private CategoryFilterAdapter categoryFilterAdapter;
+    private ServicePackageAdapter topServicesAdapter, recommendServicesAdapter;
+    private HotDealAdapter hotDealsAdapter;
+    private ServicePackageAdapter2 moreServicesAdapter;
+    private List<PhotoService> listTopServices = new ArrayList<>();
+    private List<PhotoService> listHotDeals = new ArrayList<>();
+    private List<PhotoService> listRecommendServices = new ArrayList<>();
+    private List<PhotoService> listMoreServices = new ArrayList<>();
+    private ServiceData dataService = new ServiceData();
 
     public HomeFragment() {
     }
@@ -48,57 +53,68 @@ public class HomeFragment extends Fragment implements PhotographerItemsAdapter.L
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        rvTopPG = view.findViewById(R.id.rvTopPG);
-        rvBookedPG = view.findViewById(R.id.rvBookedPG);
-        rvFollowedPG = view.findViewById(R.id.rvFollowedPG);
-        gvCategory = view.findViewById(R.id.gvCategory);
+        rvCategoryFilter = view.findViewById(R.id.rvCategoryFilter);
+        rvTopServices = view.findViewById(R.id.rvTopServices);
+        rvHotDeals = view.findViewById(R.id.rvHotDeals);
+        rvRecommendServices = view.findViewById(R.id.rvRecommendServices);
+        gvMoreServices = view.findViewById(R.id.gvMoreServices);
 
-        setUpTopPG();
-        setUpBookedPG();
-        setUpFollowedPG();
-        setUpGridCategory();
+        setUpCategoryFilter();
+        setUpTopServices();
+        setUpRecommendServices();
+        setUpHotDeals();
+        setUpMoreServices();
 
         return view;
     }
 
-    private void setUpFollowedPG() {
-        for (int i = 1; i < dataPG.getMapFollowedPGSize() + 1; i++) {
-            listFollowedPG.add(dataPG.getPG("followed",i));
-        }
-
-        followedGPAdapter = new PhotographerItemsAdapter(listFollowedPG, this, "followed");
-        rvFollowedPG.setAdapter(followedGPAdapter);
-        rvFollowedPG.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
+    private void setUpCategoryFilter() {
+        categoryFilterAdapter = new CategoryFilterAdapter(null);
+        rvCategoryFilter.setAdapter(categoryFilterAdapter);
+        rvCategoryFilter.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
     }
 
-    private void setUpBookedPG() {
-        for (int i = 1; i < dataPG.getMapBookedPGSize() + 1; i++) {
-            listBookedPG.add(dataPG.getPG("booked",i));
-        }
+    private void setUpTopServices() {
+        listTopServices.add(dataService.getService(6));
+        listTopServices.add(dataService.getService(4));
+        listTopServices.add(dataService.getService(3));
 
-        bookedGPAdapter = new PhotographerItemsAdapter(listBookedPG, this, "booked");
-        rvBookedPG.setAdapter(bookedGPAdapter);
-        rvBookedPG.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
+        topServicesAdapter = new ServicePackageAdapter(listTopServices, this);
+        rvTopServices.setAdapter(topServicesAdapter);
+        rvTopServices.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
     }
 
-    private void setUpTopPG() {
-        for (int i = 1; i < dataPG.getMapTopPGSize() + 1; i++) {
-            listTopPG.add(dataPG.getPG("top",i));
-        }
+    private void setUpHotDeals() {
+        listHotDeals.add(dataService.getService(6));
+        listHotDeals.add(dataService.getService(4));
+        listHotDeals.add(dataService.getService(5));
+        listHotDeals.add(dataService.getService(6));
 
-        topPGAdapter = new PhotographerItemsAdapter(listTopPG, this, "top");
-        rvTopPG.setAdapter(topPGAdapter);
-        rvTopPG.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
+        hotDealsAdapter = new HotDealAdapter(listHotDeals, this);
+        rvHotDeals.setAdapter(hotDealsAdapter);
+        rvHotDeals.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
     }
 
-    private void setUpGridCategory() {
-        for (int i = 0; i < dataCategory.getMapCategorySize(); i++) {
-            listCategory.add(dataCategory.getCategory(i));
-        }
+    private void setUpRecommendServices() {
+        listRecommendServices.add(dataService.getService(5));
+        listRecommendServices.add(dataService.getService(4));
+        listRecommendServices.add(dataService.getService(5));
+        listRecommendServices.add(dataService.getService(6));
 
-        categoryAdapter = new CategoryItemsAdapter(this.getContext(), listCategory, this);
-        gvCategory.setAdapter(categoryAdapter);
-        gvCategory.setExpanded(true);
+        recommendServicesAdapter = new ServicePackageAdapter(listRecommendServices, this);
+        rvRecommendServices.setAdapter(recommendServicesAdapter);
+        rvRecommendServices.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
+    }
+
+    private void setUpMoreServices() {
+        listMoreServices.add(dataService.getService(0));
+        listMoreServices.add(dataService.getService(4));
+        listMoreServices.add(dataService.getService(5));
+        listMoreServices.add(dataService.getService(6));
+
+        moreServicesAdapter = new ServicePackageAdapter2(getContext(), listMoreServices, this);
+        gvMoreServices.setAdapter(moreServicesAdapter);
+        gvMoreServices.setExpanded(true);
     }
 
     @Override
@@ -108,18 +124,23 @@ public class HomeFragment extends Fragment implements PhotographerItemsAdapter.L
     }
 
     @Override
-    public void onCardListClick(int clickedItemIndex, String key) {
-        Intent intent = new Intent(this.getActivity(), PhotographerDetailsActivity.class);
-        intent.putExtra("idPG", clickedItemIndex + 1);
-        intent.putExtra("keyPG", key);
+    public void onServiceCardClick(int clickedItemIndex) {
+        Intent intent = new Intent(this.getActivity(), ServiceDetails.class);
         startActivity(intent);
-        //getActivity().finish();
+        getActivity().finish();
     }
 
     @Override
-    public void onCardGridClick(int clickedItemIndex) {
-        Intent intent = new Intent(this.getActivity(), ServiceListActivity.class);
-        intent.putExtra("idCategory", listCategory.get(clickedItemIndex).getId());
+    public void onHotDealsClick(int clickedItemIndex) {
+        Intent intent = new Intent(this.getActivity(), ServiceDetails.class);
         startActivity(intent);
+        getActivity().finish();
+    }
+
+    @Override
+    public void onMoreServiceClick(int clickedItemIndex) {
+        Intent intent = new Intent(this.getActivity(), ServiceDetails.class);
+        startActivity(intent);
+        getActivity().finish();
     }
 }

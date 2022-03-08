@@ -58,7 +58,7 @@ public class PhotographerDetailsActivity extends AppCompatActivity implements Ca
                 Intent intent = new Intent(PhotographerDetailsActivity.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
-                //finish();
+                finish();
             }
         });
 

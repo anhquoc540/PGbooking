@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.photographerbooking.R;
 import com.example.photographerbooking.model.Photographer;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerItemsAdapter.ItemViewHolder> {
@@ -51,7 +50,7 @@ public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerI
     }
 
     public interface ListItemClickListener {
-        void onCardListClick(int clickedItemIndex, String key);
+        void onPGCardClick(int clickedItemIndex, String key);
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -73,7 +72,7 @@ public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerI
         @Override
         public void onClick(View view) {
             int clickedPosition = getAdapterPosition();
-            mOnClickListener.onCardListClick(clickedPosition, key);
+            mOnClickListener.onPGCardClick(clickedPosition, key);
         }
     }
 }

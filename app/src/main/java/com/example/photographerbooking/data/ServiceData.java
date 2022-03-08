@@ -24,9 +24,9 @@ public class ServiceData {
         mapService.put(1, new PhotoService(1L, "Classic Photo & Video", "4 Hour Bundle", 2500f, 3.5f, R.drawable.food_1, bannerUrls,0));
         mapService.put(2, new PhotoService(2L, "Expressions Photo & Video", "6 Hour Bundle", 2500f, 3.5f, R.drawable.food_1, bannerUrls,0));
         mapService.put(3, new PhotoService(3L, "Expressions Photo & Video", "8 Hour Bundle",2500f, 3.5f, R.drawable.portrait_1, bannerUrls,1));
-        mapService.put(4, new PhotoService(4L, "Exclusive Photo & Video", "8 Hour Bundle", 2900, 3.5f, R.drawable.portrait_1, bannerUrls,1));
-        mapService.put(5, new PhotoService(5L, "Exclusive Photo & Video", "10 Hour Bundle", 2900, 3.5f, R.drawable.wedding_1, bannerUrls,2));
-        mapService.put(6, new PhotoService(6L, "Exclusive Photo & Video", "6 Hour Bundle", 2900, 3.5f, R.drawable.fashion_1, bannerUrls,3));
+        mapService.put(4, new PhotoService(4L, "Exclusive Photo & Video", "8 Hour Bundle", 2900f, 3.5f, R.drawable.portrait_1, bannerUrls,1));
+        mapService.put(5, new PhotoService(5L, "Exclusive Photo & Video", "10 Hour Bundle", 2900f, 3.5f, R.drawable.wedding_1, bannerUrls,2));
+        mapService.put(6, new PhotoService(6L, "Exclusive Photo & Video", "6 Hour Bundle", 2900f, 3.5f, R.drawable.fashion_1, bannerUrls,3));
     }
 
     public  int getMapServiceSize() {
@@ -35,5 +35,13 @@ public class ServiceData {
 
     public PhotoService getService(int id) {
         return mapService.get(id);
+    }
+
+    public List<PhotoService> getAllService() {
+        List<PhotoService> rs = new ArrayList<>();
+        for (int i = 0; i < mapService.size(); i++) {
+            rs.add(mapService.get(i));
+        }
+        return rs;
     }
 }
