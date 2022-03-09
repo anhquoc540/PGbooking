@@ -13,17 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
-
-<<<<<<< HEAD
 import com.example.photographerbooking.ActivityStepViewBooking;
-=======
 import com.example.photographerbooking.MainActivity;
->>>>>>> dev2
 import com.example.photographerbooking.R;
 import com.example.photographerbooking.adapter.ServiceBannerAdapter;
 import com.example.photographerbooking.adapter.ServiceCommentAdapter;
 import com.example.photographerbooking.adapter.ServiceSlotAdapter;
-import com.example.photographerbooking.booking;
 import com.example.photographerbooking.interfaces.ItemOnClickListener;
 import com.example.photographerbooking.model.PhotoService;
 import com.example.photographerbooking.model.ServiceComment;

@@ -8,7 +8,6 @@
     android:weightSum="10"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.cardview.widget.CardView
-        app:cardBackgroundColor="@color/white_10"
         app:shapeAppearance="@style/ShapeAppearance.PGBooking.SmallComponent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
