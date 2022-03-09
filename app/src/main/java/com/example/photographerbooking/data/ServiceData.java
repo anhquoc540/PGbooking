@@ -39,7 +39,7 @@ public class ServiceData {
 
     public List<PhotoService> getAllService() {
         List<PhotoService> rs = new ArrayList<>();
-        for (int i = 0; i < mapService.size(); i++) {
+        for (int i = 1; i < mapService.size(); i++) {
             rs.add(mapService.get(i));
         }
         return rs;

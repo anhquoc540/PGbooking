@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,7 @@ import com.example.photographerbooking.adapter.ServicePackageAdapter;
 import com.example.photographerbooking.adapter.ServicePackageAdapter2;
 import com.example.photographerbooking.data.ServiceData;
 import com.example.photographerbooking.home.PhotographerDetailsActivity;
+import com.example.photographerbooking.home.SearchByLocationActivity;
 import com.example.photographerbooking.home.ServiceDetails;
 import com.example.photographerbooking.model.PhotoService;
 import com.example.photographerbooking.util.ExpandableHeightGridView;
@@ -41,6 +43,7 @@ public class HomeFragment extends Fragment implements ServicePackageAdapter.List
     private List<PhotoService> listRecommendServices = new ArrayList<>();
     private List<PhotoService> listMoreServices = new ArrayList<>();
     private ServiceData dataService = new ServiceData();
+    private Button btnSearch;
 
     public HomeFragment() {
     }
@@ -58,6 +61,16 @@ public class HomeFragment extends Fragment implements ServicePackageAdapter.List
         rvHotDeals = view.findViewById(R.id.rvHotDeals);
         rvRecommendServices = view.findViewById(R.id.rvRecommendServices);
         gvMoreServices = view.findViewById(R.id.gvMoreServices);
+        btnSearch = view.findViewById(R.id.btnSearch);
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SearchByLocationActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
 
         setUpCategoryFilter();
         setUpTopServices();

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhotographerBooking">
         <activity
+            android:name=".home.SearchByLocationActivity"
+            android:exported="false" />
+        <activity
             android:name=".all_review"
             android:exported="false" />
         <activity
@@ -19,8 +22,7 @@
             android:exported="false" />
         <activity
             android:name=".home.ServiceDetails"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".authentication.SignInActivity"
             android:exported="true">
@@ -30,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.ServiceListActivity"/>
+        <activity android:name=".home.ServiceListActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
