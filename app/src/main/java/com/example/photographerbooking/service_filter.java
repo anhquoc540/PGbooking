@@ -82,7 +82,7 @@ public class service_filter extends AppCompatActivity {
             dialog.dismiss();
         }));
         Window window = dialog.getWindow();
-        window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         dialog.show();
     }
 

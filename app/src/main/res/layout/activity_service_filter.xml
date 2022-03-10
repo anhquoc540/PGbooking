@@ -8,6 +8,13 @@
     android:gravity="center_vertical"
     tools:context=".service_filter">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:text="Service Filter"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_margin="8dp"
         android:hint="Photo capture location"
@@ -95,9 +102,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCategoryDialog"
+        android:elevation="2dp"
+        android:textAllCaps="false"
         android:text="Choose Photo Category"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/pink_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </com.google.android.material.button.MaterialButton>
@@ -105,7 +114,10 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSearch"
-        android:text="Choose Photo Category"
+        app:icon="@drawable/ic_baseline_search_24"
+        app:iconGravity="textStart"
+        android:text="Search now"
+        android:elevation="3dp"
         android:layout_margin="16dp"
         android:backgroundTint="@color/blue"
         android:layout_width="match_parent"

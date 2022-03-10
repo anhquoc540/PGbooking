@@ -16,10 +16,13 @@ import android.view.ViewGroup;
 
 import com.example.photographerbooking.R;
 import com.example.photographerbooking.SpaceItemDecoration;
+import com.example.photographerbooking.adapter.BookingHistoryAdapter;
 import com.example.photographerbooking.adapter.CategoryItemsAdapter;
 import com.example.photographerbooking.adapter.PhotographerItemsAdapter;
 import com.example.photographerbooking.adapter.ResultAdapter;
+import com.example.photographerbooking.model.Booking;
 import com.example.photographerbooking.model.Photographer;
+import com.example.photographerbooking.util.Utilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +33,9 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class BookingFragment extends Fragment implements View.OnClickListener{
-    ResultAdapter adapter;
+    BookingHistoryAdapter adapter;
     RecyclerView recyclerView;
-    List<Photographer> list ;
+    List<Booking> list ;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -87,13 +90,9 @@ public class BookingFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        list = new ArrayList<>();
-      list.add(new Photographer(1,"Amelia Brown","4459 Wyatt Street, United States","asdasd@gmail.com",4.6F,R.drawable.avt_1));
-//        list.add(new Photographer(2,"Peter Parker","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
-//        list.add(new Photographer(3,"Rose Morouse","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
-//        list.add(new Photographer(4,"Quincy Fesh","159 , Brooklyn","asd", 4.5F,R.drawable.avatar_small));
+        list = Utilities.getBookingList();
+        adapter = new BookingHistoryAdapter(getContext(),list);
         recyclerView = getView().findViewById(R.id.rvListBooking);
-        adapter = new ResultAdapter(getContext(),list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),

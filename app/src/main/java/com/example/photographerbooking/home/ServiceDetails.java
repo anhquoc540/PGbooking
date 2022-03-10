@@ -6,6 +6,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StrikethroughSpan;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,6 +53,7 @@ public class ServiceDetails extends AppCompatActivity {
     TextView tvOriginalPrice, tvDiscountPrice;
     MaterialButton btnCreateBook;
     Toolbar toolbar;
+    Button btnBack;
 
 
     private static Calendar getClearedUtc() {
@@ -65,11 +67,11 @@ public class ServiceDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_details);
         binding();
-
     }
 
     protected void binding(){
         intent = getIntent();
+        btnBack = findViewById(R.id.btnBack);
         rvServiceBanner = findViewById(R.id.rvServiceBanner);
         toolbar = findViewById(R.id.myToolBar);
         commentLayoutManager = new LinearLayoutManager(this);

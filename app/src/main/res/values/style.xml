@@ -12,14 +12,14 @@
         <item name="cornerSize">24dp</item>
         <item name="cornerFamily">rounded</item>
     </style>
-    <style name="customRatingBar"
-        parent="android:style/Widget.Material.RatingBar.Small">
+    <style name="customRatingBar" parent="android:style/Widget.Material.RatingBar.Small">
         <item name="android:shape">rectangle</item>
-        <item name="colorControlActivated">#ECDA44</item>
+        <item name="colorControlNormal">@color/light_grey</item>
+        <item name="colorControlActivated">#E91E63</item>
     </style>
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/light_grey</item>
-        <item name="colorControlActivated">#ECDA44</item>
+        <item name="colorControlActivated">#E91E63</item>
     </style>
     <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.TextInputLayout</item>
