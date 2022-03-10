@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.photographerbooking.fragment.stepview.BookFragmentStep1;
 import com.example.photographerbooking.fragment.stepview.BookFragmentStep2;
 import com.example.photographerbooking.fragment.stepview.BookFragmentStep3;
+import com.example.photographerbooking.fragment.stepview.BookFragmentStep4;
 
 public class StepViewPageAdapter extends FragmentPagerAdapter {
 
@@ -20,13 +21,13 @@ public class StepViewPageAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0:
-                return new BookFragmentStep1();
+
             case 1:
                 return new BookFragmentStep2();
             case 2:
                 return new BookFragmentStep3();
-
+            case 3:
+                return new BookFragmentStep4();
             default:
                 return new BookFragmentStep1();
         }

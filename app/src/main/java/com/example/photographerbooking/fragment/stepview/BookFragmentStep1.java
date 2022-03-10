@@ -11,7 +11,6 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -22,7 +21,6 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.example.photographerbooking.Common;
 import com.example.photographerbooking.R;
-import com.example.photographerbooking.model.City;
 
 import java.util.ArrayList;
 import java.util.List;
