@@ -43,7 +43,7 @@ public class ActivityStepViewBooking extends AppCompatActivity {
         bindings();
         setupListStep();
         adapter =  new StepViewPageAdapter(getSupportFragmentManager());
-        view_step.setOffscreenPageLimit(3);
+        view_step.setOffscreenPageLimit(4);
         view_step.setAdapter(adapter);
         view_step.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -60,7 +60,7 @@ public class ActivityStepViewBooking extends AppCompatActivity {
                 }else{
                     btnPrevStep.setEnabled(true);
                 }
-                if(position == 2){
+                if(position == 3){
                     btnNextStep.setText("Done");
                     btnNextStep.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -68,12 +68,23 @@ public class ActivityStepViewBooking extends AppCompatActivity {
                             Intent intent = new Intent(ActivityStepViewBooking.this, MainActivity.class);
                             intent.putExtra("user_booked","Booking Successful");
                             startActivity(intent);
+                            Common.step = 0;
                             finish();
                         }
                     });
 
                 }else{
                     btnNextStep.setText("Next");
+                    btnNextStep.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(Common.step < 3 || Common.step == 0){
+                                Common.step++;
+                                view_step.setCurrentItem(Common.step);
+                            }
+                        }
+                    });
+
                 }
                 setColorButton();
             }
@@ -100,7 +111,7 @@ public class ActivityStepViewBooking extends AppCompatActivity {
         btnNextStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Common.step < 2 || Common.step == 0){
+                if(Common.step < 3 || Common.step == 0){
                     Common.step++;
                     view_step.setCurrentItem(Common.step);
                 }
@@ -109,7 +120,7 @@ public class ActivityStepViewBooking extends AppCompatActivity {
         btnPrevStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Common.step == 2 || Common.step > 0){
+                if(Common.step == 3 || Common.step > 0){
                     Common.step--;
                     view_step.setCurrentItem(Common.step);
                 }
@@ -127,7 +138,8 @@ public class ActivityStepViewBooking extends AppCompatActivity {
         List<String> list = new ArrayList<>();
         list.add("Location");
         list.add("Time");
-        list.add("Finish");
+        list.add("Delivery");
+        list.add("Finally");
         stepView.setSteps(list);
     }
     private void bindings (){
