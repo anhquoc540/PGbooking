@@ -21,8 +21,8 @@
         android:textSize="35dp" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="376dp"
-        android:layout_height="405dp"
+        android:layout_width="wrap_content"
+        android:layout_height="429dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -34,8 +34,8 @@
         app:cardCornerRadius="20dp">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="418dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
@@ -45,6 +45,7 @@
                 android:id="@+id/name_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="2dp"
                 android:orientation="horizontal">
@@ -52,15 +53,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Photographer :" />
+                    android:text="Photographer :"
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/pg_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="15dp"/>
-
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -70,122 +70,128 @@
                 android:layout_below="@+id/name_layout"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="30dp"
-                android:layout_marginEnd="2dp"
+                android:layout_marginEnd="4dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Service :" />
+                    android:text="Service :"
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/pg_service"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:textSize="15dp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/place_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/service_layout"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="2dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Place :" />
-
-                <TextView
-                    android:id="@+id/booking_place"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="15dp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/datelayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/time_layout"
-                android:layout_alignParentEnd="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="0dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Date :" />
-
-                <TextView
-                    android:id="@+id/booking_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="15dp"/>
+                    android:textSize="15dp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/time_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="38dp"
                 android:layout_below="@+id/place_layout"
                 android:layout_alignParentEnd="true"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="17dp"
                 android:layout_marginEnd="-2dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Time :" />
+                    android:text="Time :"
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/booking_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:textSize="15dp"/>
+                    android:textSize="15dp"
+                    android:paddingLeft="30dp"/>
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/price_layout"
+                android:id="@+id/place_layout"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_below="@+id/time_layout"
+                android:layout_height="46dp"
+                android:layout_below="@+id/service_layout"
                 android:layout_alignParentEnd="true"
-
-                android:layout_marginTop="94dp"
-                android:layout_marginEnd="0dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="2dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="77dp"
-                    android:layout_height="wrap_content"
-                    android:text="Price :"
+                    android:layout_width="121dp"
+                    android:layout_height="match_parent"
+                    android:text="Shooting Place :"
                     android:textSize="20dp" />
 
                 <TextView
-                    android:id="@+id/price"
+                    android:id="@+id/booking_place"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="3dp"
-                    android:gravity="center"
-                    android:textSize="20dp" />
+                    android:textSize="15dp" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/deliveryAddress_layout"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:layout_below="@+id/time_layout"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="140dp"
+                    android:layout_height="34dp"
+                    android:layout_weight="1"
+                    android:text="Delivery Address"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/textViewDeliveryAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="343dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/deliveryAddress_layout"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="24dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="140dp"
+                    android:layout_height="34dp"
+                    android:layout_weight="1"
+                    android:text="Email :"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/textViewDeliveryEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:layout_weight="1" />
             </LinearLayout>
 
         </RelativeLayout>

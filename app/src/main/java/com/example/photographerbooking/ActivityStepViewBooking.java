@@ -31,7 +31,17 @@ public class ActivityStepViewBooking extends AppCompatActivity {
     private BroadcastReceiver buttonNextReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Common.dataPlace = intent.getStringExtra(Common.KEY_SERVICE);
+            int step = intent.getIntExtra( Common.KEY_STEP, 0);
+            if(step == 1){
+                Common.dataPlace = intent.getStringExtra(Common.KEY_PLACE);
+
+            }else if(step == 2){
+                Common.time = intent.getStringExtra(Common.KEY_TIME);
+            }else if (step == 3){
+                Common.dataDeliveryAddress = intent.getStringExtra(Common.KEY_DELIVERY_ADDRESS);
+                Common.email = intent.getStringExtra(Common.KEY_EMAIL);
+
+            }
             btnNextStep.setEnabled(true);
             setColorButton();
         }
@@ -60,7 +70,10 @@ public class ActivityStepViewBooking extends AppCompatActivity {
                 }else{
                     btnPrevStep.setEnabled(true);
                 }
+
                 if(position == 3){
+                    Intent intent = new Intent(Common.KEY_CONFIRM);
+                    localBroadcastManager.sendBroadcast(intent);
                     btnNextStep.setText("Done");
                     btnNextStep.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -160,9 +173,7 @@ public class ActivityStepViewBooking extends AppCompatActivity {
         }else{
             btnNextStep.setBackgroundResource(R.color.separate_line);
         }
-        if(btnNextStep.getText().equals("Purchase")){
-            btnNextStep.setBackgroundResource(R.color.red);
-        }
+
     }
 
 }
