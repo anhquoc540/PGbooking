@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.app_bar_search:
-                Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+                Intent intent = new Intent(MainActivity.this,service_filter.class);
                 startActivity(intent);
                 break;
         }

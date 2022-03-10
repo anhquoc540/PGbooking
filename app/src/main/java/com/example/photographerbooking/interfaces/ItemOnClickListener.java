@@ -1,5 +1,5 @@
 package com.example.photographerbooking.interfaces;
 
-public interface ItemOnClickListener {
-    void OnItemClicked(String id);
+public interface ItemOnClickListener<T> {
+    void OnItemClicked(T id);
 }

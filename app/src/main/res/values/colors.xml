@@ -15,12 +15,21 @@
     <color name="three">#FAEDF0</color>
     <color name="red">#FF0048</color>
     <color name="orange">#ff6f00</color>
+    <color name="blue">#4CB0FF</color>
     <color name="light_grey">#7FD9D9D9</color>
     <color name="pink">#EC255A</color>
     <color name="light_pink">#EAD4D9</color>
     <color name="blue_1">#292C6D</color>
     <color name="blue_2">#161853</color>
-    <color name="blue">#4CB0FF</color>
+    <color name="white_10">#0DFCFCFC</color>
     <color name="pink_2">#FC618A</color>
     <color name="test">#005395</color>
+
+
+    <color name="accept_color">#33EC26</color>
+    <color name="reject_color">#F41414</color>
+    <color name="pending_color">#DFDD63</color>
+    <color name="finish_color">#DC00ECFF</color>
+    <color name="complete_color">#005EFF</color>
+    <color name="cancel_color">#FF4308</color>
 </resources>

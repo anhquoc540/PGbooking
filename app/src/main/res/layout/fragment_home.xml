@@ -11,50 +11,28 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"
         android:orientation="vertical" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginHorizontal="10dp">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Around current location"
-                android:textSize="14sp"
-                android:drawableStart="@drawable/ic_baseline_location_on_24"
-                android:drawableTint="@color/light_grey"
-                android:paddingHorizontal="10dp"
-                android:drawablePadding="5dp"
-                android:background="@drawable/edit_text_background_2"
-                android:paddingVertical="15dp" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Search"
-                android:layout_marginTop="-9dp"
-                android:paddingVertical="12dp"
-                android:textSize="18sp"
-                android:backgroundTint="@color/blue"
-                android:textAllCaps="false"/>
-
-        </LinearLayout>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCategoryFilter"
             android:layout_marginVertical="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Top services"
-            android:textSize="18sp"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/black"/>
+        <LinearLayout
+            android:layout_gravity="clip_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/like"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+            <TextView
+                android:layout_marginTop="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Top services"
+                android:textSize="18sp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTopServices"
@@ -62,13 +40,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hot deals"
-            android:textSize="18sp"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/black"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:scaleX="1.2"
+                android:src="@drawable/discount"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+            <TextView
+                android:layout_marginTop="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hot deals"
+                android:textSize="18sp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvHotDeals"

@@ -14,8 +14,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearance="@style/circle_shape">
-        app:srcCompat="@drawable/avt_2" />
-
         <ImageView
             android:id="@+id/ivUserAvatarInner"
             android:layout_width="40dp"

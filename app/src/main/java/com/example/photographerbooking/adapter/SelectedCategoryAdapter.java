@@ -1,6 +1,7 @@
 package com.example.photographerbooking.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,26 +10,27 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.interfaces.ItemOnCheckListener;
 import com.example.photographerbooking.interfaces.ItemOnClickListener;
-import com.example.photographerbooking.model.ServiceSlot;
+import java.lang.String;
+
+import com.example.photographerbooking.model.Category;
 import com.google.android.material.chip.Chip;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class ServiceSlotAdapter extends RecyclerView.Adapter<ServiceSlotAdapter.SlotViewHolder> {
+public class SelectedCategoryAdapter extends RecyclerView.Adapter<SelectedCategoryAdapter.SlotViewHolder> {
     Context context;
-    private List<ServiceSlot> serviceSlotList;
-    ItemOnClickListener listener;
+    private List<Category> serviceSlotList;
+    ItemOnCheckListener<Integer> listener;
 
-    public ServiceSlotAdapter(Context context, List<ServiceSlot> serviceSlotList) {
+    public SelectedCategoryAdapter(Context context, List<Category> serviceSlotList) {
         this.context = context;
         this.serviceSlotList = serviceSlotList;
     }
 
-    public ServiceSlotAdapter(Context context, List<ServiceSlot> serviceSlotList, ItemOnClickListener listener) {
-        this.context = context;
-        this.serviceSlotList = serviceSlotList;
+    public void setListener(ItemOnCheckListener<Integer> listener) {
         this.listener = listener;
     }
 
@@ -41,14 +43,15 @@ public class ServiceSlotAdapter extends RecyclerView.Adapter<ServiceSlotAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull SlotViewHolder holder, int position) {
-        String formatStrSlot;
-        ServiceSlot slot = serviceSlotList.get(position);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm");
-        formatStrSlot = slot.getFrom().format(formatter) + " - " + slot.getTo().format(formatter);
-        holder.chip.setText(formatStrSlot);
-        holder.chip.setOnClickListener((view -> {
-            listener.OnItemClicked(slot.getSlotOrdinary() + "");
-        }));
+        Category category = serviceSlotList.get(position);
+        String slot = category.getLabel();
+        holder.chip.setText(slot);
+        holder.chip.setOnCloseIconClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onUnchecked(category.getId());
+            }
+        });
     }
 
     @Override
