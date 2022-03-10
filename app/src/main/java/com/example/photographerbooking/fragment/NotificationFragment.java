@@ -97,9 +97,9 @@ public class NotificationFragment extends Fragment {
                 notificationList.add(new Notification(id, "Your book on Maria wedding service has been declined", id + "", LocalDateTime.now().minusYears(2)));
             }
         }
-        NotificationAdapter adapter = new NotificationAdapter(notificationList, this.getContext(), new ItemOnClickListener() {
+        NotificationAdapter adapter = new NotificationAdapter(notificationList, this.getContext(), new ItemOnClickListener<Integer>() {
             @Override
-            public void OnItemClicked(String id) {
+            public void OnItemClicked(Integer id) {
 
             }
         });

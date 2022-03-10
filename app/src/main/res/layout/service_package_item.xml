@@ -2,49 +2,48 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:layout_marginHorizontal="20dp"
+    android:layout_width="230dp"
+    android:layout_height="310dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="5dp"
     android:layout_marginVertical="10dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="310dp"
+        android:orientation="vertical"
+        android:weightSum="10">
 
         <ImageView
             android:id="@+id/serviceImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5.5"
             android:contentDescription="@string/image"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ImageContrastCheck"
-            app:srcCompat="@drawable/wedding_1" />
+            app:srcCompat="@drawable/wedding_1"
+            tools:ignore="ImageContrastCheck" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="65dp"
+            android:layout_height="0dp"
+            android:layout_weight="4.5"
             android:background="#FFFFFF"
-            android:paddingHorizontal="10dp"
-            android:paddingBottom="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:paddingHorizontal="8dp"
+            android:paddingBottom="10dp">
 
             <TextView
                 android:id="@+id/serviceName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
                 android:paddingVertical="3dp"
                 android:text="Wedding"
                 android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toTopOf="@+id/rating"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,14 +51,12 @@
                 android:id="@+id/priceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
                 android:maxLines="1"
                 android:text="Price per hour"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/serviceName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/serviceName" />
+                app:layout_constraintTop_toBottomOf="@+id/address" />
 
             <TextView
                 android:id="@+id/rating"
@@ -67,40 +64,81 @@
                 android:layout_height="wrap_content"
                 android:text="4.6"
                 android:textColor="#009688"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rbAverageRating"
                 tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/standard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="/5"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/rating"
+                app:layout_constraintStart_toEndOf="@+id/rating"
+                app:layout_constraintTop_toTopOf="@+id/rating" />
+
+            <TextView
+                android:id="@+id/reviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="80 reviews"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/rating"
+                app:layout_constraintStart_toEndOf="@+id/standard"
+                app:layout_constraintTop_toTopOf="@+id/rating" />
 
             <RatingBar
                 android:id="@+id/rbAverageRating"
                 style="@style/Widget.AppCompat.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="-2dp"
                 android:numStars="5"
                 android:rating="4.6"
                 android:stepSize="0.1"
                 android:theme="@style/MyRatingBar"
-                app:layout_constraintBottom_toBottomOf="@+id/rating"
-                app:layout_constraintStart_toEndOf="@+id/rating"
-                app:layout_constraintTop_toTopOf="@+id/rating" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/serviceName" />
 
             <TextView
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
                 android:text="$ 80"
                 android:textColor="#009688"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="19sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/priceLabel"
                 tools:ignore="TextContrastCheck" />
 
+            <ImageView
+                android:id="@+id/icLocation"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="-3dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rating"
+                app:srcCompat="@drawable/ic_baseline_location_on_24" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="Crawley Edge Boatshed, Perth, Australia"
+                android:textAlignment="viewStart"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/icLocation"
+                app:layout_constraintStart_toEndOf="@+id/icLocation"
+                app:layout_constraintTop_toTopOf="@+id/icLocation" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

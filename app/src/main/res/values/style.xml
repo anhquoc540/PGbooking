@@ -39,4 +39,31 @@
         <item name="cornerSize">4dp</item>
         <item name="cornerFamily">rounded</item>
     </style>
+    <style name="ShapeAppearance.Discount" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerFamilyBottomRight">cut</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+
+    <style name="Widget.App.Slider" parent="Widget.MaterialComponents.Slider">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Slider</item>
+        <item name="labelStyle">@style/Widget.App.Tooltip</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Slider" parent="">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorOnPrimary">@color/blue_1</item>
+        <item name="colorOnSurface">@color/blue_2</item>
+    </style>
+
+    <style name="Widget.App.Tooltip" parent="Widget.MaterialComponents.Tooltip">
+        <item name="android:textAppearance">@style/TextAppearance.App.Tooltip</item>
+        <item name="backgroundTint">@color/blue</item>
+    </style>
+
+    <style name="TextAppearance.App.Tooltip" parent="TextAppearance.MaterialComponents.Tooltip">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
 </resources>

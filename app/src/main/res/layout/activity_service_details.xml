@@ -4,13 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:cardBackgroundColor="@color/white"
     android:orientation="vertical"
+    app:cardBackgroundColor="@color/white"
     tools:context="home.ServiceDetails">
+
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="69dp" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:translationY="60dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,7 +26,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/light_grey"
+                app:cardBackgroundColor="@color/white"
                 app:cardElevation="2dp">
 
                 <LinearLayout
@@ -29,12 +35,12 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:backgroundTint="@color/light_grey"
+                    <com.synnapps.carouselview.CarouselView
                         android:id="@+id/rvServiceBanner"
                         android:layout_width="match_parent"
-                        android:layout_height="180dp"
+                        android:layout_height="300dp"
                         android:layout_marginBottom="8dp"
+                        android:backgroundTint="@color/light_grey"
                         android:orientation="horizontal" />
 
                     <TextView
@@ -42,42 +48,39 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Wedding Photo Service"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4" />
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <!--                        <com.google.android.material.button.MaterialButton-->
-                        <!--                            android:layout_width="wrap_content"-->
-                        <!--                            android:layout_height="40dp"-->
-                        <!--                            android:text="Owner"-->
-                        <!--                            android:textAlignment="textStart"-->
-                        <!--                            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"-->
-                        <!--                            android:textSize="8sp"-->
-                        <!--                            app:cornerRadius="34dp"-->
-                        <!--                            app:icon="@drawable/ic_baseline_arrow_forward_ios_24"-->
-                        <!--                            app:iconGravity="start"-->
-                        <!--                            app:iconPadding="5dp"-->
-                        <!--                            tools:ignore="TouchTargetSizeCheck" />-->
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
                                 android:src="@drawable/avatar_small"
                                 tools:ignore="MissingConstraints" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <TextView
+                                android:id="@+id/tvPhotographer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="10dp"
+                                android:text="Anh Phan"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+                        </LinearLayout>
 
                         <RatingBar
                             style="?attr/ratingBarStyleSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="12dp"
                             android:numStars="5"
                             android:rating="4.5"
                             android:theme="@style/MyRatingBar" />
@@ -85,8 +88,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:layout_marginTop="6dp"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="12dp"
                             android:text="4.5 (200)"
                             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
                     </LinearLayout>
@@ -101,7 +104,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:text="Price per hour: 80$"
+                            android:text="Labor price: 80$"
                             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.011"
@@ -112,7 +115,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="60dp"
-                            android:text="Price full work day: 589$"
+                            android:text="Edit price: 10$"
                             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.015"
@@ -159,7 +162,8 @@
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:background="@color/blue">
 
                                 <TextView
                                     android:id="@+id/textView"
@@ -291,15 +295,15 @@
 
                                 <com.google.android.material.button.MaterialButton
                                     style="@style/Widget.AppCompat.Button.Borderless"
-                                    android:text="All Review"
-                                    android:textColor="@color/blue_1"
-                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginEnd="5dp"
+                                    android:text="All Review"
+                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                                    android:textColor="@color/blue_1"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
+                                    app:layout_constraintTop_toTopOf="parent" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </com.google.android.material.card.MaterialCardView>
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -307,20 +311,109 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvServiceComment"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/btnCreateBook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="Create new book"
-        android:textAllCaps="false"
-        android:clickable="true"
-        android:layout_gravity="bottom|right"
-        app:icon="@drawable/ic_baseline_add_24" />
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/white">
+
+            <LinearLayout
+                android:id="@+id/llPriceContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:drawableStart="@drawable/ic_baseline_attach_money_24"
+                        android:id="@+id/tvOriginalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="80"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:textColor="@color/vpi__background_holo_dark"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:drawableStart="@drawable/ic_baseline_attach_money_24"
+                        android:id="@+id/tvDiscountPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="30"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:textStyle="bold"
+                        android:textColor="@color/pink"
+                        app:layout_constraintStart_toEndOf="@id/tvOriginalPrice"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <com.google.android.material.card.MaterialCardView
+                        app:cardBackgroundColor="#FF002C"
+                        android:layout_marginStart="20dp"
+                        app:shapeAppearance="@style/ShapeAppearance.Discount"
+                        android:layout_width="70dp"
+                        android:rotation="-9"
+                        android:layout_height="30dp">
+                        <LinearLayout
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:textColor="@color/white"
+                                android:gravity="center_horizontal"
+                                android:id="@+id/tvDiscountPercent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="-20%" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCreateBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/pink_2"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:text="Book now"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+
+
+
+
+
+
+

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.model.Category;
 import com.example.photographerbooking.model.PhotoService;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class Utilities {
     public static int totalSecondOfMonth_30 = totalSecondOfDay * 30;
     public static List<String> serviceBanner = new ArrayList<>();
     public static List<PhotoService> photoServices = new ArrayList<>();
-
+    public static List<Category> categories = new ArrayList<>();
 
     public String convertToAppropriateAge(long ageInSecond, int month, int year) {
         if (ageInSecond >= 0 && ageInSecond < 60) {
@@ -52,5 +53,15 @@ public class Utilities {
             photoServices.add(new PhotoService(3l,"Newspaper Photo Service", "Hot", 89.99f,4.5f,0, getServiceBannerUrl(),1));
         }
         return photoServices;
+    }
+
+    public static List<Category> getServiceCategory(){
+        if(categories.isEmpty()){
+            categories.add(new Category(1, "Product Marketing",R.drawable.business_marketing_category_2));
+            categories.add(new Category(2, "Event",R.drawable.event_photo_al_2));
+            categories.add(new Category(3, "Food", R.drawable.food_photo_1));
+            categories.add(new Category(4,"Landscape", R.drawable.landscape_al_3));
+        }
+        return categories;
     }
 }

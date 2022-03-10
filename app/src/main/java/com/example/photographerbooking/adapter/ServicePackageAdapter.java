@@ -29,6 +29,7 @@ public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAd
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.service_package_item, parent, false);
+
         return new ViewHolder(view);
     }
 
@@ -38,9 +39,9 @@ public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAd
         PhotoService dto = package_list.get(position);
         holder.serviceImage.setImageResource(dto.getRepresentativeImg());
         holder.serviceName.setText(dto.getName());
-        holder.bundleLabel.setText(dto.getBundleLabel());
         holder.rating.setText(dto.getRating()+"");
         holder.ratingBar.setRating(dto.getRating());
+        holder.price.setText("$"+String.format("%.0f", dto.getPrice()));
     }
 
     @Override
@@ -49,19 +50,18 @@ public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAd
     }
 
     public interface ListItemClickListener {
-        void onCardListClick(int clickedItemIndex);
+        void onServiceCardClick(int clickedItemIndex);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView serviceImage;
-        TextView serviceName, bundleLabel, rating, price;
+        TextView serviceName, rating, price;
         RatingBar ratingBar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             serviceImage = itemView.findViewById(R.id.serviceImage);
             serviceName = itemView.findViewById(R.id.serviceName);
-            bundleLabel = itemView.findViewById(R.id.priceLabel);
             rating = itemView.findViewById(R.id.rating);
             price = itemView.findViewById(R.id.price);
             ratingBar = itemView.findViewById(R.id.rbAverageRating);
@@ -72,7 +72,7 @@ public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAd
         @Override
         public void onClick(View view) {
             int clickedPosition = getAdapterPosition();
-            mOnClickListener.onCardListClick(clickedPosition);
+            mOnClickListener.onServiceCardClick(clickedPosition);
         }
     }
 }

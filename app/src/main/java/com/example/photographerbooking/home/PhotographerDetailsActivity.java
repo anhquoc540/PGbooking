@@ -52,14 +52,11 @@ public class PhotographerDetailsActivity extends AppCompatActivity implements Ca
         //setServicePackageData();
         binding();
         setFunctionForButton();
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PhotographerDetailsActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                //finish();
-            }
+        btnBack.setOnClickListener(view -> {
+            Intent intent = new Intent(PhotographerDetailsActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
         });
 
         Intent intent = getIntent();

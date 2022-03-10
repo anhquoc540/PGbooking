@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
-import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -16,14 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.photographerbooking.R;
-import com.example.photographerbooking.home.PhotographerDetailsActivity;
 import com.example.photographerbooking.home.ServiceDetails;
+import com.example.photographerbooking.model.Category;
 import com.example.photographerbooking.model.PhotoService;
-import com.example.photographerbooking.model.Photographer;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SearchItemAdapter extends RecyclerView.Adapter<SearchItemAdapter.SearchItemViewHolder> {
@@ -78,7 +77,7 @@ public class SearchItemAdapter extends RecyclerView.Adapter<SearchItemAdapter.Se
             holder.searchItemRateBar.setRating(rating);
             holder.tvServicePrice.setText("$"+price+" / hour");
             holder.tvServiceName.setText(name);
-            ServiceBannerAdapter adapter = new ServiceBannerAdapter(context,service.getBannerUrls());
+            CategorySelectionAdapter adapter = new CategorySelectionAdapter(context, Arrays.asList());
             RecyclerView.LayoutManager manager = new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
 //            holder.rvServiceImages.setAdapter(adapter);
 //            holder.rvServiceImages.setLayoutManager(manager);
