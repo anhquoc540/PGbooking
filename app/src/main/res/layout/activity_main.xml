@@ -10,7 +10,7 @@
     <include
         layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="69dp" />
+        android:layout_height="50dp" />
 
     <FrameLayout
         android:layout_width="match_parent"
