@@ -15,7 +15,7 @@
     <style name="customRatingBar" parent="android:style/Widget.Material.RatingBar.Small">
         <item name="android:shape">rectangle</item>
         <item name="colorControlNormal">@color/light_grey</item>
-        <item name="colorControlActivated">#E91E63</item>
+        <item name="colorControlActivated">@color/blue</item>
     </style>
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/light_grey</item>
@@ -56,7 +56,6 @@
         <item name="colorOnPrimary">@color/blue_1</item>
         <item name="colorOnSurface">@color/blue_2</item>
     </style>
-
     <style name="Widget.App.Tooltip" parent="Widget.MaterialComponents.Tooltip">
         <item name="android:textAppearance">@style/TextAppearance.App.Tooltip</item>
         <item name="backgroundTint">@color/blue</item>

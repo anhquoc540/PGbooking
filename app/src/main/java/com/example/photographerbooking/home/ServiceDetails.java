@@ -1,5 +1,6 @@
 package com.example.photographerbooking.home;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -69,12 +70,13 @@ public class ServiceDetails extends AppCompatActivity {
         binding();
     }
 
-    protected void binding(){
+    @SuppressLint("WrongViewCast")
+    protected void binding() {
         intent = getIntent();
         btnBack = findViewById(R.id.btnBack);
         rvServiceBanner = findViewById(R.id.rvServiceBanner);
         toolbar = findViewById(R.id.myToolBar);
-        commentLayoutManager = new LinearLayoutManager(this);
+        commentLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,true);
         bannerUrls = new ArrayList<>();
         serviceCommentList = new ArrayList<>();
         photoService = new PhotoService();
@@ -82,7 +84,7 @@ public class ServiceDetails extends AppCompatActivity {
         tvDiscountPrice = findViewById(R.id.tvDiscountPrice);
         tvOriginalPrice = findViewById(R.id.tvOriginalPrice);
         SpannableString string = new SpannableString("80");
-        string.setSpan(new StrikethroughSpan(),0,string.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        string.setSpan(new StrikethroughSpan(), 0, string.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         tvOriginalPrice.setText(string);
         config();
         btnCreateBook = findViewById(R.id.btnCreateBook);
@@ -99,7 +101,7 @@ public class ServiceDetails extends AppCompatActivity {
     }
 
 
-    void config(){
+    void config() {
         photoService.setBannerUrls(bannerUrls);
         photoService.setId(1l);
         photoService.setName("Wedding Service Event Photo");
@@ -108,23 +110,15 @@ public class ServiceDetails extends AppCompatActivity {
 
         bannerUrls = Utilities.getServiceBannerUrl();
 
-        serviceCommentList.add(new ServiceComment("", "Quoc Anh", "Anh dep chat luong", LocalDate.of(2022,1,11),4.5));
-        serviceCommentList.add(new ServiceComment("", "Thanh Phong", "Anh mau qua dep", LocalDate.of(2022,2,11),4.5));
-        serviceCommentList.add(new ServiceComment("", "Chi Huy", "Anh phoi mau tot", LocalDate.of(2021,3,11),4.4));
-        serviceCommentList.add(new ServiceComment("", "Kim Phung", "Anh qua net, qua dep", LocalDate.of(2020,1,11),4.2));
-        commentAdapter = new ServiceCommentAdapter(this,serviceCommentList);
+        serviceCommentList.add(new ServiceComment("", "Quoc Anh", "Anh dep chat luong", LocalDate.of(2022, 1, 11), 4.5));
+        serviceCommentList.add(new ServiceComment("", "Thanh Phong", "Anh mau qua dep", LocalDate.of(2022, 2, 11), 4.5));
+        serviceCommentList.add(new ServiceComment("", "Chi Huy", "Anh phoi mau tot", LocalDate.of(2021, 3, 11), 4.4));
+        serviceCommentList.add(new ServiceComment("", "Kim Phung", "Anh qua net, qua dep", LocalDate.of(2020, 1, 11), 4.2));
+        commentAdapter = new ServiceCommentAdapter(this, serviceCommentList);
         rvServiceComment.setAdapter(commentAdapter);
-        rvServiceComment.setNestedScrollingEnabled(false);
-        commentLayoutManager.setSmoothScrollbarEnabled(false);
         rvServiceComment.setLayoutManager(commentLayoutManager);
-
-        rvServiceBanner.setImageListener(new ImageListener() {
-            @Override
-            public void setImageForPosition(int position, ImageView imageView) {
-                Glide.with(getBaseContext()).load(bannerUrls.get(position)).centerCrop().into(imageView);
-            }
-        });
-       rvServiceBanner.setPageCount(bannerUrls.size());
+        rvServiceBanner.setImageListener((position, imageView) -> Glide.with(getBaseContext()).load(bannerUrls.get(position)).centerCrop().into(imageView));
+        rvServiceBanner.setPageCount(bannerUrls.size());
 
         toolbar.setNavigationOnClickListener((view -> {
             Intent intent = new Intent(ServiceDetails.this, MainActivity.class);
