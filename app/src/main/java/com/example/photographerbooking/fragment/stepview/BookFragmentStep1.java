@@ -79,9 +79,9 @@ public class BookFragmentStep1 extends Fragment {
         dropdown1.setAdapter(adapterCity);
         dropdown2.setAdapter(adapterTown);
         dropdown3.setAdapter(adapterWard);
-        String city = (String) dropdown1.getSelectedItem();
-        String town = (String) dropdown2.getSelectedItem();
-        String ward = (String) dropdown3.getSelectedItem();
+        city = (String) dropdown1.getSelectedItem();
+        town = (String) dropdown2.getSelectedItem();
+        ward = (String) dropdown3.getSelectedItem();
        address.setOnEditorActionListener(new TextView.OnEditorActionListener() {
            @Override
            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -113,10 +113,10 @@ public class BookFragmentStep1 extends Fragment {
 
     private void sendDataforNextStep(String address){
 
-
         localBroadcastManager = LocalBroadcastManager.getInstance(getContext());
         Intent intent = new Intent(Common.KEY_ENABLE_BUTTON_NEXT);
-        intent.putExtra(address +", "+ city +", "+ town +", "+ ward ,Common.KEY_SERVICE);
+        intent.putExtra(Common.KEY_STEP, 1);
+        intent.putExtra(Common.KEY_PLACE,address +", "+ city +", "+ town +", "+ ward);
         localBroadcastManager.sendBroadcast(intent);
 
     }
@@ -125,7 +125,7 @@ public class BookFragmentStep1 extends Fragment {
 
         localBroadcastManager = LocalBroadcastManager.getInstance(getContext());
         Intent intent = new Intent(Common.KEY_ENABLE_BUTTON_NEXT);
-        intent.putExtra("",Common.KEY_SERVICE);
+        intent.putExtra("",Common.KEY_PLACE);
         localBroadcastManager.sendBroadcast(intent);
 
     }
