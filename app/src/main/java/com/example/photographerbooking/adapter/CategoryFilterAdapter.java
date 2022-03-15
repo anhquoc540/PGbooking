@@ -1,45 +1,48 @@
 package com.example.photographerbooking.adapter;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.photographerbooking.MainActivity;
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.model.CategoryFilter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryFilterAdapter extends RecyclerView.Adapter<CategoryFilterAdapter.ViewHolder>{
-    private List<String> listCategoryFilter;
+    private List<CategoryFilter> listCategoryFilter;
     int selectedPosition;
 
-    public CategoryFilterAdapter( List<String> listCategoryFilter) {
+    public CategoryFilterAdapter() {
         this.listCategoryFilter = setUpList();
         selectedPosition = 0;
     }
 
-    private List<String> setUpList() {
-        List<String> list = new ArrayList<>();
-        list.add("Discover");
-        list.add("Portrait");
-        list.add("Wedding");
-        list.add("Baby/Family");
-        list.add("Sports");
-        list.add("Food");
-        list.add("Fashion");
-        list.add("Landscape");
-        list.add("Wildlife");
+    private List<CategoryFilter> setUpList() {
+        List<CategoryFilter> list = new ArrayList<>();
+        list.add(new CategoryFilter("Discover", R.drawable.ic_discover));
+        list.add(new CategoryFilter("Portrait", R.drawable.ic_portrait));
+        list.add(new CategoryFilter("Wedding", R.drawable.ic_wedding));
+        list.add(new CategoryFilter("Baby/Family", R.drawable.ic_family));
+        list.add(new CategoryFilter("Sports", R.drawable.ic_sport));
+        list.add(new CategoryFilter("Food", R.drawable.ic_food));
+        list.add(new CategoryFilter("Fashion", R.drawable.ic_fashion));
+        list.add(new CategoryFilter("More", R.drawable.ic_more));
 
         return list;
     }
@@ -53,13 +56,9 @@ public class CategoryFilterAdapter extends RecyclerView.Adapter<CategoryFilterAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvCategoryFilter.setText(listCategoryFilter.get(position));
-        holder.tvCategoryFilter.setTextColor(Color.GRAY);
-        holder.tvCategoryFilter.setTypeface(null, Typeface.NORMAL);
-        if (position == selectedPosition) {
-            holder.tvCategoryFilter.setTextColor(Color.BLUE);
-            holder.tvCategoryFilter.setTypeface(null, Typeface.BOLD);
-        }
+        CategoryFilter dto = listCategoryFilter.get(position);
+        holder.tvCategoryFilter.setText(dto.getName());
+        holder.ivIcon.setImageResource(dto.getIcon());
     }
 
     @Override
@@ -69,11 +68,15 @@ public class CategoryFilterAdapter extends RecyclerView.Adapter<CategoryFilterAd
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView tvCategoryFilter;
+        ImageView ivIcon;
+        CardView cvFilter;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvCategoryFilter = itemView.findViewById(R.id.tvCategoryFilter);
+            ivIcon = itemView.findViewById(R.id.ivFilterIcon);
+            cvFilter = itemView.findViewById(R.id.cvFilter);
 
-            tvCategoryFilter.setOnClickListener(new View.OnClickListener() {
+            cvFilter.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     selectedPosition = getAdapterPosition();

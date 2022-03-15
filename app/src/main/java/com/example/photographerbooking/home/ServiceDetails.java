@@ -53,7 +53,7 @@ public class ServiceDetails extends AppCompatActivity {
     TextView tvOriginalPrice, tvDiscountPrice;
     MaterialButton btnCreateBook;
     Toolbar toolbar;
-    Button btnBack;
+    ImageButton btnBack;
 
 
     private static Calendar getClearedUtc() {
@@ -71,7 +71,7 @@ public class ServiceDetails extends AppCompatActivity {
 
     protected void binding(){
         intent = getIntent();
-        btnBack = findViewById(R.id.btnBack);
+        btnBack = findViewById(R.id.btn_back);
         rvServiceBanner = findViewById(R.id.rvServiceBanner);
         toolbar = findViewById(R.id.myToolBar);
         commentLayoutManager = new LinearLayoutManager(this);
@@ -86,6 +86,12 @@ public class ServiceDetails extends AppCompatActivity {
         tvOriginalPrice.setText(string);
         config();
         btnCreateBook = findViewById(R.id.btnCreateBook);
+
+        btnBack.setOnClickListener((view -> {
+            Intent intent = new Intent(this.getBaseContext(), MainActivity.class);
+            startActivity(intent);
+        }));
+
         btnCreateBook.setOnClickListener((view -> {
             Intent intent = new Intent(this.getBaseContext(), ActivityStepViewBooking.class);
             startActivity(intent);
@@ -104,7 +110,6 @@ public class ServiceDetails extends AppCompatActivity {
         photoService.setId(1l);
         photoService.setName("Wedding Service Event Photo");
         photoService.setPrice(100.0f);
-        photoService.setBundleLabel("Professional Photo Service for Wedding Service");
 
         bannerUrls = Utilities.getServiceBannerUrl();
 
@@ -125,12 +130,5 @@ public class ServiceDetails extends AppCompatActivity {
             }
         });
        rvServiceBanner.setPageCount(bannerUrls.size());
-
-        toolbar.setNavigationOnClickListener((view -> {
-            Intent intent = new Intent(ServiceDetails.this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            finish();
-        }));
     }
 }

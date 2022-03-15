@@ -16,6 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.photographerbooking.adapter.StepViewPageAdapter;
 import com.example.photographerbooking.home.PhotographerDetailsActivity;
+import com.example.photographerbooking.home.ServiceDetails;
 import com.shuhart.stepview.StepView;
 
 import java.util.ArrayList;
@@ -36,7 +37,8 @@ public class ActivityStepViewBooking extends AppCompatActivity {
                 Common.dataPlace = intent.getStringExtra(Common.KEY_PLACE);
 
             }else if(step == 2){
-                Common.time = intent.getStringExtra(Common.KEY_TIME);
+                Common.time1 = intent.getStringExtra(Common.KEY_TIME1);
+                Common.time2 = intent.getStringExtra(Common.KEY_TIME2);
             }else if (step == 3){
                 Common.dataDeliveryAddress = intent.getStringExtra(Common.KEY_DELIVERY_ADDRESS);
                 Common.email = intent.getStringExtra(Common.KEY_EMAIL);
@@ -114,7 +116,7 @@ public class ActivityStepViewBooking extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ActivityStepViewBooking.this, PhotographerDetailsActivity.class);
+                Intent intent = new Intent(ActivityStepViewBooking.this, ServiceDetails.class);
                 startActivity(intent);
                 finish();
             }
@@ -164,12 +166,12 @@ public class ActivityStepViewBooking extends AppCompatActivity {
     }
     private void setColorButton(){
         if(btnPrevStep.isEnabled()){
-            btnPrevStep.setBackgroundResource(R.color.teal_200);
+            btnPrevStep.setBackgroundResource(R.color.pink_2);
         }else{
             btnPrevStep.setBackgroundResource(R.color.separate_line);
         }
         if(btnNextStep.isEnabled()){
-            btnNextStep.setBackgroundResource(R.color.teal_200);
+            btnNextStep.setBackgroundResource(R.color.pink_2);
         }else{
             btnNextStep.setBackgroundResource(R.color.separate_line);
         }

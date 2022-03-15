@@ -53,9 +53,9 @@ public class Utilities {
 
     public static List<PhotoService> getPhotoServices(){
         if(photoServices.size() == 0){
-            photoServices.add(new PhotoService(1l,"Wedding Photo Service", "Hot", 89.99f,4.5f,R.drawable.wedding_1, getServiceBannerUrl(),1));
-            photoServices.add(new PhotoService(2l,"Event Photo Service", "Hot", 89.99f,4.5f,R.drawable.event_photo_al_2, getServiceBannerUrl(),1));
-            photoServices.add(new PhotoService(3l,"Family Photo", "Hot", 89.99f,4.5f,R.drawable.family_photo_2, getServiceBannerUrl(),1));
+            photoServices.add(new PhotoService(1l,"Wedding Photo Service", 89.99f ,4.5f,R.drawable.wedding_1, getServiceBannerUrl(),1,0));
+            photoServices.add(new PhotoService(2l,"Event Photo Service",  89.99f ,4.5f,R.drawable.event_photo_al_2, getServiceBannerUrl(),1,0));
+            photoServices.add(new PhotoService(3l,"Family Photo", 89.99f,4.5f,R.drawable.family_photo_2, getServiceBannerUrl(),1,1));
         }
         return photoServices;
     }

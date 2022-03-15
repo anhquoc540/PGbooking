@@ -17,30 +17,31 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.MainActivity;
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.adapter.AlbumsAdapter;
 import com.example.photographerbooking.adapter.CategoryItemsAdapter2;
+import com.example.photographerbooking.adapter.ServicePackageAdapter;
 import com.example.photographerbooking.data.CategoryData;
 import com.example.photographerbooking.data.PhotographerData;
 import com.example.photographerbooking.data.ServiceData;
 import com.example.photographerbooking.model.Category;
+import com.example.photographerbooking.model.PhotoService;
 import com.example.photographerbooking.model.Photographer;
 
 import java.util.ArrayList;
 
-public class PhotographerDetailsActivity extends AppCompatActivity implements CategoryItemsAdapter2.ListItemClickListener {
-    RecyclerView serviceCategory;
-    CategoryItemsAdapter2 categoryAdapter;
-    ArrayList<Category> listCategory = new ArrayList<>();
+public class PhotographerDetailsActivity extends AppCompatActivity implements ServicePackageAdapter.ListItemClickListener {
+    RecyclerView rvServices, rvAlbum;
+    ServicePackageAdapter servicesAdapter;
+    AlbumsAdapter albumsAdapter;
+    ArrayList<PhotoService> listServices = new ArrayList<>();
     ViewFlipper viewFlipper;
     ImageButton btnNext, btnPrevious,btnBack;
-
     ImageView ivAvatar;
-    TextView fullName, address, followerNumber, ratingNumber1, ratingNumber2;
+    TextView fullName, address, ratingNumber1, ratingNumber2;
     RatingBar ratingBar1, ratingBar2;
     PhotographerData dataPG = new PhotographerData();
     ServiceData dataService = new ServiceData();
-    CategoryData dataCategory = new CategoryData();
     int idPG;
-    String keyPG;
     Photographer pg;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -49,7 +50,6 @@ public class PhotographerDetailsActivity extends AppCompatActivity implements Ca
         super.onCreate(savedInstanceState);
         setContentView(R.layout.photographer_details);
 
-        //setServicePackageData();
         binding();
         setFunctionForButton();
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -64,17 +64,15 @@ public class PhotographerDetailsActivity extends AppCompatActivity implements Ca
 
         Intent intent = getIntent();
         idPG = intent.getIntExtra("idPG", 0);
-        keyPG = intent.getStringExtra("keyPG");
-
-        pg = dataPG.getPG(keyPG, idPG);
+        pg = dataPG.getPG(idPG);
         setUpPGInfo(pg);
-        setUpCategoryList(pg);
-        setUpRecyclerView();
-
+        setUpServices(pg);
+        setUpAlbum();
     }
 
     private void binding() {
-        serviceCategory = findViewById(R.id.serviceCategory);
+        rvServices = findViewById(R.id.rvServiceList);
+        rvAlbum = findViewById(R.id.rvAlbums);
         viewFlipper = findViewById(R.id.viewFlipper);
         btnNext = findViewById(R.id.btnNext);
         btnPrevious = findViewById(R.id.btnPrevious);
@@ -83,7 +81,6 @@ public class PhotographerDetailsActivity extends AppCompatActivity implements Ca
         ivAvatar = findViewById(R.id.ivAvatar);
         fullName = findViewById(R.id.fullName);
         address = findViewById(R.id.address);
-        followerNumber = findViewById(R.id.followerNumber);
         ratingNumber1 = findViewById(R.id.ratingNumber1);
         ratingNumber2 = findViewById(R.id.ratingNumber2);
         ratingBar1 = findViewById(R.id.averageRatingBar1);
@@ -98,20 +95,20 @@ public class PhotographerDetailsActivity extends AppCompatActivity implements Ca
         ratingNumber2.setText(pg.getRating()+"");
     }
 
-    private void setUpCategoryList(Photographer pg) {
+    private void setUpServices(Photographer pg) {
         for (int i : pg.getServiceIds()) {
-            int idCategory = dataService.getService(i).getIdCategory();
-            Category category = dataCategory.getCategory(idCategory);
-            if (!listCategory.contains(category)) {
-                listCategory.add(category);
-            }
+            listServices.add(dataService.getService(i));
         }
+
+        servicesAdapter = new ServicePackageAdapter(listServices, this);
+        rvServices.setAdapter(servicesAdapter);
+        rvServices.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
     }
 
-    private void setUpRecyclerView() {
-        categoryAdapter = new CategoryItemsAdapter2(listCategory, this);
-        serviceCategory.setAdapter(categoryAdapter);
-        serviceCategory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+    private void setUpAlbum() {
+        albumsAdapter = new AlbumsAdapter();
+        rvAlbum.setAdapter(albumsAdapter);
+        rvAlbum.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
     }
 
     private void setFunctionForButton() {
@@ -134,21 +131,11 @@ public class PhotographerDetailsActivity extends AppCompatActivity implements Ca
         });
     }
 
-    private void setServicePackageData() {
-        listCategory.add(new Category(1,"Portrait", R.drawable.img_3));
-        listCategory.add(new Category(2,"Wedding", R.drawable.family_1));
-        listCategory.add(new Category(3,"Fashion", R.drawable.food_1));
-        listCategory.add(new Category(4,"Baby/Family", R.drawable.avt_2));
-    }
-
     @Override
-    public void onCardListClick(int clickedItemIndex) {
-        Intent intent = new Intent(PhotographerDetailsActivity.this, ServiceListActivity.class);
-        Bundle bundle = new Bundle();
-        intent.putExtra("idPG", pg.getId());
-        intent.putExtra("idCategory", listCategory.get(clickedItemIndex).getId());
-        ArrayList<Integer> serviceIds = (ArrayList<Integer>) pg.getServiceIds();
-        intent.putExtra("serviceIds", serviceIds);
+    public void onServiceCardClick(int clickedItemIndex) {
+        Intent intent = new Intent(this, ServiceDetails.class);
+        intent.putExtra("idPG", idPG);
         startActivity(intent);
+        finish();
     }
 }

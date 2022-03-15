@@ -12,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.data.PhotographerData;
 import com.example.photographerbooking.model.PhotoService;
+import com.example.photographerbooking.model.Photographer;
 
 import java.util.List;
 
@@ -36,12 +38,16 @@ public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAd
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        PhotographerData dataPG = new PhotographerData();
         PhotoService dto = package_list.get(position);
+        Photographer pg = dataPG.getPG(dto.getIdPG());
         holder.serviceImage.setImageResource(dto.getRepresentativeImg());
         holder.serviceName.setText(dto.getName());
         holder.rating.setText(dto.getRating()+"");
         holder.ratingBar.setRating(dto.getRating());
         holder.price.setText("$"+String.format("%.0f", dto.getPrice()));
+        holder.ivAvatar.setImageResource(pg.getAvatar());
+        holder.pgName.setText(pg.getName());
     }
 
     @Override
@@ -54,8 +60,8 @@ public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        ImageView serviceImage;
-        TextView serviceName, rating, price;
+        ImageView serviceImage, ivAvatar;
+        TextView serviceName, rating, price, pgName;
         RatingBar ratingBar;
 
         public ViewHolder(@NonNull View itemView) {
@@ -65,6 +71,8 @@ public class ServicePackageAdapter extends RecyclerView.Adapter<ServicePackageAd
             rating = itemView.findViewById(R.id.rating);
             price = itemView.findViewById(R.id.price);
             ratingBar = itemView.findViewById(R.id.rbAverageRating);
+            pgName = itemView.findViewById(R.id.tvPGName);
+            ivAvatar = itemView.findViewById(R.id.ivAvatar);
 
             itemView.setOnClickListener(this);
         }

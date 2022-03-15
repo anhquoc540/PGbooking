@@ -7,141 +7,24 @@
     tools:context=".home.PhotographerDetailsActivity"
     tools:ignore="SmallSp">
 
-    <!--Wallpaper-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@drawable/img_3"
-        android:backgroundTint="#5E000000"
-        android:backgroundTintMode="src_over"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:elevation="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="10"
-            tools:ignore="UselessParent">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="20dp"
-                app:cardCornerRadius="50dp">
-
-                <ImageView
-                    android:id="@+id/ivAvatar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/image"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/avt_1" />
-
-            </androidx.cardview.widget.CardView>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry">
-
-                <TextView
-                    android:id="@+id/fullName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Amelia Brown"
-                    android:textColor="@color/white"
-                    android:textSize="23sp" />
-
-                <TextView
-                    android:id="@+id/address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="4459 Wyatt Street, United States"
-                    android:textColor="@color/white"
-                    android:textSize="13sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/ratingNumber1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="4.6"
-                            android:textAlignment="center"
-                            android:textColor="@color/white"
-                            android:textSize="16sp" />
-
-                        <RatingBar
-                            android:id="@+id/averageRatingBar1"
-                            style="@style/Widget.AppCompat.RatingBar.Small"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:numStars="5"
-                            android:rating="4.6"
-                            android:stepSize="0.1"
-                            android:theme="@style/MyRatingBar" />
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginVertical="10dp"
-                        android:background="@color/white" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/followerNumber"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="29 K"
-                            android:textAlignment="center"
-                            android:textColor="@color/white"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Followers"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:background="@drawable/round_button"
-                        android:text="@string/follow"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:contentDescription="@string/image"
+            android:padding="10dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:tint="@color/blue" />
 
     </LinearLayout>
-
-    <!--ScrollView    -->
-
-    <!--Top bar & Back Button-->
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -149,523 +32,643 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="3dp"
         android:scrollbars="none">
 
-        <!--Detail Content-->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="260dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/border_top_rectangle">
+            android:layout_height="wrap_content">
 
-            <!--Portfolio-->
-            <LinearLayout
-                android:id="@+id/detail"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:orientation="vertical"
-                android:paddingHorizontal="23dp"
+                android:layout_height="300dp"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
+                <ViewFlipper
+                    android:id="@+id/viewFlipper"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="30sp"
-                    android:text="@string/portfolio"
-                    android:textColor="@color/black"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/experience_years"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="5"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/specialize"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="@string/specialization_1"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/favorite_spot"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="60dp"
-                    android:text="@string/spot_1"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/service_category"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/serviceCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp" />
-
-            </LinearLayout>
-
-            <!--Speciality Album-->
-            <TextView
-                android:id="@+id/specialityAlbum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:layout_marginTop="60dp"
-                android:text="@string/speciality_album"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/detail" />
-
-            <TextView
-                android:id="@+id/seeAllAlbums"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="23dp"
-                android:layout_marginBottom="20dp"
-                android:text="@string/see_all_albums"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@id/viewFlipper"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <!--ViewFlipper-->
-            <ViewFlipper
-                android:id="@+id/viewFlipper"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="20dp"
-                android:autoStart="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/specialityAlbum">
-
-                <ImageView
-                    android:id="@+id/ivImg1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/image"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/img_3" />
-
-                <ImageView
-                    android:id="@+id/ivImg2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/image"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/food_1" />
-
-                <ImageView
-                    android:id="@+id/ivImg3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/image"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/family_1" />
-
-                <ImageView
-                    android:id="@+id/ivImg4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/image"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/avt_2" />
-
-                <ImageView
-                    android:id="@+id/ivImg5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/image"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/sport_1" />
-            </ViewFlipper>
-
-            <TextView
-                android:id="@+id/tvImgNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/example_content"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="@+id/viewFlipper"
-                app:layout_constraintTop_toTopOf="@+id/viewFlipper" />
-
-            <ImageButton
-                android:id="@+id/btnNext"
-                android:layout_width="38dp"
-                android:layout_height="100dp"
-                android:background="#80707070"
-                android:contentDescription="@string/image"
-                android:src="@drawable/ic_navigate_next_24"
-                app:layout_constraintBottom_toBottomOf="@+id/viewFlipper"
-                app:layout_constraintEnd_toEndOf="@+id/viewFlipper"
-                app:layout_constraintTop_toTopOf="@+id/viewFlipper"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <ImageButton
-                android:id="@+id/btnPrevious"
-                android:layout_width="38dp"
-                android:layout_height="100dp"
-                android:background="#80707070"
-                android:contentDescription="@string/image"
-                android:src="@drawable/ic_navigate_before_24"
-                app:layout_constraintBottom_toBottomOf="@+id/viewFlipper"
-                app:layout_constraintStart_toStartOf="@+id/viewFlipper"
-                app:layout_constraintTop_toTopOf="@+id/viewFlipper"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <!--Review Overview-->
-            <TextView
-                android:id="@+id/ratingAndReview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:layout_marginTop="60dp"
-                android:text="@string/rating_and_reviews"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/viewFlipper" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/reviewOverview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/ratingAndReview">
-
-                <TextView
-                    android:id="@+id/ratingNumber2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="23dp"
-                    android:text="@string/rating_example"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <RatingBar
-                    android:id="@+id/averageRatingBar2"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:numStars="5"
-                    android:rating="4.6"
-                    android:stepSize="0.1"
-                    android:theme="@style/MyRatingBar"
-                    app:layout_constraintBottom_toBottomOf="@+id/ratingNumber2"
-                    app:layout_constraintStart_toEndOf="@+id/ratingNumber2"
-                    app:layout_constraintTop_toTopOf="@+id/ratingNumber2" />
-
-                <View
-                    android:id="@+id/separateLine"
-                    android:layout_width="1dp"
-                    android:layout_height="16dp"
-                    android:layout_marginStart="5dp"
-                    android:background="@color/black"
-                    app:layout_constraintBottom_toBottomOf="@+id/averageRatingBar2"
-                    app:layout_constraintStart_toEndOf="@+id/averageRatingBar2"
-                    app:layout_constraintTop_toTopOf="@+id/averageRatingBar2" />
-
-                <TextView
-                    android:id="@+id/reviewNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/review_number"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/separateLine"
-                    app:layout_constraintStart_toEndOf="@+id/separateLine"
-                    app:layout_constraintTop_toTopOf="@+id/separateLine" />
-
-                <TextView
-                    android:id="@+id/seeAllReviews"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="23dp"
-                    android:text="@string/see_all_reviews"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_height="match_parent"
+                    android:autoStart="false"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!--Review Comments-->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="23dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/reviewOverview">
-
-                <TextView
-                    android:id="@+id/tvUsername1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:text="@string/example_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/cardView1"
-                    app:layout_constraintStart_toEndOf="@+id/cardView1"
-                    app:layout_constraintTop_toTopOf="@+id/cardView1" />
-
-                <TextView
-                    android:id="@+id/tvDate1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="@string/example_content"
-                    android:textSize="11.5sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/rbRating1"
-                    app:layout_constraintStart_toEndOf="@+id/rbRating1"
-                    app:layout_constraintTop_toTopOf="@+id/rbRating1" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView1"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    app:cardCornerRadius="30dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/ivReviewerAvatar1"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:id="@+id/ivImg1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:contentDescription="@string/image"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/avt_2" />
-                </androidx.cardview.widget.CardView>
-
-                <RatingBar
-                    android:id="@+id/rbRating1"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:numStars="5"
-                    android:rating="4"
-                    android:stepSize="1"
-                    android:theme="@style/MyRatingBar"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView1" />
-
-                <TextView
-                    android:id="@+id/tvComment1"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="3dp"
-                    android:background="@color/white"
-                    android:text="@string/example_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rbRating1" />
-
-                <TextView
-                    android:id="@+id/tvUsername2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:text="@string/example_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/cardView2"
-                    app:layout_constraintStart_toEndOf="@+id/cardView2"
-                    app:layout_constraintTop_toTopOf="@+id/cardView2" />
-
-                <TextView
-                    android:id="@+id/tvDate2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="@string/example_content"
-                    android:textSize="11.5sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/rbRating2"
-                    app:layout_constraintStart_toEndOf="@+id/rbRating2"
-                    app:layout_constraintTop_toTopOf="@+id/rbRating2" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView2"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
-                    app:cardCornerRadius="30dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvComment1">
+                        app:srcCompat="@drawable/tradition" />
 
                     <ImageView
-                        android:id="@+id/ivReviewerAvatar2"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:id="@+id/ivImg2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:contentDescription="@string/image"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/avt_2" />
-                </androidx.cardview.widget.CardView>
-
-                <RatingBar
-                    android:id="@+id/rbRating2"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:numStars="5"
-                    android:rating="5"
-                    android:stepSize="1"
-                    android:theme="@style/MyRatingBar"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
-
-                <TextView
-                    android:id="@+id/tvComment2"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="3dp"
-                    android:background="@color/white"
-                    android:text="@string/example_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rbRating2" />
-
-                <TextView
-                    android:id="@+id/tvUsername3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:text="@string/example_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/cardView3"
-                    app:layout_constraintStart_toEndOf="@+id/cardView3"
-                    app:layout_constraintTop_toTopOf="@+id/cardView3" />
-
-                <TextView
-                    android:id="@+id/tvDate3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="@string/example_content"
-                    android:textSize="11.5sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/rbRating3"
-                    app:layout_constraintStart_toEndOf="@+id/rbRating3"
-                    app:layout_constraintTop_toTopOf="@+id/rbRating3" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView3"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
-                    app:cardCornerRadius="30dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvComment2">
+                        app:srcCompat="@drawable/food_1" />
 
                     <ImageView
-                        android:id="@+id/ivReviewerAvatar3"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:id="@+id/ivImg3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/image"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/family_1" />
+
+                    <ImageView
+                        android:id="@+id/ivImg4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:contentDescription="@string/image"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/avt_2" />
-                </androidx.cardview.widget.CardView>
 
-                <RatingBar
-                    android:id="@+id/rbRating3"
-                    style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:numStars="5"
-                    android:rating="3"
-                    android:stepSize="1"
-                    android:theme="@style/MyRatingBar"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+                    <ImageView
+                        android:id="@+id/ivImg5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/image"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/sport_1" />
+                </ViewFlipper>
 
                 <TextView
-                    android:id="@+id/tvComment3"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="3dp"
-                    android:background="@color/white"
+                    android:id="@+id/tvImgNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
                     android:text="@string/example_content"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/viewFlipper"
+                    app:layout_constraintTop_toTopOf="@+id/viewFlipper" />
+
+                <ImageButton
+                    android:id="@+id/btnNext"
+                    android:layout_width="38dp"
+                    android:layout_height="150dp"
+                    android:background="#9AA4A4A4"
+                    android:contentDescription="@string/image"
+                    android:src="@drawable/ic_navigate_next_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/viewFlipper"
+                    app:layout_constraintEnd_toEndOf="@+id/viewFlipper"
+                    app:layout_constraintTop_toTopOf="@+id/viewFlipper"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <ImageButton
+                    android:id="@+id/btnPrevious"
+                    android:layout_width="38dp"
+                    android:layout_height="150dp"
+                    android:background="#9AA4A4A4"
+                    android:contentDescription="@string/image"
+                    android:src="@drawable/ic_navigate_before_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/viewFlipper"
+                    app:layout_constraintStart_toStartOf="@+id/viewFlipper"
+                    app:layout_constraintTop_toTopOf="@+id/viewFlipper"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="280dp"
+                android:background="@drawable/border_top_rectangle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!--Portfolio-->
+                <LinearLayout
+                    android:id="@+id/summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rbRating3" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginStart="20dp"
+                        app:cardCornerRadius="50dp">
+
+                        <ImageView
+                            android:id="@+id/ivAvatar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/image"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/avt_1" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="20dp"
+                        tools:ignore="RtlSymmetry">
+
+                        <TextView
+                            android:id="@+id/fullName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Amelia Brown"
+                            android:textColor="@color/blue_1"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="4459 Wyatt Street, United States"
+                            android:textColor="@color/blue_1"
+                            android:textSize="13sp" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/ratingNumber1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4.6"
+                                android:textAlignment="center"
+                                android:textColor="@color/blue_1"
+                                android:textSize="16sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <RatingBar
+                                android:id="@+id/averageRatingBar1"
+                                style="@style/Widget.AppCompat.RatingBar.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:numStars="5"
+                                android:rating="4.6"
+                                android:stepSize="0.1"
+                                android:theme="@style/MyRatingBar"
+                                app:layout_constraintBottom_toBottomOf="@+id/ratingNumber1"
+                                app:layout_constraintStart_toEndOf="@+id/ratingNumber1"
+                                app:layout_constraintTop_toTopOf="@+id/ratingNumber1" />
+
+                            <TextView
+                                android:id="@+id/ordersNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="251 completed orders"
+                                android:textAlignment="center"
+                                android:textColor="@color/blue_1"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/summary">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="20sp"
+                            android:text="@string/photo_gallery"
+                            android:textColor="@color/blue_1"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="20sp"
+                            android:text="@string/see_all_albums"
+                            android:textColor="@color/blue_1"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvAlbums"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/portfolio"
+                        android:textColor="@color/blue_1"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/experience_years"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="5"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/specialize"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/specialization_1"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/favorite_spot"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="30dp"
+                        android:text="@string/spot_1"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="My services"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true"
+                            android:textColor="@color/blue_1"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:text="@string/see_all_services"
+                            android:textColor="@color/blue_1"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvServiceList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <!--Review Overview-->
+                <TextView
+                    android:id="@+id/ratingAndReview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/rating_and_reviews"
+                    android:textColor="@color/blue_1"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/detail" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/reviewOverview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/ratingAndReview">
+
+                    <TextView
+                        android:id="@+id/ratingNumber2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="23dp"
+                        android:text="@string/rating_example"
+                        android:textColor="@color/blue_1"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RatingBar
+                        android:id="@+id/averageRatingBar2"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:numStars="5"
+                        android:rating="4.6"
+                        android:stepSize="0.1"
+                        android:theme="@style/MyRatingBar"
+                        app:layout_constraintBottom_toBottomOf="@+id/ratingNumber2"
+                        app:layout_constraintStart_toEndOf="@+id/ratingNumber2"
+                        app:layout_constraintTop_toTopOf="@+id/ratingNumber2" />
+
+                    <View
+                        android:id="@+id/separateLine"
+                        android:layout_width="1dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@color/blue_1"
+                        app:layout_constraintBottom_toBottomOf="@+id/averageRatingBar2"
+                        app:layout_constraintStart_toEndOf="@+id/averageRatingBar2"
+                        app:layout_constraintTop_toTopOf="@+id/averageRatingBar2" />
+
+                    <TextView
+                        android:id="@+id/reviewNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/review_number"
+                        android:textColor="@color/blue_1"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/separateLine"
+                        app:layout_constraintStart_toEndOf="@+id/separateLine"
+                        app:layout_constraintTop_toTopOf="@+id/separateLine" />
+
+                    <TextView
+                        android:id="@+id/seeAllReviews"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="23dp"
+                        android:text="@string/see_all_reviews"
+                        android:textColor="@color/blue_1"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--Review Comments-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="23dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/reviewOverview">
+
+                    <TextView
+                        android:id="@+id/tvUsername1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/example_content"
+                        app:layout_constraintBottom_toBottomOf="@+id/cardView1"
+                        app:layout_constraintStart_toEndOf="@+id/cardView1"
+                        app:layout_constraintTop_toTopOf="@+id/cardView1" />
+
+                    <TextView
+                        android:id="@+id/tvDate1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/example_content"
+                        android:textSize="11.5sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/rbRating1"
+                        app:layout_constraintStart_toEndOf="@+id/rbRating1"
+                        app:layout_constraintTop_toTopOf="@+id/rbRating1" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        app:cardCornerRadius="30dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/ivReviewerAvatar1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:contentDescription="@string/image"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/avt_2" />
+                    </androidx.cardview.widget.CardView>
+
+                    <RatingBar
+                        android:id="@+id/rbRating1"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:numStars="5"
+                        android:rating="4"
+                        android:stepSize="1"
+                        android:theme="@style/MyRatingBar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView1" />
+
+                    <TextView
+                        android:id="@+id/tvComment1"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@color/white"
+                        android:text="@string/example_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rbRating1" />
+
+                    <TextView
+                        android:id="@+id/tvUsername2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/example_content"
+                        app:layout_constraintBottom_toBottomOf="@+id/cardView2"
+                        app:layout_constraintStart_toEndOf="@+id/cardView2"
+                        app:layout_constraintTop_toTopOf="@+id/cardView2" />
+
+                    <TextView
+                        android:id="@+id/tvDate2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/example_content"
+                        android:textSize="11.5sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/rbRating2"
+                        app:layout_constraintStart_toEndOf="@+id/rbRating2"
+                        app:layout_constraintTop_toTopOf="@+id/rbRating2" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        app:cardCornerRadius="30dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvComment1">
+
+                        <ImageView
+                            android:id="@+id/ivReviewerAvatar2"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:contentDescription="@string/image"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/avt_2" />
+                    </androidx.cardview.widget.CardView>
+
+                    <RatingBar
+                        android:id="@+id/rbRating2"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:numStars="5"
+                        android:rating="5"
+                        android:stepSize="1"
+                        android:theme="@style/MyRatingBar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+                    <TextView
+                        android:id="@+id/tvComment2"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@color/white"
+                        android:text="@string/example_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rbRating2" />
+
+                    <TextView
+                        android:id="@+id/tvUsername3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/example_content"
+                        app:layout_constraintBottom_toBottomOf="@+id/cardView3"
+                        app:layout_constraintStart_toEndOf="@+id/cardView3"
+                        app:layout_constraintTop_toTopOf="@+id/cardView3" />
+
+                    <TextView
+                        android:id="@+id/tvDate3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/example_content"
+                        android:textSize="11.5sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/rbRating3"
+                        app:layout_constraintStart_toEndOf="@+id/rbRating3"
+                        app:layout_constraintTop_toTopOf="@+id/rbRating3" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        app:cardCornerRadius="30dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvComment2">
+
+                        <ImageView
+                            android:id="@+id/ivReviewerAvatar3"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:contentDescription="@string/image"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/avt_2" />
+                    </androidx.cardview.widget.CardView>
+
+                    <RatingBar
+                        android:id="@+id/rbRating3"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:numStars="5"
+                        android:rating="3"
+                        android:stepSize="1"
+                        android:theme="@style/MyRatingBar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+                    <TextView
+                        android:id="@+id/tvComment3"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@color/white"
+                        android:text="@string/example_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rbRating3" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/circle"
-        android:contentDescription="@string/image"
-        android:padding="10dp"
-        android:src="@drawable/ic_navigate_before_24"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
     <!--Bottom bar & Contact, Booking Button-->
     <LinearLayout

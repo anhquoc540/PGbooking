@@ -6,25 +6,33 @@ import java.util.List;
 public class PhotoService {
     private Long id;
     private String name;
-    private String bundleLabel;
     private float price;
     private float rating;
     private int representativeImg;
     private List<String> bannerUrls;
     private int idCategory;
+    private int idPG;
 
     public PhotoService() {
     }
 
-    public PhotoService(Long id, String name, String bundleLabel, float price, float rating, int representativeImg, List<String> bannerUrls, int idCategory) {
+    public PhotoService(Long id, String name, float price, float rating, int representativeImg, List<String> bannerUrls, int idCategory, int idPG) {
         this.id = id;
         this.name = name;
-        this.bundleLabel = bundleLabel;
         this.price = price;
         this.rating = rating;
         this.representativeImg = representativeImg;
         this.bannerUrls = bannerUrls;
         this.idCategory = idCategory;
+        this.idPG = idPG;
+    }
+
+    public int getIdPG() {
+        return idPG;
+    }
+
+    public void setIdPG(int idPG) {
+        this.idPG = idPG;
     }
 
     public Long getId() {
@@ -41,14 +49,6 @@ public class PhotoService {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getBundleLabel() {
-        return bundleLabel;
-    }
-
-    public void setBundleLabel(String bundleLabel) {
-        this.bundleLabel = bundleLabel;
     }
 
     public float getPrice() {

@@ -9,7 +9,7 @@
     tools:context=".service_filter">
 
     <com.google.android.material.textview.MaterialTextView
-        android:text="Service Filter"
+        android:text="Services Filter"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
@@ -90,6 +90,7 @@
     <TextView
         android:layout_margin="8dp"
         android:text="Your selected categories"
+        android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -115,8 +116,9 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSearch"
         app:icon="@drawable/ic_baseline_search_24"
+        app:iconSize="22dp"
         app:iconGravity="textStart"
-        android:text="Search now"
+        android:text="Search"
         android:elevation="3dp"
         android:layout_margin="16dp"
         android:backgroundTint="@color/blue"

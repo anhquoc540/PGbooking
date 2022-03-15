@@ -19,12 +19,10 @@ public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerI
     final private ListItemClickListener mOnClickListener;
     private List<Photographer> listPG;
     private RatingBar rbAverageRating;
-    private String key;
 
-    public PhotographerItemsAdapter(List<Photographer> listPG, ListItemClickListener mOnClickListener, String key) {
+    public PhotographerItemsAdapter(List<Photographer> listPG, ListItemClickListener mOnClickListener) {
         this.listPG = listPG;
         this.mOnClickListener = mOnClickListener;
-        this.key = key;
     }
 
     @NonNull
@@ -37,7 +35,7 @@ public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerI
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         Photographer photographer = listPG.get(position);
-        holder.ivPhotographer.setImageResource(photographer.getAvatar());
+        holder.ivRepresentative.setImageResource(photographer.getRepresentativeImg());
         holder.fullName.setText(photographer.getName());
         holder.address.setText(photographer.getLocation());
         holder.rating.setText(String.valueOf(photographer.getRating()));
@@ -50,19 +48,19 @@ public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerI
     }
 
     public interface ListItemClickListener {
-        void onPGCardClick(int clickedItemIndex, String key);
+        void onPGCardClick(int clickedItemIndex);
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView fullName, address, rating;
-        ImageView ivPhotographer;
+        ImageView ivRepresentative;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             fullName = itemView.findViewById(R.id.fullName);
             address = itemView.findViewById(R.id.address);
-            ivPhotographer = itemView.findViewById(R.id.ivPhotographer);
+            ivRepresentative = itemView.findViewById(R.id.ivPhotographer);
             rating = itemView.findViewById(R.id.rating);
             rbAverageRating = itemView.findViewById(R.id.rbAverageRating);
 
@@ -72,7 +70,7 @@ public class PhotographerItemsAdapter extends RecyclerView.Adapter<PhotographerI
         @Override
         public void onClick(View view) {
             int clickedPosition = getAdapterPosition();
-            mOnClickListener.onPGCardClick(clickedPosition, key);
+            mOnClickListener.onPGCardClick(clickedPosition);
         }
     }
 }

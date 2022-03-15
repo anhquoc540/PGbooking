@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.PhotographerBooking" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/pink_2</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -17,6 +17,6 @@
     </style>
     <style name="MyRatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">#D2D2D2</item>
-        <item name="colorControlActivated">#FFA521</item>
+        <item name="colorControlActivated">@color/pink_2</item>
     </style>
 </resources>
