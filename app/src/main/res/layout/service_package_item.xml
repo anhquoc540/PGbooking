@@ -20,7 +20,7 @@
             android:id="@+id/serviceImage"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5.5"
+            android:layout_weight="5"
             android:contentDescription="@string/image"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/wedding_1"
@@ -29,10 +29,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="4.5"
+            android:layout_weight="5"
             android:background="#FFFFFF"
             android:paddingHorizontal="8dp"
-            android:paddingBottom="10dp">
+            android:paddingBottom="5dp">
 
             <TextView
                 android:id="@+id/serviceName"
@@ -41,6 +41,7 @@
                 android:layout_marginTop="3dp"
                 android:paddingVertical="3dp"
                 android:text="Wedding"
+                android:lines="2"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -51,12 +52,12 @@
                 android:id="@+id/priceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:text="Price per hour"
+                android:text="Price per photo"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toTopOf="@+id/price"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/address" />
+                app:layout_constraintTop_toBottomOf="@+id/tvPGName" />
 
             <TextView
                 android:id="@+id/rating"
@@ -75,18 +76,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:text="/5"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/rating"
                 app:layout_constraintStart_toEndOf="@+id/rating"
                 app:layout_constraintTop_toTopOf="@+id/rating" />
 
             <TextView
-                android:id="@+id/reviews"
+                android:id="@+id/completedOrders"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="80 reviews"
-                android:textSize="12sp"
+                android:text="29 completed orders"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/rating"
                 app:layout_constraintStart_toEndOf="@+id/standard"
                 app:layout_constraintTop_toTopOf="@+id/rating" />
@@ -111,34 +112,44 @@
                 android:text="$ 80"
                 android:textColor="#009688"
                 android:textSize="19sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/priceLabel"
                 tools:ignore="TextContrastCheck" />
 
-            <ImageView
-                android:id="@+id/icLocation"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="-3dp"
-                android:layout_marginTop="5dp"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="3dp"
+                app:cardCornerRadius="50dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rating"
-                app:srcCompat="@drawable/ic_baseline_location_on_24" />
+                app:layout_constraintTop_toBottomOf="@+id/rating">
+
+                <ImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/image"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/avt_1" />
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/address"
-                android:layout_width="match_parent"
+                android:id="@+id/tvPGName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:text="Crawley Edge Boatshed, Perth, Australia"
-                android:textAlignment="viewStart"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/icLocation"
-                app:layout_constraintStart_toEndOf="@+id/icLocation"
-                app:layout_constraintTop_toTopOf="@+id/icLocation" />
+                android:layout_marginStart="10dp"
+                android:text="PG Name"
+                android:textColor="@color/blue_1"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/cardView"
+                app:layout_constraintStart_toEndOf="@+id/cardView"
+                app:layout_constraintTop_toBottomOf="@+id/rating" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
+

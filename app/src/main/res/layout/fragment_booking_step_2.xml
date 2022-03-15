@@ -1,111 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Blank1Fragment"
-    android:background="@color/three">
-
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".Blank1Fragment">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="Date &amp; Time"
-        android:textSize="50dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="35dp"
+        android:text="Choose date and time"
+        android:textColor="@color/blue"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="376dp"
-        android:layout_height="405dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="17dp"
-        android:padding="15dp"
-        app:cardCornerRadius="20dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:paddingHorizontal="30dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-            <Button
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Starting date:"
+                android:layout_marginStart="5dp"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/datePickerButton"
                 style="?android:spinnerStyle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView5"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="23dp"
-                android:layout_marginEnd="30dp"
                 android:background="@drawable/rectangle"
-                android:text="JAN 01 2020"
+                android:layout_margin="5dp"
+                android:text="Jan 01 2020"
+                android:textAllCaps="false"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView6"
-                android:layout_width="123dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="212dp"
-                android:layout_marginEnd="244dp"
-                android:paddingStart="15dp"
-                android:text="Time :"
-                android:textSize="30dp" />
-
-            <Button
-                android:id="@+id/timeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView6"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="23dp"
-                android:layout_marginEnd="30dp"
-                android:width="300dp"
-                android:height="100dp"
+                android:text="Starting time :"
+                android:layout_marginStart="5dp"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/timeButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:background="@drawable/rectangle"
                 android:onClick="popTimePicker"
+                android:textAllCaps="false"
                 android:text="Select Time"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.1" />
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView5"
-                android:layout_width="123dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="252dp"
-                android:paddingStart="15dp"
-                android:text="Date :"
-                android:textSize="30dp" />
+                android:text="Ending date:"
+                android:layout_marginStart="5dp"
+                android:textSize="16sp" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/datePickerButton2"
+                style="?android:spinnerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle"
+                android:layout_margin="5dp"
+                android:text="Jan 01 2020"
+                android:textAllCaps="false"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
 
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-</RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ending time :"
+                android:layout_marginStart="5dp"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/timeButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/rectangle"
+                android:onClick="popTimePicker"
+                android:textAllCaps="false"
+                android:text="Select Time"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

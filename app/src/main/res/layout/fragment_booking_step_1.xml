@@ -1,131 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.stepview.BookFragmentStep1"
-    android:background="@color/three">
-
-    <!-- TODO: Update blank fragment layout -->
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".fragment.stepview.BookFragmentStep1">
 
     <TextView
+        android:id="@+id/shooting_place"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:textColor="@color/blue"
+        android:paddingHorizontal="35dp"
         android:text="Shooting Place"
-        android:textSize="50dp" />
+        android:textSize="23sp" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="376dp"
-        android:layout_height="405dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="17dp"
-        android:padding="15dp"
-        app:cardCornerRadius="20dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:paddingHorizontal="30dp">
 
-        <RelativeLayout
-            android:layout_width="399dp"
-            android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:textSize="16sp"
+            android:text="Choose your city" />
+
+        <Spinner
+            android:id="@+id/spinnerCity"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="5dp"
+            android:background="@drawable/rectangle"
+            android:elevation="5dp"
+            android:paddingHorizontal="20dp"
+            android:spinnerMode="dropdown"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:textSize="16sp"
+            android:text="Choose your town/district" />
+
+        <Spinner
+            android:id="@+id/spinnerWard"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="5dp"
+            android:background="@drawable/rectangle"
+            android:elevation="5dp"
+            android:paddingHorizontal="20dp"
+            android:spinnerMode="dropdown"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:textSize="16sp"
+            android:text="Choose your ward" />
 
 
-            <Spinner
-                android:id="@+id/spinnerWard"
-                android:layout_width="350dp"
-                android:layout_height="51dp"
-                android:layout_below="@+id/textView4"
-                android:layout_alignStart="@+id/textView4"
-                android:layout_marginStart="-1dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="-4dp"
-                android:background="@drawable/rectangle"
-                android:paddingHorizontal="20dp"
-                android:spinnerMode="dropdown" />
+        <Spinner
+            android:id="@+id/spinnerTown"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="5dp"
+            android:background="@drawable/rectangle"
+            android:elevation="5dp"
+            android:paddingHorizontal="20dp"
+            android:spinnerMode="dropdown"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-            <Spinner
-                android:id="@+id/spinnerTown"
-                android:layout_width="349dp"
-                android:layout_height="52dp"
-                android:layout_below="@+id/textView3"
-                android:layout_alignStart="@+id/textView3"
-                android:layout_alignEnd="@+id/spinnerWard"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="19dp"
-                android:layout_marginEnd="0dp"
-                android:background="@drawable/rectangle"
-                android:paddingHorizontal="20dp"
-                android:spinnerMode="dropdown" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:textSize="16sp"
+            android:text="Your address" />
 
-            <Spinner
-                android:id="@+id/spinnerCity"
-                android:layout_width="350dp"
-                android:layout_height="51dp"
-                android:layout_alignStart="@+id/textView2"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="48dp"
-                android:layout_marginEnd="-4dp"
-                android:background="@drawable/rectangle"
-                android:paddingHorizontal="20dp"
-                android:spinnerMode="dropdown" />
+        <EditText
+            android:id="@+id/textAddress"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="5dp"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textSize="14sp"
+            tools:ignore="TextContrastCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/distance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:text="" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="11dp"
-                android:layout_marginTop="16dp"
-                android:text="Choose your city:" />
+                android:layout_marginStart="5dp"
+                android:text="Fee of transport: "
+                android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+                android:id="@+id/tvTransportFee"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="11dp"
-                android:layout_marginTop="112dp"
-                android:text="Choose your town/district" />
+                android:textAlignment="textEnd"
+                android:layout_marginHorizontal="5dp"
+                android:textColor="@color/black"
+                android:text=""
+                android:textSize="22sp" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="213dp"
-                android:text="Choose your ward :" />
+        </LinearLayout>
 
-            <EditText
-                android:id="@+id/textAddress"
-                android:layout_width="340dp"
-                android:layout_height="46dp"
-                android:layout_below="@+id/spinnerCity"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="228dp"
-                android:layout_marginEnd="47dp"
-                android:layout_marginBottom="12dp"
-                android:hint="Your Address"
-                tools:ignore="TextContrastCheck"
-                android:imeOptions="actionDone"
-                android:inputType="text"/>.
+    </LinearLayout>
 
-
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-
-</RelativeLayout>
+</LinearLayout>

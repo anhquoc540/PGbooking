@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.MainActivity;
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.data.PhotographerData;
 import com.example.photographerbooking.home.ServiceDetails;
 import com.example.photographerbooking.model.PhotoService;
+import com.example.photographerbooking.model.Photographer;
 
 import java.util.List;
 
@@ -39,7 +41,9 @@ public class HotDealAdapter extends RecyclerView.Adapter<HotDealAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        PhotographerData dataPG = new PhotographerData();
         PhotoService dto = package_list.get(position);
+        Photographer pg = dataPG.getPG(dto.getIdPG());
         holder.serviceImage.setImageResource(dto.getRepresentativeImg());
         holder.serviceName.setText(dto.getName());
         holder.rating.setText(dto.getRating()+"");
@@ -48,6 +52,8 @@ public class HotDealAdapter extends RecyclerView.Adapter<HotDealAdapter.ViewHold
         holder.price.setText("$"+ String.format("%.0f", price));
         holder.originalPrice.setText("$"+String.format("%.0f", dto.getPrice()));
         holder.originalPrice.setPaintFlags(holder.originalPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        holder.ivAvatar.setImageResource(pg.getAvatar());
+        holder.pgName.setText(pg.getName());
     }
 
     @Override
@@ -60,8 +66,8 @@ public class HotDealAdapter extends RecyclerView.Adapter<HotDealAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        ImageView serviceImage;
-        TextView serviceName, rating, price, originalPrice;
+        ImageView serviceImage, ivAvatar;
+        TextView serviceName, rating, price, originalPrice, pgName;
         RatingBar ratingBar;
 
         public ViewHolder(@NonNull View itemView) {
@@ -73,6 +79,8 @@ public class HotDealAdapter extends RecyclerView.Adapter<HotDealAdapter.ViewHold
             price = itemView.findViewById(R.id.price);
             originalPrice = itemView.findViewById(R.id.originalPrice);
             ratingBar = itemView.findViewById(R.id.rbAverageRating);
+            pgName = itemView.findViewById(R.id.tvPGName);
+            ivAvatar = itemView.findViewById(R.id.ivAvatar);
 
             itemView.setOnClickListener(this);
         }

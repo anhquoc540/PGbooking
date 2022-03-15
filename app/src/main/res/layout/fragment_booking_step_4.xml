@@ -1,199 +1,302 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Blank1Fragment"
-    android:background="@color/three">
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".Blank1Fragment">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:paddingHorizontal="2dp"
-        android:text="Booking Information"
-        android:textSize="35dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="35dp"
+        android:text="Booking information"
+        android:textColor="@color/blue"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="429dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="17dp"
-        android:padding="15dp"
-        app:cardCornerRadius="20dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:paddingHorizontal="30dp">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="418dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="10dp">
+        <LinearLayout
+            android:id="@+id/name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/name_layout"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="2dp"
-                android:orientation="horizontal">
+                android:text="Photographer :"
+                android:textSize="17sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Photographer :"
-                    android:textSize="20dp" />
-
-                <TextView
-                    android:id="@+id/pg_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textSize="15dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/service_layout"
+            <TextView
+                android:id="@+id/pg_name"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/service_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/name_layout"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="4dp"
-                android:orientation="horizontal">
+                android:text="Service name:"
+                android:textSize="17sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Service :"
-                    android:textSize="20dp" />
-
-                <TextView
-                    android:id="@+id/pg_service"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="15dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/time_layout"
+            <TextView
+                android:id="@+id/pg_service"
                 android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:layout_below="@+id/place_layout"
-                android:layout_alignParentEnd="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="17dp"
-                android:layout_marginEnd="-2dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textAlignment="textEnd"
+                android:textSize="17sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Time :"
-                    android:textSize="20dp" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/booking_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="15dp"
-                    android:paddingLeft="30dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
-            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Starting time :"
+                android:textSize="17sp" />
 
-            <LinearLayout
-                android:id="@+id/place_layout"
+            <TextView
+                android:id="@+id/booking_time1"
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_below="@+id/service_layout"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="23dp"
-                android:layout_marginEnd="2dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="10dp"
+                android:textAlignment="textEnd"/>
 
-                <TextView
-                    android:layout_width="121dp"
-                    android:layout_height="match_parent"
-                    android:text="Shooting Place :"
-                    android:textSize="20dp" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/booking_place"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textSize="15dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
-            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ending time :"
+                android:textSize="17sp" />
 
-            <LinearLayout
-                android:id="@+id/deliveryAddress_layout"
+            <TextView
+                android:id="@+id/booking_time2"
                 android:layout_width="match_parent"
-                android:layout_height="41dp"
-                android:layout_below="@+id/time_layout"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="4dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="10dp"
+                android:textAlignment="textEnd"/>
 
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="140dp"
-                    android:layout_height="34dp"
-                    android:layout_weight="1"
-                    android:text="Delivery Address"
-                    android:textSize="15dp" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textViewDeliveryAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="34dp"
-                    android:layout_weight="1" />
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/place_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="343dp"
-                android:layout_height="35dp"
-                android:layout_below="@+id/deliveryAddress_layout"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="2dp"
-                android:layout_marginBottom="24dp"
-                android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shooting place :"
+                android:textSize="17sp" />
 
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="140dp"
-                    android:layout_height="34dp"
-                    android:layout_weight="1"
-                    android:text="Email :"
-                    android:textSize="15dp" />
+            <TextView
+                android:id="@+id/booking_place"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textAlignment="textEnd"
+                android:textSize="17sp" />
 
-                <TextView
-                    android:id="@+id/textViewDeliveryEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="34dp"
-                    android:layout_weight="1" />
-            </LinearLayout>
+        </LinearLayout>
 
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-</RelativeLayout>
+        <LinearLayout
+            android:id="@+id/deliveryAddress_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery address"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/textViewDeliveryAddress"
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:lines="2"
+                android:textAlignment="viewEnd"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email :"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/textViewDeliveryEmail"
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service price :"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:textAlignment="textEnd"
+                android:text="$ 120"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transport fee :"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:textAlignment="textEnd"
+                android:text="$ 5"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:text="Payment method :"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:textAlignment="textEnd"
+                android:text="Visa"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:textAlignment="textEnd"
+                android:text="CHANGE"
+                android:textColor="@color/pink"
+                android:textSize="17sp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total fee :"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:textAlignment="textEnd"
+                android:text="$ 125"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -10,8 +10,10 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.data.PhotographerData;
 import com.example.photographerbooking.model.Category;
 import com.example.photographerbooking.model.PhotoService;
+import com.example.photographerbooking.model.Photographer;
 
 import java.util.List;
 
@@ -59,15 +61,21 @@ public class ServicePackageAdapter2 extends BaseAdapter {
         TextView serviceName = view.findViewById(R.id.serviceName);
         TextView rating = view.findViewById(R.id.rating);
         TextView price = view.findViewById(R.id.price);
+        TextView pgName = view.findViewById(R.id.tvPGName);
+        ImageView ivAvatar = view.findViewById(R.id.ivAvatar);
         RatingBar ratingBar = view.findViewById(R.id.rbAverageRating);
 
         PhotoService service = listService.get(i);
+        PhotographerData dataPG = new PhotographerData();
+        Photographer pg = dataPG.getPG(service.getIdPG());
 
         serviceImage.setImageResource(service.getRepresentativeImg());
         serviceName.setText(service.getName());
         rating.setText(service.getRating() + "");
         price.setText("$" + String.format("%.0f", service.getPrice()));
         ratingBar.setRating(service.getRating());
+        pgName.setText(pg.getName());
+        ivAvatar.setImageResource(pg.getAvatar());
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override

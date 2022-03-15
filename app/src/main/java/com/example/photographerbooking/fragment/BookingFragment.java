@@ -17,14 +17,9 @@ import android.view.ViewGroup;
 import com.example.photographerbooking.R;
 import com.example.photographerbooking.SpaceItemDecoration;
 import com.example.photographerbooking.adapter.BookingHistoryAdapter;
-import com.example.photographerbooking.adapter.CategoryItemsAdapter;
-import com.example.photographerbooking.adapter.PhotographerItemsAdapter;
-import com.example.photographerbooking.adapter.ResultAdapter;
 import com.example.photographerbooking.model.Booking;
-import com.example.photographerbooking.model.Photographer;
 import com.example.photographerbooking.util.Utilities;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

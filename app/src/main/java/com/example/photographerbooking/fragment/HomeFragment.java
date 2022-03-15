@@ -19,28 +19,34 @@ import com.example.photographerbooking.adapter.HotDealAdapter;
 import com.example.photographerbooking.adapter.PhotographerItemsAdapter;
 import com.example.photographerbooking.adapter.ServicePackageAdapter;
 import com.example.photographerbooking.adapter.ServicePackageAdapter2;
+import com.example.photographerbooking.data.PhotographerData;
 import com.example.photographerbooking.data.ServiceData;
 import com.example.photographerbooking.home.PhotographerDetailsActivity;
 import com.example.photographerbooking.home.ServiceDetails;
 import com.example.photographerbooking.model.PhotoService;
+import com.example.photographerbooking.model.Photographer;
 import com.example.photographerbooking.util.ExpandableHeightGridView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment implements ServicePackageAdapter.ListItemClickListener,
-                ServicePackageAdapter2.ListItemClickListener, HotDealAdapter.ListItemClickListener{
-    private RecyclerView rvCategoryFilter, rvTopServices, rvHotDeals, rvRecommendServices;
+                ServicePackageAdapter2.ListItemClickListener, HotDealAdapter.ListItemClickListener,
+                PhotographerItemsAdapter.ListItemClickListener {
+    private RecyclerView rvCategoryFilter, rvTopServices, rvTopPG, rvHotDeals, rvRecommendServices;
     private ExpandableHeightGridView gvMoreServices;;
     private CategoryFilterAdapter categoryFilterAdapter;
     private ServicePackageAdapter topServicesAdapter, recommendServicesAdapter;
     private HotDealAdapter hotDealsAdapter;
+    private PhotographerItemsAdapter topPGAdapter;
     private ServicePackageAdapter2 moreServicesAdapter;
     private List<PhotoService> listTopServices = new ArrayList<>();
+    private List<Photographer> listTopPG = new ArrayList<>();
     private List<PhotoService> listHotDeals = new ArrayList<>();
     private List<PhotoService> listRecommendServices = new ArrayList<>();
     private List<PhotoService> listMoreServices = new ArrayList<>();
     private ServiceData dataService = new ServiceData();
+    private PhotographerData dataPG = new PhotographerData();
 
     public HomeFragment() {
     }
@@ -57,10 +63,12 @@ public class HomeFragment extends Fragment implements ServicePackageAdapter.List
         rvTopServices = view.findViewById(R.id.rvTopServices);
         rvHotDeals = view.findViewById(R.id.rvHotDeals);
         rvRecommendServices = view.findViewById(R.id.rvRecommendServices);
+        rvTopPG = view.findViewById(R.id.rvTopPG);
         gvMoreServices = view.findViewById(R.id.gvMoreServices);
 
         setUpCategoryFilter();
         setUpTopServices();
+        setUpTopPG();
         setUpRecommendServices();
         setUpHotDeals();
         setUpMoreServices();
@@ -68,16 +76,23 @@ public class HomeFragment extends Fragment implements ServicePackageAdapter.List
         return view;
     }
 
+    private void setUpTopPG() {
+        listTopPG = dataPG.getAllPG();
+        topPGAdapter = new PhotographerItemsAdapter(listTopPG, this);
+        rvTopPG.setAdapter(topPGAdapter);
+        rvTopPG.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
+    }
+
     private void setUpCategoryFilter() {
-        categoryFilterAdapter = new CategoryFilterAdapter(null);
+        categoryFilterAdapter = new CategoryFilterAdapter();
         rvCategoryFilter.setAdapter(categoryFilterAdapter);
         rvCategoryFilter.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
     }
 
     private void setUpTopServices() {
-        listTopServices.add(dataService.getService(6));
-        listTopServices.add(dataService.getService(4));
-        listTopServices.add(dataService.getService(3));
+        listTopServices.add(dataService.getService(0));
+        listTopServices.add(dataService.getService(1));
+        listTopServices.add(dataService.getService(2));
 
         topServicesAdapter = new ServicePackageAdapter(listTopServices, this);
         rvTopServices.setAdapter(topServicesAdapter);
@@ -85,7 +100,7 @@ public class HomeFragment extends Fragment implements ServicePackageAdapter.List
     }
 
     private void setUpHotDeals() {
-        listHotDeals.add(dataService.getService(6));
+        listHotDeals.add(dataService.getService(3));
         listHotDeals.add(dataService.getService(4));
         listHotDeals.add(dataService.getService(5));
         listHotDeals.add(dataService.getService(6));
@@ -96,10 +111,10 @@ public class HomeFragment extends Fragment implements ServicePackageAdapter.List
     }
 
     private void setUpRecommendServices() {
-        listRecommendServices.add(dataService.getService(5));
-        listRecommendServices.add(dataService.getService(4));
-        listRecommendServices.add(dataService.getService(5));
-        listRecommendServices.add(dataService.getService(6));
+        listRecommendServices.add(dataService.getService(10));
+        listRecommendServices.add(dataService.getService(8));
+        listRecommendServices.add(dataService.getService(7));
+        listRecommendServices.add(dataService.getService(9));
 
         recommendServicesAdapter = new ServicePackageAdapter(listRecommendServices, this);
         rvRecommendServices.setAdapter(recommendServicesAdapter);
@@ -107,10 +122,7 @@ public class HomeFragment extends Fragment implements ServicePackageAdapter.List
     }
 
     private void setUpMoreServices() {
-        listMoreServices.add(dataService.getService(0));
-        listMoreServices.add(dataService.getService(4));
-        listMoreServices.add(dataService.getService(5));
-        listMoreServices.add(dataService.getService(6));
+        listMoreServices = dataService.getAllService();
 
         moreServicesAdapter = new ServicePackageAdapter2(getContext(), listMoreServices, this);
         gvMoreServices.setAdapter(moreServicesAdapter);
@@ -140,6 +152,14 @@ public class HomeFragment extends Fragment implements ServicePackageAdapter.List
     @Override
     public void onMoreServiceClick(int clickedItemIndex) {
         Intent intent = new Intent(this.getActivity(), ServiceDetails.class);
+        startActivity(intent);
+        getActivity().finish();
+    }
+
+    @Override
+    public void onPGCardClick(int clickedItemIndex) {
+        Intent intent = new Intent(this.getActivity(), PhotographerDetailsActivity.class);
+        intent.putExtra("idPG", clickedItemIndex);
         startActivity(intent);
         getActivity().finish();
     }

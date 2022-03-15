@@ -22,7 +22,7 @@ public class BookFragmentStep4 extends Fragment {
     TextView txtPhotographer;
     TextView txtService;
     TextView txtShootingPlace;
-    TextView txtTime;
+    TextView txtTime1, txtTime2;
     TextView txtEmail;
     TextView txtDate;
     TextView txtDeliveryAddress;
@@ -37,7 +37,8 @@ public class BookFragmentStep4 extends Fragment {
 
     private void setData(){
         txtShootingPlace.setText(Common.dataPlace);
-        txtTime.setText(Common.time);
+        txtTime1.setText(Common.time1);
+        txtTime2.setText(Common.time2);
         txtEmail.setText(Common.email);
         txtDeliveryAddress.setText(Common.dataDeliveryAddress);
     }
@@ -76,7 +77,8 @@ public class BookFragmentStep4 extends Fragment {
     private void bindings(){
             txtPhotographer = getView().findViewById(R.id.pg_name);
             txtService = getView().findViewById(R.id.pg_service);
-            txtTime = getView().findViewById(R.id.booking_time);
+            txtTime1 = getView().findViewById(R.id.booking_time1);
+            txtTime2 = getView().findViewById(R.id.booking_time2);
             txtDeliveryAddress =getView().findViewById(R.id.textViewDeliveryAddress);
             txtShootingPlace = getView().findViewById(R.id.booking_place);
             txtEmail =getView().findViewById(R.id.textViewDeliveryEmail);

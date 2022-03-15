@@ -2,39 +2,36 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="150dp"
-    android:layout_height="200dp"
+    android:layout_width="250dp"
+    android:layout_height="300dp"
     android:layout_marginStart="10dp"
-    android:layout_marginBottom="10dp"
+    android:layout_marginVertical="10dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
 
         <ImageView
             android:id="@+id/ivPhotographer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5.5"
             android:contentDescription="@string/image"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ImageContrastCheck"
             tools:srcCompat="@tools:sample/avatars" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="0dp"
+            android:layout_weight="4.5"
             android:background="#FFFFFF"
             android:paddingHorizontal="10dp"
-            android:paddingBottom="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:paddingBottom="5dp">
 
             <TextView
                 android:id="@+id/fullName"
@@ -42,9 +39,9 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="3dp"
                 android:text="Full Name"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/address"
+                android:textStyle="bold"
+                android:textColor="@color/blue_1"
+                android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -53,11 +50,10 @@
                 android:id="@+id/address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Address"
-                android:textColor="@color/black"
-                android:textSize="12sp"
                 android:maxLines="1"
-                app:layout_constraintBottom_toTopOf="@+id/rating"
+                android:text="Address"
+                android:textColor="@color/blue_1"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fullName" />
@@ -68,9 +64,9 @@
                 android:layout_height="wrap_content"
                 android:text="4.6"
                 android:textColor="#009688"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address"
                 tools:ignore="TextContrastCheck" />
 
             <RatingBar
@@ -87,9 +83,52 @@
                 app:layout_constraintStart_toEndOf="@+id/rating"
                 app:layout_constraintTop_toTopOf="@+id/rating" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="229 reviews"
+                android:textColor="@color/blue_1"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/rbAverageRating"
+                app:layout_constraintStart_toEndOf="@+id/rbAverageRating"
+                app:layout_constraintTop_toTopOf="@+id/rbAverageRating"
+                tools:ignore="TextContrastCheck" />
 
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="325 completed orders"
+                android:textColor="@color/blue_1"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rbAverageRating"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/startPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service price starting at"
+                android:textColor="@color/blue_1"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$ 80"
+                android:textColor="@color/blue"
+                android:textSize="19sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/startPrice"
+                tools:ignore="TextContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

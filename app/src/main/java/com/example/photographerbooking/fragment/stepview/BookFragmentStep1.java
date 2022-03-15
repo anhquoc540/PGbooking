@@ -30,7 +30,7 @@ public class BookFragmentStep1 extends Fragment {
     Spinner dropdown1 ;
     Spinner dropdown2 ;
     Spinner dropdown3 ;
-    TextView address;
+    TextView address, distance, distanceFee;
     Button btnNext;
     String city,ward,town;
 
@@ -48,6 +48,8 @@ public class BookFragmentStep1 extends Fragment {
          dropdown3 = getView().findViewById(R.id.spinnerWard);
          address = getView().findViewById(R.id.textAddress);
          btnNext = getView().findViewById(R.id.btnNextStep);
+         distance = getView().findViewById(R.id.distance);
+         distanceFee = getView().findViewById(R.id.tvTransportFee);
 //create a list of items for the spinner.
         listOfCity = new ArrayList<>();
         listOfTown = new ArrayList<>();
@@ -94,6 +96,8 @@ public class BookFragmentStep1 extends Fragment {
                        // the user is done typing.
                         String addressText = address.getText().toString();
                         if (!TextUtils.isEmpty(addressText)){
+                            distance.setText("50 miles far away");
+                            distanceFee.setText("$ 5");
                             sendDataforNextStep(addressText);
                         }else{
                             sendNullDataforNextStep();

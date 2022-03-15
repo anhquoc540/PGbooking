@@ -178,42 +178,42 @@
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp" />
-                <!--Comment Section Header-->
-                <LinearLayout
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp" />
+            <!--Comment Section Header-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:src="@drawable/ic_star"
+                    android:scaleX="2"
+                    android:scaleY="2"
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:orientation="horizontal">
+                    android:numStars="1"
+                    android:rating="1"
+                    android:theme="@style/customRatingBar" />
 
-                    <ImageView
-                        android:src="@drawable/ic_star"
-                        android:scaleX="2"
-                        android:scaleY="2"
-                        style="?android:attr/ratingBarStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:numStars="1"
-                        android:rating="1"
-                        android:theme="@style/customRatingBar" />
-
-                    <TextView
-                        android:layout_marginTop="16dp"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="4,91 200 reviews" />
-                    <!--Comment Section Header End-->
-                </LinearLayout>
+                <TextView
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="4,91 200 reviews" />
                 <!--Comment Section Header End-->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvServiceComment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="200dp" />
+            </LinearLayout>
+            <!--Comment Section Header End-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvServiceComment"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp" />
             <com.google.android.material.button.MaterialButton
                 android:backgroundTint="@color/blue"
                 android:text="Display 180 other comments"
@@ -298,7 +298,7 @@
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"/>
-            </LinearLayout>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
     <com.google.android.material.card.MaterialCardView
         android:layout_gravity="bottom"

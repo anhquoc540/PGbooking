@@ -10,13 +10,4 @@
         android:src="@drawable/event_photo_al_2"
         android:layout_width="match_parent"
         android:layout_height="200dp"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_anchor="@id/rvToDoList"
-        app:layout_anchorGravity="bottom|right|end"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

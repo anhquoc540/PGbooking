@@ -76,6 +76,7 @@ public class ServiceDetails extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         rvServiceBanner = findViewById(R.id.rvServiceBanner);
         toolbar = findViewById(R.id.myToolBar);
+        commentLayoutManager = new LinearLayoutManager(this);
         commentLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,true);
         bannerUrls = new ArrayList<>();
         serviceCommentList = new ArrayList<>();
@@ -116,7 +117,16 @@ public class ServiceDetails extends AppCompatActivity {
         serviceCommentList.add(new ServiceComment("", "Kim Phung", "Anh qua net, qua dep", LocalDate.of(2020, 1, 11), 4.2));
         commentAdapter = new ServiceCommentAdapter(this, serviceCommentList);
         rvServiceComment.setAdapter(commentAdapter);
+        rvServiceComment.setNestedScrollingEnabled(false);
+        commentLayoutManager.setSmoothScrollbarEnabled(false);
         rvServiceComment.setLayoutManager(commentLayoutManager);
+
+        rvServiceBanner.setImageListener(new ImageListener() {
+            @Override
+            public void setImageForPosition(int position, ImageView imageView) {
+                Glide.with(getBaseContext()).load(bannerUrls.get(position)).centerCrop().into(imageView);
+            }
+        });
         rvServiceBanner.setImageListener((position, imageView) -> Glide.with(getBaseContext()).load(bannerUrls.get(position)).centerCrop().into(imageView));
         rvServiceBanner.setPageCount(bannerUrls.size());
 
