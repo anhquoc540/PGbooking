@@ -77,7 +77,7 @@ public class ActivityStepViewBooking extends AppCompatActivity {
                     btnNextStep.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent = new Intent(ActivityStepViewBooking.this, MainActivity.class);
+                            Intent intent = new Intent(ActivityStepViewBooking.this, DoneBookingActivity.class);
                             intent.putExtra("user_booked","Booking Successful");
                             startActivity(intent);
                             Common.step = 0;

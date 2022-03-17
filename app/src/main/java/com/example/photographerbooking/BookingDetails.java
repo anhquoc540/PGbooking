@@ -73,10 +73,11 @@ public class BookingDetails extends AppCompatActivity implements IBookingAction 
         btnAccept = findViewById(R.id.btnAccept);
         btnReject = findViewById(R.id.btnReject);
         if(book.getStatus().equals(BookStatus.PENDING)){
-            btnCancel.setVisibility(View.GONE);
+            btnCancel.setVisibility(View.VISIBLE);
         }else if(book.getStatus().equals(BookStatus.ACCEPTED)){
             btnAccept.setVisibility(View.GONE);
             btnReject.setVisibility(View.GONE);
+            btnCancel.setVisibility(View.VISIBLE);
         }else if(book.getStatus().equals(BookStatus.COMPLETED)){
             btnCancel.setVisibility(View.GONE);
             btnAccept.setVisibility(View.GONE);
@@ -116,9 +117,12 @@ public class BookingDetails extends AppCompatActivity implements IBookingAction 
         deliveryFormatOptions.setText(builder.toString());
         if(book.getStatus().equals(BookStatus.ACCEPTED)){
             btnCancel.setVisibility(View.VISIBLE);
-            btnCancel.setOnClickListener(view -> {openDialog();});
-        }else{
-
+            btnCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    openDialog();
+                }
+            });
         }
     }
 
@@ -169,7 +173,7 @@ public class BookingDetails extends AppCompatActivity implements IBookingAction 
         btnCancel.setOnClickListener(view1 -> {
             dialog.dismiss();
         });
-        ImageView close = findViewById(R.id.ivClose);
+        ImageView close = dialog.findViewById(R.id.ivClose);
         close.setOnClickListener(view -> {
             dialog.dismiss();
         });
