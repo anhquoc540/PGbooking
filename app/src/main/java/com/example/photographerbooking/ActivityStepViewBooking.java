@@ -40,7 +40,6 @@ public class ActivityStepViewBooking extends AppCompatActivity {
             }else if (step == 3){
                 Common.dataDeliveryAddress = intent.getStringExtra(Common.KEY_DELIVERY_ADDRESS);
                 Common.email = intent.getStringExtra(Common.KEY_EMAIL);
-
             }
             btnNextStep.setEnabled(true);
             setColorButton();
@@ -151,8 +150,8 @@ public class ActivityStepViewBooking extends AppCompatActivity {
         List<String> list = new ArrayList<>();
         list.add("Location");
         list.add("Time");
-        list.add("Delivery");
-        list.add("Finally");
+        list.add("Delivery method");
+        list.add("Finish booking");
         stepView.setSteps(list);
     }
     private void bindings (){

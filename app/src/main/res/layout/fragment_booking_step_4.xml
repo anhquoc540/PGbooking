@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        android:paddingHorizontal="35dp"
+        android:paddingHorizontal="30dp"
         android:text="Booking information"
         android:textColor="@color/blue"
         android:textSize="23sp"
@@ -74,31 +74,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Booking time :"
-                android:textSize="17sp" />
-
-            <TextView
-                android:id="@+id/booking_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:textColor="@color/black"
-                android:layout_marginStart="10dp"
-                android:textAlignment="textEnd"/>
-
-        </LinearLayout>
-
-
-
-        <LinearLayout
             android:id="@+id/place_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,6 +98,29 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking time :"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/booking_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="10dp"
+                android:textAlignment="textEnd"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/deliveryAddress_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -133,7 +131,7 @@
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delivery address"
+                android:text="Delivery method"
                 android:textSize="17sp" />
 
             <TextView
@@ -142,7 +140,7 @@
                 android:layout_marginStart="10dp"
                 android:textColor="@color/black"
                 android:textSize="17sp"
-                android:lines="2"
+                android:text="Digital photo"
                 android:textAlignment="viewEnd"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -179,7 +177,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Service price :"
+                android:text="Price per hour :"
                 android:textSize="17sp" />
 
             <TextView
@@ -187,6 +185,28 @@
                 android:layout_marginStart="10dp"
                 android:textAlignment="textEnd"
                 android:text="$ 120"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number of hours book :"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:textAlignment="textEnd"
+                android:text="3"
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 android:layout_height="wrap_content"/>
@@ -270,7 +290,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginStart="10dp"
                 android:textAlignment="textEnd"
-                android:text="$ 125"
+                android:text="$ 365"
                 android:textColor="@color/black"
                 android:textSize="22sp"
                 android:layout_height="wrap_content"/>

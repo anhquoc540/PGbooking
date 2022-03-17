@@ -43,7 +43,7 @@ public class BookFragmentStep4 extends Fragment {
         }
         txtTime.setText(bookingTime.toString());
         txtEmail.setText(Common.email);
-        txtDeliveryAddress.setText(Common.dataDeliveryAddress);
+        //txtDeliveryAddress.setText(Common.dataDeliveryAddress);
     }
 
     @Override

@@ -51,7 +51,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             etPassword.setError(REQUIRE);
             return false;
         }
-        if (!TextUtils.equals(username, "admin") || !TextUtils.equals(password, "admin")) {
+        if (!TextUtils.equals(username, "alantom") || !TextUtils.equals(password, "alantom")) {
             tvInvalid.setText(INVALID);
             return false;
         }

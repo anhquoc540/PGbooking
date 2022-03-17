@@ -139,7 +139,7 @@
                     android:id="@+id/tvWarning"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="Please pick a start time for your slot below"
                     android:layout_marginVertical="5dp"
                     android:paddingHorizontal="20dp"
                     android:textSize="15sp" />

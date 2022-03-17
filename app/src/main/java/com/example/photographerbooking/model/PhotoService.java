@@ -90,4 +90,7 @@ public class PhotoService {
     public void setIdCategory(int idCategory) {
         this.idCategory = idCategory;
     }
+
+    public void setBundleLabel(String s) {
+    }
 }

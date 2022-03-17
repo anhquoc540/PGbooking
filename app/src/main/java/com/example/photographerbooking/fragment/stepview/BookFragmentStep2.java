@@ -91,13 +91,11 @@ public class BookFragmentStep2 extends Fragment implements SlotAdapter.onItemCli
             @Override
             public void onClick(View view) {
                 String tmp = tvWarning.getText().toString();
-                if (!tmp.equals("So sorry, this time is unavailable")) {
+                if (!tmp.equals("So sorry, this time is unavailable") || tmp.equals("Please pick a start time for your slot below")) {
                     selectedSlotList.add(tmp);
                     selectedSlotsAdapter.notifyDataSetChanged();
-                } else if (tmp.equals("")) {
-                    tvWarning.setText("Please pick a start time for your slot below");
-                    tvWarning.setTextColor(Color.BLACK);
                 }
+                sendDateTimeDataforNextStep();
             }
         });
 
