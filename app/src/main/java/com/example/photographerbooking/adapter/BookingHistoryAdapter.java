@@ -2,6 +2,7 @@ package com.example.photographerbooking.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -16,13 +17,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.photographerbooking.BookingDetails;
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.interfaces.ItemOnClickListener;
 import com.example.photographerbooking.model.Booking;
 import com.example.photographerbooking.model.BookingStatus;
 import com.example.photographerbooking.model.PhotoService;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.chip.Chip;
 
 import java.lang.reflect.Array;
@@ -30,7 +35,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
-public class BookingHistoryAdapter extends RecyclerView.Adapter<BookingHistoryAdapter.BookingHistoryViewHolder> {
+public class BookingHistoryAdapter extends RecyclerView.Adapter<BookingHistoryAdapter.BookingHistoryViewHolder> implements ItemOnClickListener<Integer> {
     private Context context;
     private List<Booking> bookingList;
 
@@ -58,7 +63,6 @@ public class BookingHistoryAdapter extends RecyclerView.Adapter<BookingHistoryAd
          tvCheckInDate = holder.tvCheckInDate;
          tvBookingStartTime= holder.tvBookingStartTime;
          Chip chip = holder.chipBookingStatus;
-
         ivServiceImage.setImageResource(photoService.getRepresentativeImg());
          SpannableString checkInDate = new SpannableString("Check in date: "+booking.getBookingDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
          checkInDate.setSpan(new StyleSpan(Typeface.BOLD),0,"Check in date:".length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
@@ -111,6 +115,9 @@ public class BookingHistoryAdapter extends RecyclerView.Adapter<BookingHistoryAd
              default:
                  throw new IllegalStateException("Unexpected value: " + booking.getStatus());
          }
+         holder.cardView.setOnClickListener(view -> {
+             OnItemClicked(booking.getId());
+         });
     }
 
     @Override
@@ -118,10 +125,18 @@ public class BookingHistoryAdapter extends RecyclerView.Adapter<BookingHistoryAd
         return bookingList == null ? 0: bookingList.size();
     }
 
+    @Override
+    public void OnItemClicked(Integer id) {
+        Intent intent = new Intent(context, BookingDetails.class);
+        intent.putExtra("bookId", id);
+        context.startActivity(intent);
+    }
+
     public class BookingHistoryViewHolder extends RecyclerView.ViewHolder{
         private ImageView ivServiceImage;
         private TextView tvBookingId, tvBookingServiceName, tvCheckInDate, tvBookingStartTime;
         Chip chipBookingStatus;
+        MaterialCardView cardView;
         public BookingHistoryViewHolder(@NonNull View itemView) {
             super(itemView);
             ivServiceImage = itemView.findViewById(R.id.ivServiceImage);
@@ -130,6 +145,7 @@ public class BookingHistoryAdapter extends RecyclerView.Adapter<BookingHistoryAd
             tvBookingStartTime = itemView.findViewById(R.id.tvBookingStartTime);
             tvCheckInDate = itemView.findViewById(R.id.tvCheckInDate);
             chipBookingStatus = itemView.findViewById(R.id.chipBookingStatus);
+            cardView = itemView.findViewById(R.id.book_item);
         }
     }
 }

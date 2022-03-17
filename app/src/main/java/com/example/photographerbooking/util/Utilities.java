@@ -1,5 +1,6 @@
 package com.example.photographerbooking.util;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -72,12 +73,12 @@ public class Utilities {
 
     public static List<Booking> getBookingList(){
         if(bookingList.isEmpty()){
-            bookingList.add(new Booking("book0001", getPhotoServices().get(0), LocalDate.of(2022,4,3), LocalTime.of(8,30),80, BookingStatus.ACCEPTED));
-            bookingList.add(new Booking("book0002", getPhotoServices().get(1), LocalDate.of(2022,4,5), LocalTime.of(8,40),80, BookingStatus.REJECTED));
-            bookingList.add(new Booking("book0003", getPhotoServices().get(2), LocalDate.of(2022,4,7), LocalTime.of(8,50),80, BookingStatus.COMPLETE));
-            bookingList.add(new Booking("book0004", getPhotoServices().get(1), LocalDate.of(2022,4,10), LocalTime.of(8,55),80, BookingStatus.FINISH));
-            bookingList.add(new Booking("book0005", getPhotoServices().get(2), LocalDate.of(2022,4,12), LocalTime.of(8,00),80, BookingStatus.CANCELED));
+            bookingList.add(new Booking(1, getPhotoServices().get(0), LocalDate.of(2022,4,3), LocalTime.of(8,30),80, BookingStatus.ACCEPTED));
+            bookingList.add(new Booking(2, getPhotoServices().get(1), LocalDate.of(2022,4,5), LocalTime.of(8,40),80, BookingStatus.REJECTED));
+            bookingList.add(new Booking(3, getPhotoServices().get(2), LocalDate.of(2022,4,7), LocalTime.of(8,50),80, BookingStatus.COMPLETE));
+            bookingList.add(new Booking(4, getPhotoServices().get(1), LocalDate.of(2022,4,10), LocalTime.of(8,55),80, BookingStatus.FINISH));
+            bookingList.add(new Booking(5, getPhotoServices().get(2), LocalDate.of(2022,4,12), LocalTime.of(8,00),80, BookingStatus.CANCELED));
         }
-            return bookingList;
+        return bookingList;
     }
 }

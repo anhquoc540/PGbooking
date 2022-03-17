@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Booking {
-    private String id;
+    private int id;
     private PhotoService bookingService;
     private LocalDate bookingDate;
     private LocalTime startingTime;
     private float price;
     private BookingStatus status;
 
-    public Booking(String id, PhotoService bookingService, LocalDate bookingDate, LocalTime startingTime, float price, BookingStatus status) {
+    public Booking(int id, PhotoService bookingService, LocalDate bookingDate, LocalTime startingTime, float price, BookingStatus status) {
         this.id = id;
         this.bookingService = bookingService;
         this.bookingDate = bookingDate;
@@ -20,19 +20,19 @@ public class Booking {
         this.status = status;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public PhotoService getBookingService() {
+    public com.example.photographerbooking.model.PhotoService getBookingService() {
         return bookingService;
     }
 
-    public void setBookingService(PhotoService bookingService) {
+    public void setBookingService(com.example.photographerbooking.model.PhotoService bookingService) {
         this.bookingService = bookingService;
     }
 
@@ -52,7 +52,6 @@ public class Booking {
         this.startingTime = startingTime;
     }
 
-
     public float getPrice() {
         return price;
     }
@@ -61,12 +60,11 @@ public class Booking {
         this.price = price;
     }
 
-
-    public BookingStatus getStatus() {
+    public com.example.photographerbooking.model.BookingStatus getStatus() {
         return status;
     }
 
-    public void setStatus(BookingStatus status) {
+    public void setStatus(com.example.photographerbooking.model.BookingStatus status) {
         this.status = status;
     }
 }

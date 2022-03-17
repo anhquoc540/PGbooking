@@ -116,7 +116,6 @@ public class BookFragmentStep1 extends Fragment {
 
 
     private void sendDataforNextStep(String address){
-
         localBroadcastManager = LocalBroadcastManager.getInstance(getContext());
         Intent intent = new Intent(Common.KEY_ENABLE_BUTTON_NEXT);
         intent.putExtra(Common.KEY_STEP, 1);
@@ -125,8 +124,6 @@ public class BookFragmentStep1 extends Fragment {
 
     }
     private void sendNullDataforNextStep(){
-
-
         localBroadcastManager = LocalBroadcastManager.getInstance(getContext());
         Intent intent = new Intent(Common.KEY_ENABLE_BUTTON_NEXT);
         intent.putExtra("",Common.KEY_PLACE);
