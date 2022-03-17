@@ -15,7 +15,6 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.photographerbooking.adapter.StepViewPageAdapter;
-import com.example.photographerbooking.home.PhotographerDetailsActivity;
 import com.example.photographerbooking.home.ServiceDetails;
 import com.shuhart.stepview.StepView;
 
@@ -37,8 +36,7 @@ public class ActivityStepViewBooking extends AppCompatActivity {
                 Common.dataPlace = intent.getStringExtra(Common.KEY_PLACE);
 
             }else if(step == 2){
-                Common.time1 = intent.getStringExtra(Common.KEY_TIME1);
-                Common.time2 = intent.getStringExtra(Common.KEY_TIME2);
+                Common.book_slot = intent.getStringArrayListExtra(Common.BOOK_SLOT);
             }else if (step == 3){
                 Common.dataDeliveryAddress = intent.getStringExtra(Common.KEY_DELIVERY_ADDRESS);
                 Common.email = intent.getStringExtra(Common.KEY_EMAIL);

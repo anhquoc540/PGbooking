@@ -2,32 +2,52 @@ package com.example.photographerbooking.fragment.stepview;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.TimePicker;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.Common;
 import com.example.photographerbooking.R;
+import com.example.photographerbooking.adapter.SelectedSlotsAdapter;
+import com.example.photographerbooking.adapter.SlotAdapter;
+import com.example.photographerbooking.interfaces.ItemOnCheckListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Locale;
+import java.util.List;
 
-public class BookFragmentStep2 extends Fragment {
+public class BookFragmentStep2 extends Fragment implements SlotAdapter.onItemClickListener{
 
-    private Button dateButton, dateButton2;
-    private Button timeButton, timeButton2;
-    int hour, minute;
+    private Button dateButton;
+    private SlotAdapter slotAdapter;
+    private SelectedSlotsAdapter selectedSlotsAdapter;
+    private TextView tvWarning;
+    private RecyclerView rvSlot, rvSelectedSlots;
+    private ImageButton ibIncrease, ibDecrease;
+    private EditText etHourAmount;
+    private Button btnChooseSlot;
+    private int hourAmount = 1;
+    private int startedPos;
+    private int endedPos;
+    String pickedDate;
+    private ArrayList<String> selectedSlotList = new ArrayList<>();
     private DatePickerDialog datePickerDialog;
     private LocalBroadcastManager localBroadcastManager;
 
@@ -39,56 +59,96 @@ public class BookFragmentStep2 extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        dateButton = getView().findViewById(R.id.datePickerButton);
-        dateButton2 = getView().findViewById(R.id.datePickerButton2);
-        timeButton = getView().findViewById(R.id.timeButton);
-        timeButton2 = getView().findViewById(R.id.timeButton2);
+        binding();
+
+        ibIncrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hourAmount = Integer.parseInt(etHourAmount.getText().toString()) +  1;
+                etHourAmount.setText(hourAmount + "");
+                slotAdapter.setHourAmount(hourAmount);
+            }
+        });
+
+        ibDecrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int hourAmount = Integer.parseInt(etHourAmount.getText().toString()) -  1;
+                etHourAmount.setText(hourAmount + "");
+                slotAdapter.setHourAmount(hourAmount);
+            }
+        });
 
         dateButton.setText(getTodaysDate());
-        dateButton2.setText(getTodaysDate());
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 initDatePicker(dateButton);
             }
         });
-        timeButton.setOnClickListener(new View.OnClickListener() {
+
+        btnChooseSlot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                popTimePicker(timeButton);
+                String tmp = tvWarning.getText().toString();
+                if (!tmp.equals("So sorry, this time is unavailable")) {
+                    selectedSlotList.add(tmp);
+                    selectedSlotsAdapter.notifyDataSetChanged();
+                } else if (tmp.equals("")) {
+                    tvWarning.setText("Please pick a start time for your slot below");
+                    tvWarning.setTextColor(Color.BLACK);
+                }
             }
         });
 
-        dateButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                initDatePicker(dateButton2);
-            }
-        });
-        timeButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popTimePicker(timeButton2);
-            }
-        });
+        setUpSlotPicker();
+        setUpSelectedSlots();
 
         super.onViewCreated(view, savedInstanceState);
     }
 
-    private void popTimePicker(Button timeButton) {
-        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+    private void setUpSelectedSlots() {
+        selectedSlotsAdapter = new SelectedSlotsAdapter(getContext(),selectedSlotList);
+        selectedSlotsAdapter.setListener(new ItemOnCheckListener<Integer>() {
             @Override
-            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                hour = selectedHour;
-                minute = selectedMinute;
-                String time = String.format(Locale.getDefault(), "%02d:%02d", hour, minute);
-                timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
-                sendDateTimeDataforNextStep();
+            public void onChecked(Integer id) {
+
             }
-        };
-        TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), /*style,*/ onTimeSetListener, hour, minute, true);
-        timePickerDialog.setTitle("Select Time");
-        timePickerDialog.show();
+
+            @Override
+            public void onUnchecked(Integer pos) {
+                Log.d("pos",pos + "");
+                String tmp = selectedSlotList.get(pos);
+                selectedSlotList.remove(tmp);
+                selectedSlotsAdapter.notifyDataSetChanged();
+            }
+        });
+        rvSelectedSlots.setLayoutManager(new GridLayoutManager(getContext(),1));
+        rvSelectedSlots.setAdapter(selectedSlotsAdapter);
+    }
+
+    private void binding() {
+        dateButton = getView().findViewById(R.id.datePickerButton);
+        rvSlot = getView().findViewById(R.id.rvSlot);
+        tvWarning = getView().findViewById(R.id.tvWarning);
+        etHourAmount = getView().findViewById(R.id.etHourAmount);
+        ibIncrease = getView().findViewById(R.id.ibIncrease);
+        ibDecrease = getView().findViewById(R.id.ibDecrease);
+        rvSelectedSlots = getView().findViewById(R.id.rvSelectedSlots);
+        btnChooseSlot = getView().findViewById(R.id.btnChooseSlot);
+    }
+
+    private void resetTimeBooking() {
+        startedPos = 0;
+        etHourAmount.setText("1");
+        setUpSlotPicker();
+    }
+
+    private void setUpSlotPicker() {
+        int hourAmount = Integer.parseInt(etHourAmount.getText().toString());
+        slotAdapter = new SlotAdapter(this, hourAmount);
+        rvSlot.setAdapter(slotAdapter);
+        rvSlot.setLayoutManager(new GridLayoutManager(getContext(), 4));
     }
 
     private void sendDateTimeDataforNextStep() {
@@ -96,9 +156,18 @@ public class BookFragmentStep2 extends Fragment {
         localBroadcastManager = LocalBroadcastManager.getInstance(getContext());
         Intent intent = new Intent(Common.KEY_ENABLE_BUTTON_NEXT);
         intent.putExtra(Common.KEY_STEP, 2);
-        intent.putExtra(Common.KEY_TIME1, timeButton.getText() + "  " + dateButton.getText());
-        intent.putExtra(Common.KEY_TIME2, timeButton2.getText() + "  " + dateButton2.getText());
+        intent.putStringArrayListExtra(Common.BOOK_SLOT, selectedSlotList);
         localBroadcastManager.sendBroadcast(intent);
+    }
+
+    private String makeSlotsString() {
+        return pickedDate + " " + transferSlotToTime(startedPos) + " - " + transferSlotToTime(endedPos+1);
+    }
+
+    private String transferSlotToTime(int slotPos) {
+        String formattedHour = String.format("%02d", slotPos / 6);
+        String formattedMinute = String.format("%02d", slotPos % 6 * 10);
+        return formattedHour + ":" + formattedMinute;
     }
 
     private String getTodaysDate() {
@@ -107,7 +176,8 @@ public class BookFragmentStep2 extends Fragment {
         int month = cal.get(Calendar.MONTH);
         month = month + 1;
         int day = cal.get(Calendar.DAY_OF_MONTH);
-        return makeDateString(day, month, year);
+        pickedDate = makeDateString(day, month, year);
+        return pickedDate;
     }
 
     private void initDatePicker(Button dateButton) {
@@ -115,9 +185,9 @@ public class BookFragmentStep2 extends Fragment {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                String date = makeDateString(day, month, year);
-                String time = timeButton.getText().toString();
-                dateButton.setText(date);
+                pickedDate = makeDateString(day, month, year);
+                dateButton.setText(pickedDate);
+                resetTimeBooking();
             }
         };
 
@@ -167,4 +237,17 @@ public class BookFragmentStep2 extends Fragment {
     }
 
 
+    @Override
+    public void onSlotClick(int pos) {
+        tvWarning.setText("");
+        startedPos = pos;
+        endedPos = startedPos + hourAmount*6 - 1;
+        if (startedPos >= 36 && startedPos <= 47 || endedPos >= 36 && endedPos <= 47) {
+            tvWarning.setText("So sorry, this time is unavailable");
+            tvWarning.setTextColor(Color.RED);
+        } else {
+            tvWarning.setText(makeSlotsString());
+            tvWarning.setTextColor(Color.BLACK);
+        }
+    }
 }

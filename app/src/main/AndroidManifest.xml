@@ -46,7 +46,8 @@
             android:name=".SearchActivity"
             android:launchMode="singleTop" />
         <activity android:name=".home.PhotographerDetailsActivity" />
-        <activity android:name=".ActivityStepViewBooking" />
+        <activity android:name=".ActivityStepViewBooking" android:exported="true">
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

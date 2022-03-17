@@ -10,17 +10,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photographerbooking.R;
 import com.example.photographerbooking.interfaces.ItemOnCheckListener;
-import com.example.photographerbooking.model.Category;
 import com.google.android.material.chip.Chip;
 
 import java.util.List;
 
-public class SelectedCategoryAdapter extends RecyclerView.Adapter<SelectedCategoryAdapter.SlotViewHolder> {
+public class SelectedSlotsAdapter extends RecyclerView.Adapter<SelectedSlotsAdapter.SlotViewHolder>{
     Context context;
-    private List<Category> serviceSlotList;
+    private List<String> serviceSlotList;
     ItemOnCheckListener<Integer> listener;
 
-    public SelectedCategoryAdapter(Context context, List<Category> serviceSlotList) {
+    public SelectedSlotsAdapter(Context context, List<String> serviceSlotList) {
         this.context = context;
         this.serviceSlotList = serviceSlotList;
     }
@@ -38,13 +37,11 @@ public class SelectedCategoryAdapter extends RecyclerView.Adapter<SelectedCatego
 
     @Override
     public void onBindViewHolder(@NonNull SlotViewHolder holder, int position) {
-        Category category = serviceSlotList.get(position);
-        String slot = category.getLabel();
-        holder.chip.setText(slot);
+        holder.chip.setText(serviceSlotList.get(position));
         holder.chip.setOnCloseIconClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onUnchecked(category.getId());
+                listener.onUnchecked(holder.getAdapterPosition());
             }
         });
     }
