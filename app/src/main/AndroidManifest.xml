@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhotographerBooking">
         <activity
+            android:name=".SearchResult"
+            android:exported="false" />
+        <activity
+            android:name=".BookingDetails"
+            android:exported="false" />
+        <activity
             android:name=".service_filter"
             android:exported="false" />
         <activity
@@ -34,7 +40,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -47,6 +52,7 @@
             android:launchMode="singleTop" />
         <activity android:name=".home.PhotographerDetailsActivity" />
         <activity android:name=".ActivityStepViewBooking" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

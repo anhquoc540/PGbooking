@@ -6,14 +6,27 @@ import java.util.List;
 public class PhotoService {
     private Long id;
     private String name;
+    private String bundleLabel;
     private float price;
     private float rating;
     private int representativeImg;
     private List<String> bannerUrls;
+    private List<Integer> bannerUrls2;
     private int idCategory;
     private int idPG;
 
     public PhotoService() {
+    }
+
+    public PhotoService(Long id, String name, String bundleLabel, float price, float rating, int representativeImg, List<Integer> bannerUrls2, int idCategory) {
+        this.id = id;
+        this.name = name;
+        this.bundleLabel = bundleLabel;
+        this.price = price;
+        this.rating = rating;
+        this.representativeImg = representativeImg;
+        this.bannerUrls2 = bannerUrls2;
+        this.idCategory = idCategory;
     }
 
     public PhotoService(Long id, String name, float price, float rating, int representativeImg, List<String> bannerUrls, int idCategory, int idPG) {

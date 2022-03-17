@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:text="Services Filter"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_margin="8dp"
+        android:hint="Photo capture location"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:hintAnimationEnabled="@bool/default_circle_indicator_snap"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCaptureLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_margin="8dp"
+            app:startIconDrawable="@drawable/ic_baseline_attach_money_24"
+            android:hint="Min Price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:hintAnimationEnabled="@bool/default_circle_indicator_snap"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:enabled="false"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMinPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_margin="8dp"
+            app:startIconDrawable="@drawable/ic_baseline_attach_money_24"
+            android:hint="Max Price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:hintAnimationEnabled="@bool/default_circle_indicator_snap"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:enabled="false"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMaxPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+
+    <com.google.android.material.slider.RangeSlider
+        style="@style/Widget.App.Slider"
+        android:id="@+id/priceSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/service_price"
+        app:values="@array/ranges"
+        android:valueFrom="0.0"
+        android:stepSize="10.0"
+        android:valueTo="1000.0" />
+
+    <TextView
+        android:layout_margin="8dp"
+        android:text="Your selected categories"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:minHeight="30dp"
+        android:layout_margin="8dp"
+        android:id="@+id/rvSelectedCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCategoryDialog"
+        android:elevation="2dp"
+        android:textAllCaps="false"
+        android:text="Choose Photo Category"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/pink_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.google.android.material.button.MaterialButton>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSearch"
+        app:icon="@drawable/ic_baseline_search_24"
+        app:iconSize="22dp"
+        app:iconGravity="textStart"
+        android:text="Search"
+        android:elevation="3dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.google.android.material.button.MaterialButton>
+
+</LinearLayout>

@@ -46,25 +46,10 @@ public class BookFragmentStep2 extends Fragment {
 
         dateButton.setText(getTodaysDate());
         dateButton2.setText(getTodaysDate());
-        dateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                initDatePicker(dateButton);
-            }
-        });
-        timeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popTimePicker(timeButton);
-            }
-        });
+        dateButton.setOnClickListener(view1 -> initDatePicker(dateButton));
+        timeButton.setOnClickListener(view13 -> popTimePicker(timeButton));
 
-        dateButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                initDatePicker(dateButton2);
-            }
-        });
+        dateButton2.setOnClickListener(view12 -> initDatePicker(dateButton2));
         timeButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
